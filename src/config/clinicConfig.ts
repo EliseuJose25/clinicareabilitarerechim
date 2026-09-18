@@ -127,8 +127,8 @@ export const clinicConfig = {
       afterAlt: "Depois - clareamento e alinhamento",
       beforePosition: "center center",
       afterPosition: "center center",
-      beforeScale: 1,
-      afterScale: 1,
+      beforeScale: 0.8,
+      afterScale: 0.8,
     },
     {
       title: "Lentes de Contato Dental",
@@ -139,8 +139,8 @@ export const clinicConfig = {
       afterAlt: "Depois - lentes de contato dental",
       beforePosition: "center center",
       afterPosition: "center center",
-      beforeScale: 1,
-      afterScale: 1,
+      beforeScale: 0.8,
+      afterScale: 0.8,
     },
     {
       title: "Implante Dentário",
@@ -151,8 +151,8 @@ export const clinicConfig = {
       afterAlt: "Depois - implante dentário",
       beforePosition: "center center",
       afterPosition: "center center",
-      beforeScale: 1,
-      afterScale: 1,
+      beforeScale: 0.8,
+      afterScale: 0.8,
     },
   ],
 
