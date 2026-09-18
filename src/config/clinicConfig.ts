@@ -13,9 +13,9 @@ import ba3After from "@/assets/ba-3-after.jpg";
 export const clinicConfig = {
   // ---------- Identidade ----------
   brand: {
-    name: "Clínica Exemplo Odontologia",
-    shortName: "Clínica Exemplo",
-    logoText: "Clínica Exemplo",
+    name: "Clínica Reabilitar",
+    shortName: "Clínica Reabilitar",
+    logoText: "Clínica Reabilitar",
     tagline: "Odontologia de alta performance para quem não aceita menos que o melhor",
   },
 
