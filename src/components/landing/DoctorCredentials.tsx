@@ -35,7 +35,7 @@ export function DoctorCredentials() {
           </div>
 
           {/* Coluna 2: Bio + credenciais */}
-          <div className="order-1 md:order-2 md:col-span-7">
+          <div className="order-1 md:order-2 md:col-span-7 md:flex md:h-full md:flex-col">
             <div className="text-center md:text-left">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
                 <BadgeCheck className="h-3.5 w-3.5" /> {doctor.cro}
@@ -50,7 +50,7 @@ export function DoctorCredentials() {
             </div>
 
             {/* Trust badges */}
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-10 md:gap-5">
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-10 md:flex-1 md:auto-rows-fr md:gap-5">
               {doctor.credentials.map((c) => (
                 <div
                   key={c.title}
