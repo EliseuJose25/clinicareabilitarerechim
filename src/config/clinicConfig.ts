@@ -25,7 +25,7 @@ export const clinicConfig = {
     phoneDisplay: "(11) 99999-9999",
     whatsapp: "5511999999999",
     whatsappMessage: "Olá! Gostaria de agendar minha avaliação inicial.",
-    email: "contato@clinicaexemplo.com.br",
+    email: "contato@reabilitarerechim.com.br",
     address: {
       street: "Av. Sete de Setembro, 431 - Sala 605",
       city: "Erechim",
@@ -34,6 +34,11 @@ export const clinicConfig = {
       mapsUrl: "",
     },
     hours: "Horário comercial",
+  },
+
+  // ---------- Redes sociais ----------
+  social: {
+    instagram: "https://instagram.com/reabilitarerechim",
   },
 
   // ---------- CTA principal ----------
@@ -217,7 +222,7 @@ export const clinicConfig = {
       "Clínica odontológica especializada em implantes, estética e reabilitação oral. Agende sua avaliação em São Paulo.",
     keywords:
       "clínica odontológica, implante dentário, dentista São Paulo, lentes de contato dental, clareamento",
-    canonical: "/",
+    canonical: "https://reabilitarerechim.com.br/",
     ogImage: "",
   },
 
