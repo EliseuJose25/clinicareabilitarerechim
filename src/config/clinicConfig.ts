@@ -13,9 +13,9 @@ import ba3After from "@/assets/ba-3-after.jpg";
 export const clinicConfig = {
   // ---------- Identidade ----------
   brand: {
-    name: "Clínica Reabilitar",
-    shortName: "Clínica Reabilitar",
-    logoText: "Clínica Reabilitar",
+    name: "Reabilitar",
+    shortName: "Reabilitar",
+    logoText: "Reabilitar",
     tagline: "Odontologia de alta performance para quem não aceita menos que o melhor",
   },
 
@@ -27,13 +27,13 @@ export const clinicConfig = {
     whatsappMessage: "Olá! Gostaria de agendar minha avaliação inicial.",
     email: "contato@clinicaexemplo.com.br",
     address: {
-      street: "Rua Exemplo, 123 - Sala 45",
-      city: "São Paulo",
-      state: "SP",
-      zip: "01000-000",
-      mapsUrl: "https://maps.google.com/?q=Clínica+Exemplo",
+      street: "Av. Sete de Setembro, 431 - Sala 605",
+      city: "Erechim",
+      state: "RS",
+      zip: "99700-000",
+      mapsUrl: "",
     },
-    hours: "Seg a Sex: 8h às 19h | Sáb: 8h às 13h",
+    hours: "Horário comercial",
   },
 
   // ---------- CTA principal ----------
@@ -65,22 +65,33 @@ export const clinicConfig = {
     imageAlt: "Foto principal da clínica",
   },
 
-  // ---------- Credenciais do doutor(a) ----------
-  doctor: {
-    name: "Dra. Nome Sobrenome",
-    role: "Cirurgiã-Dentista - Especialista em Implantodontia",
-    cro: "CRO-SP 000000",
-    bio:
-      "Especialista em reabilitação estética e implantodontia, com formação em São Paulo e atualização contínua nas técnicas mais avançadas da odontologia. Atendimento próprio, sem consultório de fábrica: cada plano de tratamento é pensado individualmente, do diagnóstico ao acompanhamento pós-tratamento.",
-    photo: "",
-    photoAlt: "Foto do(a) profissional",
-    credentials: [
-      { title: "Graduação", detail: "Odontologia - USP" },
-      { title: "Especialização", detail: "Implantodontia - APCD" },
-      { title: "Pós-graduação", detail: "Reabilitação Oral - São Leopoldo Mandic" },
-      { title: "Membro", detail: "Associação Brasileira de Odontologia" },
-    ],
-  },
+  // ---------- Equipe profissional ----------
+  // Mais 2 profissionais serão adicionados em breve — basta inserir novos objetos neste array seguindo o mesmo formato
+  team: [
+    {
+      name: "Dra. Priscila Santin",
+      role: "Cirurgiã-Dentista",
+      cro: "CRO-RS 000000",
+      bio:
+        "Atendimento cuidadoso e individualizado, com foco no bem-estar de cada paciente e atualização contínua nas melhores práticas da odontologia.",
+      photo: "",
+      credentials: [
+        { title: "Graduação", detail: "Odontologia - instituição a confirmar" },
+        { title: "Especialização", detail: "Área de atuação a confirmar" },
+        { title: "Pós-graduação", detail: "Formação complementar a confirmar" },
+        { title: "Membro", detail: "Associação profissional a confirmar" },
+      ],
+    },
+    {
+      name: "Dr. Tiago",
+      role: "Cirurgião-Dentista",
+      cro: "CRO-RS 000000",
+      bio:
+        "Atendimento atencioso e personalizado, com dedicação à saúde bucal, ao conforto e às necessidades individuais de cada paciente.",
+      photo: "",
+      credentials: [],
+    },
+  ],
 
   // ---------- Depoimentos ----------
   testimonials: [
