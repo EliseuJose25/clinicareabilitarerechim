@@ -25,12 +25,12 @@ export function TeamSection() {
               className="flex h-full flex-col overflow-hidden rounded-lg border border-border/70 bg-card shadow-sm"
             >
               <div className="w-full">
-              <ImagePlaceholder
+                <ImagePlaceholder
                   src={professional.photo}
                   alt={`Foto de ${professional.name}`}
                   aspectRatio="4 / 3"
                   className="rounded-none"
-              />
+                />
               </div>
 
               <div className="flex flex-1 flex-col p-5 md:p-6">
