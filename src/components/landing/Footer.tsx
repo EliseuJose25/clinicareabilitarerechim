@@ -1,5 +1,5 @@
 import { clinicConfig } from "@/config/clinicConfig";
-import { Facebook, Instagram, Youtube } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 /**
@@ -8,13 +8,11 @@ import { Link } from "@tanstack/react-router";
  * Padding inferior extra em mobile para não ficar coberto pelo FooterSticky.
  */
 export function Footer() {
-  const { brand } = clinicConfig;
+  const { brand, social } = clinicConfig;
   const year = new Date().getFullYear();
 
   const socials = [
-    { label: "Instagram", href: "#", Icon: Instagram },
-    { label: "Facebook", href: "#", Icon: Facebook },
-    { label: "YouTube", href: "#", Icon: Youtube },
+    { label: "Instagram", href: social.instagram, Icon: Instagram },
   ];
 
   return (
