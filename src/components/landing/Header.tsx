@@ -1,4 +1,5 @@
 import { clinicConfig } from "@/config/clinicConfig";
+import icon from "@/assets/reabilitar-icon.png";
 
 /**
  * Header fixo (sticky) com logo e CTA principal.
@@ -14,21 +15,8 @@ export function Header() {
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/80">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 md:px-6">
         <a href="#top" className="flex items-center gap-2.5">
-          {/* Ícone de marca — dente estilizado em line art */}
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white ring-1 ring-primary/15">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-5 w-5 text-primary"
-              aria-hidden="true"
-            >
-              <path d="M12 4.5c-1.5 0-2.5.5-3.5 1.5S7 8.5 7 10c0 1.5.5 2.5 1 3.5s1 2 1 3.5c0 1.5-.5 2.5-1 3s-1 1.5-1 2c0 1 .5 1.5 1.5 1.5 1 0 2-1 2.5-2s1-2 1.5-2.5c.5.5 1 1.5 1.5 2.5s1.5 2 2.5 2c1 0 1.5-.5 1.5-1.5 0-.5-.5-1-1-2s-1-1.5-1-3c0-1.5.5-2.5 1-3.5s1-2 1-3.5c0-1.5-.5-2.5-1.5-3.5S13.5 4.5 12 4.5z" />
-            </svg>
+            <img src={icon} alt="Reabilitar" className="h-9 w-auto" />
           </span>
           <span className="text-base font-semibold tracking-tight text-primary">
             {brand.logoText}
