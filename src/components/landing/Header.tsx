@@ -1,5 +1,15 @@
 import { clinicConfig } from "@/config/clinicConfig";
 import icon from "@/assets/reabilitar-icon.png";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 /**
  * Header fixo (sticky) com logo e CTA principal.
@@ -34,10 +44,53 @@ export function Header() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-gold-foreground shadow-sm transition hover:bg-gold/90"
+          className="hidden items-center justify-center rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-gold-foreground shadow-sm transition hover:bg-gold/90 md:inline-flex"
         >
           {cta.primaryLabel}
         </a>
+
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              aria-label="Abrir menu"
+            >
+              <Menu className="h-6 w-6" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="flex w-[min(85vw,22rem)] flex-col">
+            <SheetHeader className="text-left">
+              <SheetTitle className="flex items-center gap-2.5">
+                <img src={icon} alt="Reabilitar" className="h-10 w-auto" />
+                <span className="text-primary">{brand.logoText}</span>
+              </SheetTitle>
+            </SheetHeader>
+
+            <nav className="mt-8 flex flex-col text-base font-medium text-foreground">
+              <SheetClose asChild>
+                <a href="#credenciais" className="border-b border-border py-4">Sobre</a>
+              </SheetClose>
+              <SheetClose asChild>
+                <a href="#depoimentos" className="border-b border-border py-4">Depoimentos</a>
+              </SheetClose>
+              <SheetClose asChild>
+                <a href="#faq" className="border-b border-border py-4">Dúvidas</a>
+              </SheetClose>
+              <SheetClose asChild>
+                <a href={`tel:${contact.phone}`} className="border-b border-border py-4">Contato</a>
+              </SheetClose>
+            </nav>
+
+            <Button asChild className="mt-6 rounded-full bg-gold text-gold-foreground hover:bg-gold/90">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                {cta.primaryLabel}
+              </a>
+            </Button>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   );
