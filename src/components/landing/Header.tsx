@@ -15,9 +15,7 @@ export function Header() {
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/80">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 md:px-6">
         <a href="#top" className="flex items-center gap-2.5">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white ring-1 ring-primary/15">
-            <img src={icon} alt="Reabilitar" className="h-9 w-auto" />
-          </span>
+          <img src={icon} alt="Reabilitar" className="h-10 w-auto" />
           <span className="text-base font-semibold tracking-tight text-primary">
             {brand.logoText}
           </span>
