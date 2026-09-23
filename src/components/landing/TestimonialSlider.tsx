@@ -15,7 +15,6 @@ type Testimonial = {
  * TestimonialSlider - slider simples sem dependências externas.
  */
 export function TestimonialSlider() {
-  const { images } = clinicConfig;
   const testimonials = clinicConfig.testimonials as readonly Testimonial[];
   const [index, setIndex] = useState(0);
   const total = testimonials.length;
@@ -24,6 +23,13 @@ export function TestimonialSlider() {
   const current = testimonials[index];
 
   if (!current) return null;
+
+  const initials = current.name
+    .split(" ")
+    .map((part) => part[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("");
 
   return (
     <section id="depoimentos" className="border-b border-border/60 bg-secondary py-12 md:py-20">
@@ -40,12 +46,21 @@ export function TestimonialSlider() {
         <div className="mt-8 rounded-2xl border border-border/70 bg-card p-6 md:mt-10 md:p-12">
           {/* Foto do paciente (4/5) — placeholder automático se photo estiver vazio */}
           <div className="mx-auto mb-6 w-24">
-            <ImagePlaceholder
-              src={current.photo || images.lifestyle}
-              alt={`Foto de ${current.name}`}
-              aspectRatio="1 / 1"
-              rounded="full"
-            />
+            {current.photo ? (
+              <ImagePlaceholder
+                src={current.photo}
+                alt={`Foto de ${current.name}`}
+                aspectRatio="1 / 1"
+                rounded="full"
+              />
+            ) : (
+              <div
+                className="flex aspect-square w-24 items-center justify-center rounded-full bg-primary/10 font-semibold text-primary"
+                aria-label={`Iniciais de ${current.name}`}
+              >
+                {initials}
+              </div>
+            )}
           </div>
           <div className="flex justify-center gap-0.5 text-primary">
             {Array.from({ length: current.rating }).map((_, i) => (

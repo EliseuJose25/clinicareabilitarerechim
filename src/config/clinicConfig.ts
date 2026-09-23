@@ -100,8 +100,25 @@ export const clinicConfig = {
   ],
 
   // ---------- Depoimentos ----------
-  // Aguardando depoimentos reais de pacientes — não usar depoimentos fictícios
-  testimonials: [],
+  // Depoimentos reais de pacientes (autorizados). Fotos serão adicionadas depois.
+  testimonials: [
+    {
+      name: "Eliseu Novak",
+      role: "Paciente desde os 12 anos",
+      quote:
+        "Comecei a tratar com a Dra. Priscila aos 12 anos, ainda em São Valentim, minha cidade natal, quando ela estava recém-formada. Quando ela abriu a Reabilitar aqui em Erechim, continuei como paciente. Hoje tenho 38 anos e nunca procurei outro dentista. Meus dentes estão saudáveis, então não preciso ir com muita frequência — mas quando preciso, é só com ela. Sempre fui muito bem atendido, até para marcar consulta pelo WhatsApp resolvem rápido. Prefiro ficar com dor a procurar outro dentista.",
+      rating: 5,
+      photo: "",
+    },
+    {
+      name: "Tatiane Kempf",
+      role: "Paciente há 4 anos",
+      quote:
+        "Sou paciente há cerca de 4 anos. Precisei extrair dois dentes que estavam me causando muita dor, e durante o procedimento a Dra. Priscila percebeu um pequeno cisto, que já foi removido na mesma hora. O pós-operatório foi super bem acompanhado por ela — me senti cuidada em cada etapa.",
+      rating: 5,
+      photo: "",
+    },
+  ],
 
   // ---------- Casos: Antes e Depois ----------
   // Fotos clínicas reais de sorrisos. O comparador exige o MESMO enquadramento
