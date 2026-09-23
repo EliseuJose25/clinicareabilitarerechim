@@ -60,7 +60,7 @@ export const clinicConfig = {
 
   // ---------- Hero ----------
   hero: {
-    eyebrow: "Vagas limitadas para avaliação este mês",
+    eyebrow: "Mais de 20 anos de odontologia em Erechim",
     title: "Seu sorriso, renovado com total dedicação e sem pressa.",
     subtitle:
       "Atendimento particular, com mais de 20 anos de prática pautada pela honestidade e pelo cuidado individual com cada paciente.",
@@ -167,7 +167,7 @@ export const clinicConfig = {
 
   // ---------- Bloco de CTA Final ----------
   finalCta: {
-    eyebrow: "Vagas limitadas para avaliação este mês",
+    eyebrow: "Consultório de especialidades odontológicas",
     title: "Seu sorriso ideal começa com uma conversa, não com um compromisso",
     subtitle:
       "A avaliação inicial é sem custo e sem pressão. Você sai de lá com um plano de tratamento claro — decide depois, no seu tempo.",
