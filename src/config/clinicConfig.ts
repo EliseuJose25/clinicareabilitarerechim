@@ -9,6 +9,8 @@ import ba2Before from "@/assets/ba-2-before.jpg";
 import ba2After from "@/assets/ba-2-after.jpg";
 import ba3Before from "@/assets/ba-3-before.jpg";
 import ba3After from "@/assets/ba-3-after.jpg";
+import depEliseu from "@/assets/depoimento-eliseu.jpg";
+import depTatiane from "@/assets/depoimento-tatiane.jpg";
 
 export const clinicConfig = {
   // ---------- Identidade ----------
@@ -108,7 +110,7 @@ export const clinicConfig = {
       quote:
         "Comecei a tratar com a Dra. Priscila aos 12 anos, ainda em São Valentim, minha cidade natal, quando ela estava recém-formada. Quando ela abriu a Reabilitar aqui em Erechim, continuei como paciente. Hoje tenho 38 anos e nunca procurei outro dentista. Meus dentes estão saudáveis, então não preciso ir com muita frequência — mas quando preciso, é só com ela. Sempre fui muito bem atendido, até para marcar consulta pelo WhatsApp resolvem rápido. Prefiro ficar com dor a procurar outro dentista.",
       rating: 5,
-      photo: "",
+      photo: depEliseu,
     },
     {
       name: "Tatiane Kempf",
@@ -116,7 +118,7 @@ export const clinicConfig = {
       quote:
         "Sou paciente há cerca de 4 anos. Precisei extrair dois dentes que estavam me causando muita dor, e durante o procedimento a Dra. Priscila percebeu um pequeno cisto, que já foi removido na mesma hora. O pós-operatório foi super bem acompanhado por ela — me senti cuidada em cada etapa.",
       rating: 5,
-      photo: "",
+      photo: depTatiane,
     },
   ],
 
