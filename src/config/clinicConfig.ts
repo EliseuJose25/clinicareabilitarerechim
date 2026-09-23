@@ -16,7 +16,8 @@ export const clinicConfig = {
     name: "Reabilitar",
     shortName: "Reabilitar",
     logoText: "Reabilitar",
-    tagline: "Odontologia de alta performance para quem não aceita menos que o melhor",
+    tagline:
+      "Mais de 20 anos praticando a odontologia raiz: cuidado honesto, cada decisão pensada para você.",
   },
 
   // ---------- Contato ----------
@@ -60,11 +61,11 @@ export const clinicConfig = {
     eyebrow: "Vagas limitadas para avaliação este mês",
     title: "Seu sorriso, renovado com total dedicação e sem pressa.",
     subtitle:
-      "Atendimento particular, focado em resultados naturais e totalmente personalizado para você.",
+      "Atendimento particular, com mais de 20 anos de prática pautada pela honestidade e pelo cuidado individual com cada paciente.",
     bullets: [
-      "Avaliação com planejamento digital do sorriso incluso",
-      "Protocolos sem dor, com sedação quando indicado",
-      "Atendimento particular — poucos pacientes por semana",
+      "Mais de 20 anos de experiência em odontologia raiz",
+      "Atendimento particular, sem convênios, com foco total em você",
+      "Plano de tratamento claro antes de qualquer decisão",
     ],
     image: "",
     imageAlt: "Foto principal da clínica",
@@ -99,35 +100,8 @@ export const clinicConfig = {
   ],
 
   // ---------- Depoimentos ----------
-  testimonials: [
-    {
-      name: "Maria S.",
-      role: "Paciente há 2 anos",
-      quote:
-        "Eu evitava o dentista havia anos por medo. Aqui, expliquei minha ansiedade antes de começar e o tratamento foi feito no meu ritmo, sem dor nenhuma.",
-      rating: 5,
-      photo:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80",
-    },
-    {
-      name: "João P.",
-      role: "Implante dentário",
-      quote:
-        "Já tinha feito orçamento em outras clínicas. A diferença aqui foi o plano de tratamento detalhado antes de qualquer decisão — sem surpresa no meio do caminho.",
-      rating: 5,
-      photo:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
-    },
-    {
-      name: "Ana L.",
-      role: "Clareamento e lentes",
-      quote:
-        "Simulei o resultado antes de fechar o tratamento. O sorriso ficou exatamente como o planejamento mostrou — isso me deu segurança para seguir.",
-      rating: 5,
-      photo:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80",
-    },
-  ],
+  // Aguardando depoimentos reais de pacientes — não usar depoimentos fictícios
+  testimonials: [],
 
   // ---------- Casos: Antes e Depois ----------
   // Fotos clínicas reais de sorrisos. O comparador exige o MESMO enquadramento
@@ -186,12 +160,12 @@ export const clinicConfig = {
     {
       question: "Tenho medo de dentista, isso é um problema?",
       answer:
-        "Não. A maioria dos nossos pacientes chega com algum nível de ansiedade. Explicamos cada etapa antes de fazer, respeitamos o seu ritmo e, quando indicado, oferecemos sedação para tornar o procedimento tranquilo.",
+        "Não. Explicamos cada etapa antes de fazer e respeitamos o seu ritmo para tornar o atendimento o mais tranquilo e confortável possível.",
     },
     {
       question: "Vocês atendem convênio?",
       answer:
-        "Trabalhamos como clínica particular, com opções de parcelamento facilitado. Emitimos nota fiscal para reembolso quando aplicável.",
+        "Não. Atendemos apenas de forma particular — isso nos permite dedicar tempo e cuidado total a cada paciente, sem pressa e sem protocolos padronizados.",
     },
     {
       question: "Quanto tempo dura uma avaliação inicial?",
@@ -201,12 +175,12 @@ export const clinicConfig = {
     {
       question: "Vocês oferecem parcelamento?",
       answer:
-        "Sim, aceitamos as principais bandeiras de cartão e oferecemos parcelamento próprio para tratamentos maiores.",
+        "Aceitamos Pix e dinheiro. Parcelamento pode ser combinado conforme o caso — fale com a gente para entender a melhor condição para o seu tratamento.",
     },
     {
       question: "Por que agendar aqui e não em outra clínica?",
       answer:
-        "Atendemos um número limitado de pacientes por semana para garantir plano de tratamento individualizado e acompanhamento próximo — não trabalhamos em volume.",
+        "Porque prezamos por honestidade e cuidado individual em cada etapa — não indicamos tratamentos desnecessários, e você sempre entende o porquê de cada decisão antes de seguir.",
     },
     {
       question: "Como faço para agendar?",
@@ -217,11 +191,11 @@ export const clinicConfig = {
 
   // ---------- SEO ----------
   seo: {
-    title: "Clínica Exemplo Odontologia - Sorrisos com excelência",
+    title: "Reabilitar - Consultório de Especialidades Odontológicas em Erechim/RS",
     description:
-      "Clínica odontológica especializada em implantes, estética e reabilitação oral. Agende sua avaliação em São Paulo.",
+      "Consultório odontológico particular em Erechim/RS, com mais de 20 anos de experiência em ortodontia, implantes, próteses e estética. Atendimento honesto e individualizado — agende sua avaliação.",
     keywords:
-      "clínica odontológica, implante dentário, dentista São Paulo, lentes de contato dental, clareamento",
+      "dentista Erechim, implante dentário Erechim, ortodontia Erechim, clínica odontológica Erechim RS, prótese dentária Erechim",
     canonical: "https://reabilitarerechim.com.br/",
     ogImage: "",
   },

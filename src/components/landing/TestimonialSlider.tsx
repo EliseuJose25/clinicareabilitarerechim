@@ -3,16 +3,27 @@ import { clinicConfig } from "@/config/clinicConfig";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { ImagePlaceholder } from "./ImagePlaceholder";
 
+type Testimonial = {
+  name: string;
+  role: string;
+  quote: string;
+  rating: number;
+  photo: string;
+};
+
 /**
  * TestimonialSlider - slider simples sem dependências externas.
  */
 export function TestimonialSlider() {
-  const { testimonials, images } = clinicConfig;
+  const { images } = clinicConfig;
+  const testimonials = clinicConfig.testimonials as readonly Testimonial[];
   const [index, setIndex] = useState(0);
   const total = testimonials.length;
 
   const go = (n: number) => setIndex((index + n + total) % total);
   const current = testimonials[index];
+
+  if (!current) return null;
 
   return (
     <section id="depoimentos" className="border-b border-border/60 bg-secondary py-12 md:py-20">
