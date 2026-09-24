@@ -26,7 +26,7 @@ export function Header() {
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 md:px-6">
         <a href="#top" className="flex items-center gap-2.5">
           <img src={icon} alt="Reabilitar" className="h-10 w-auto" />
-          <span className="text-base font-semibold tracking-tight text-primary">
+          <span translate="no" className="text-base font-semibold tracking-tight text-primary">
             {brand.logoText}
           </span>
         </a>
@@ -65,7 +65,7 @@ export function Header() {
             <SheetHeader className="text-left">
               <SheetTitle className="flex items-center gap-2.5">
                 <img src={icon} alt="Reabilitar" className="h-10 w-auto" />
-                <span className="text-primary">{brand.logoText}</span>
+                <span translate="no" className="text-primary">{brand.logoText}</span>
               </SheetTitle>
             </SheetHeader>
 
