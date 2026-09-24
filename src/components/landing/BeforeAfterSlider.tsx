@@ -136,13 +136,13 @@ export function BeforeAfterSlider() {
             {/* Rótulos: esquerda = depois (camada recortada), direita = antes (camada base) */}
             <span
               className="pointer-events-none absolute left-3 top-3 rounded-full bg-black/50 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-white backdrop-blur-sm transition-opacity md:left-5 md:top-5"
-              style={{ opacity: Math.max(0.25, (100 - position) / 100) }}
+              style={{ opacity: Math.max(0.25, position / 100) }}
             >
               Depois
             </span>
             <span
               className="pointer-events-none absolute right-3 top-3 rounded-full bg-black/50 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-white backdrop-blur-sm transition-opacity md:right-5 md:top-5"
-              style={{ opacity: Math.max(0.25, position / 100) }}
+              style={{ opacity: Math.max(0.25, (100 - position) / 100) }}
             >
               Antes
             </span>
