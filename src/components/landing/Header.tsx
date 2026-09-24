@@ -24,7 +24,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/80">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 md:px-6">
-        <a href="#top" className="flex items-center gap-2.5">
+        <a href="/#top" className="flex items-center gap-2.5">
           <img src={icon} alt="Reabilitar" className="h-10 w-auto" />
           <span translate="no" className="text-base font-semibold tracking-tight text-primary">
             {brand.logoText}
@@ -32,9 +32,9 @@ export function Header() {
         </a>
 
         <nav className="hidden items-center gap-8 text-sm font-medium text-primary/75 md:flex">
-          <a href="#credenciais" className="transition hover:text-primary">Sobre</a>
-          <a href="#depoimentos" className="transition hover:text-primary">Depoimentos</a>
-          <a href="#faq" className="transition hover:text-primary">Dúvidas</a>
+          <a href="/#credenciais" className="transition hover:text-primary">Sobre</a>
+          <a href="/#depoimentos" className="transition hover:text-primary">Depoimentos</a>
+          <a href="/#faq" className="transition hover:text-primary">Dúvidas</a>
           <a href={`tel:${contact.phone}`} className="transition hover:text-primary">
             Contato
           </a>
@@ -71,13 +71,13 @@ export function Header() {
 
             <nav className="mt-8 flex flex-col text-base font-medium text-foreground">
               <SheetClose asChild>
-                <a href="#credenciais" className="border-b border-border py-4">Sobre</a>
+                <a href="/#credenciais" className="border-b border-border py-4">Sobre</a>
               </SheetClose>
               <SheetClose asChild>
-                <a href="#depoimentos" className="border-b border-border py-4">Depoimentos</a>
+                <a href="/#depoimentos" className="border-b border-border py-4">Depoimentos</a>
               </SheetClose>
               <SheetClose asChild>
-                <a href="#faq" className="border-b border-border py-4">Dúvidas</a>
+                <a href="/#faq" className="border-b border-border py-4">Dúvidas</a>
               </SheetClose>
               <SheetClose asChild>
                 <a href={`tel:${contact.phone}`} className="border-b border-border py-4">Contato</a>
