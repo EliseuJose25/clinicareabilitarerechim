@@ -48,12 +48,6 @@ export function Footer() {
             >
               Política de Privacidade
             </Link>
-            <Link
-              to="/termos"
-              className="no-underline hover:no-underline transition-colors duration-300 hover:text-primary"
-            >
-              Termos de Uso
-            </Link>
           </nav>
         </div>
 
