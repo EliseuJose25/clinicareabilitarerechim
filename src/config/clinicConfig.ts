@@ -221,9 +221,8 @@ export const clinicConfig = {
         "A primeira consulta dura em média 45 minutos, incluindo exame clínico e apresentação do plano de tratamento.",
     },
     {
-      question: "Vocês oferecem parcelamento?",
-      answer:
-        "Aceitamos Pix e dinheiro. Parcelamento pode ser combinado conforme o caso — fale com a gente para entender a melhor condição para o seu tratamento.",
+      question: "Quais as formas de pagamento?",
+      answer: "Aceitamos Pix e dinheiro.",
     },
     {
       question: "Por que agendar aqui e não em outra clínica?",
