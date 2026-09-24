@@ -39,7 +39,7 @@ export const clinicConfig = {
       city: "Erechim",
       state: "RS",
       zip: "99700-000",
-      mapsUrl: "",
+      mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=Av.+Sete+de+Setembro,+431,+Erechim+-+RS",
     },
     hours: "Segunda a sexta: 8h às 11h30 e 13h às 17h30",
   },
