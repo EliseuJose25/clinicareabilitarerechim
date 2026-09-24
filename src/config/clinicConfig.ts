@@ -33,6 +33,7 @@ export const clinicConfig = {
     whatsapp: "5554999559059",
     whatsappMessage: "Olá! Gostaria de agendar minha avaliação inicial.",
     email: "contato@reabilitarerechim.com.br",
+    addressTitle: "Reabilitar – Consultório de Especialidades Odontológicas",
     address: {
       street: "Av. Sete de Setembro, 431 - Sala 605",
       city: "Erechim",
@@ -40,7 +41,7 @@ export const clinicConfig = {
       zip: "99700-000",
       mapsUrl: "",
     },
-    hours: "Horário comercial",
+    hours: "Segunda a sexta: 8h às 11h30 e 13h às 17h30",
   },
 
   // ---------- Redes sociais ----------

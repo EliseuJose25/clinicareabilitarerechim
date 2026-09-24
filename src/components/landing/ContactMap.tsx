@@ -44,7 +44,7 @@ export function ContactMap() {
             <div className="flex items-start gap-3">
               <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
               <div className="text-sm text-foreground">
-                <p className="font-semibold">{brand.name}</p>
+                <p className="font-semibold">{contact.addressTitle}</p>
                 <p className="text-muted-foreground">{contact.address.street}</p>
                 <p className="text-muted-foreground">
                   {contact.address.city} - {contact.address.state}, {contact.address.zip}
