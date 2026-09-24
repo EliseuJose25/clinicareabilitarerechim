@@ -28,9 +28,9 @@ export const clinicConfig = {
 
   // ---------- Contato ----------
   contact: {
-    phone: "+55 11 99999-9999",
-    phoneDisplay: "(54) 999559059",
-    whatsapp: "5511999999999",
+    phone: "+55 54 99997-0223",
+    phoneDisplay: "(54) 99997-0223",
+    whatsapp: "5554999970223",
     whatsappMessage: "Olá! Gostaria de agendar minha avaliação inicial.",
     email: "contato@reabilitarerechim.com.br",
     address: {
