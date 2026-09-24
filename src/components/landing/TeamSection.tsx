@@ -1,6 +1,13 @@
 import { clinicConfig } from "@/config/clinicConfig";
-import { GraduationCap, BadgeCheck } from "lucide-react";
+import { Award, BadgeCheck, BookOpen, CalendarCheck, GraduationCap } from "lucide-react";
 import { ImagePlaceholder } from "./ImagePlaceholder";
+
+const credentialIcons = {
+  Graduação: GraduationCap,
+  Especialização: Award,
+  "Pós-graduação": BookOpen,
+  Experiência: CalendarCheck,
+} as const;
 
 /**
  * TeamSection - apresenta os profissionais e suas credenciais.
@@ -47,22 +54,27 @@ export function TeamSection() {
 
                 {professional.credentials.length > 0 && (
                   <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 md:mt-auto md:pt-8">
-                    {professional.credentials.map((credential) => (
-                      <div
-                        key={credential.title}
-                        className="flex min-h-24 flex-col justify-center rounded-lg border border-border/70 bg-background p-4"
-                      >
-                        <div className="flex items-center gap-2">
-                          <GraduationCap className="h-4 w-4 flex-shrink-0 text-gold" />
-                          <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-                            {credential.title}
-                          </span>
+                    {professional.credentials.map((credential) => {
+                      const CredentialIcon =
+                        credentialIcons[credential.title as keyof typeof credentialIcons] ?? GraduationCap;
+
+                      return (
+                        <div
+                          key={credential.title}
+                          className="flex min-h-24 flex-col justify-center rounded-lg border border-border/70 bg-background p-4"
+                        >
+                          <div className="flex items-center gap-2">
+                            <CredentialIcon className="h-4 w-4 flex-shrink-0 text-gold" />
+                            <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                              {credential.title}
+                            </span>
+                          </div>
+                          <p className="mt-2 text-sm leading-snug text-muted-foreground">
+                            {credential.detail}
+                          </p>
                         </div>
-                        <p className="mt-2 text-sm leading-snug text-muted-foreground">
-                          {credential.detail}
-                        </p>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 )}
               </div>

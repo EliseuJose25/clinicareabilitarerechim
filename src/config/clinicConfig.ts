@@ -111,7 +111,7 @@ export const clinicConfig = {
         { title: "Graduação", detail: "Odontologia - instituição a confirmar" },
         { title: "Especialização", detail: "Área de atuação a confirmar" },
         { title: "Pós-graduação", detail: "Formação complementar a confirmar" },
-        { title: "Membro", detail: "Associação profissional a confirmar" },
+        { title: "Experiência", detail: "25 anos de odontologia" },
       ],
     },
     {
@@ -121,7 +121,12 @@ export const clinicConfig = {
       bio:
         "Atendimento atencioso e personalizado, com dedicação à saúde bucal, ao conforto e às necessidades individuais de cada paciente.",
       photo: "",
-      credentials: [],
+      credentials: [
+        { title: "Graduação", detail: "Odontologia - instituição a confirmar" },
+        { title: "Especialização", detail: "Área de atuação a confirmar" },
+        { title: "Pós-graduação", detail: "Formação complementar a confirmar" },
+        { title: "Experiência", detail: "Mais de 20 anos de odontologia" },
+      ],
     },
   ],
 
