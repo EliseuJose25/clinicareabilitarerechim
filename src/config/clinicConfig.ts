@@ -102,15 +102,15 @@ export const clinicConfig = {
   team: [
     {
       name: "Dra. Priscila Santin",
-      role: "Cirurgiã-Dentista",
-      cro: "CRO-RS 000000",
+      role: "Cirurgiã-Dentista · Implantodontia e Prótese",
+      cro: "CRO-RS 13049",
       bio:
         "Atendimento cuidadoso e individualizado, com foco no bem-estar de cada paciente e atualização contínua nas melhores práticas da odontologia.",
       photo: "",
       credentials: [
-        { title: "Graduação", detail: "Odontologia - instituição a confirmar" },
-        { title: "Especialização", detail: "Área de atuação a confirmar" },
-        { title: "Pós-graduação", detail: "Formação complementar a confirmar" },
+        { title: "Graduação", detail: "Odontologia - UPF, Passo Fundo (2001)" },
+        { title: "Especialização", detail: "Prótese Dentária - CEOM, Passo Fundo (2007)" },
+        { title: "Especialização", detail: "Implantodontia - Uningá, Erechim (2021)" },
         { title: "Experiência", detail: "25 anos de odontologia" },
       ],
     },
