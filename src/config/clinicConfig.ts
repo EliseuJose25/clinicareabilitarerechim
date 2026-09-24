@@ -11,6 +11,10 @@ import ba3Before from "@/assets/ba-3-before.jpg";
 import ba3After from "@/assets/ba-3-after.jpg";
 import depEliseu from "@/assets/depoimento-eliseu.jpg";
 import depTatiane from "@/assets/depoimento-tatiane.jpg";
+import consultorioSalaEspera from "@/assets/consultorio-sala-espera.jpg";
+import consultorioCadeira2Vista from "@/assets/consultorio-cadeira-2-vista.jpg";
+import consultorioCadeira1 from "@/assets/consultorio-cadeira-1.jpg";
+import consultorioSalaAtendimento from "@/assets/consultorio-sala-atendimento.jpg";
 
 export const clinicConfig = {
   // ---------- Identidade ----------
@@ -58,6 +62,26 @@ export const clinicConfig = {
     lifestyle: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
   },
 
+  // ---------- Galeria da estrutura ----------
+  gallery: [
+    {
+      src: consultorioSalaEspera,
+      alt: "Sala de espera do consultório Reabilitar",
+    },
+    {
+      src: consultorioCadeira2Vista,
+      alt: "Sala de atendimento odontológico com vista para o centro de Erechim",
+    },
+    {
+      src: consultorioCadeira1,
+      alt: "Consultório odontológico com cadeira azul-clara",
+    },
+    {
+      src: consultorioSalaAtendimento,
+      alt: "Sala de atendimento com mesa branca e poltrona",
+    },
+  ],
+
   // ---------- Hero ----------
   hero: {
     eyebrow: "Mais de 20 anos de odontologia em Erechim",
@@ -69,8 +93,8 @@ export const clinicConfig = {
       "Atendimento particular, sem convênios, com foco total em você",
       "Plano de tratamento claro antes de qualquer decisão",
     ],
-    image: "",
-    imageAlt: "Foto principal da clínica",
+    image: consultorioSalaEspera,
+    imageAlt: "Sala de espera do consultório Reabilitar",
   },
 
   // ---------- Equipe profissional ----------

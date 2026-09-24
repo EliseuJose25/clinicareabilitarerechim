@@ -3,6 +3,7 @@ import { AnalyticsManager } from "@/components/landing/AnalyticsManager";
 import { Header } from "@/components/landing/Header";
 import { HeroSection } from "@/components/landing/HeroSection";
 import { TeamSection } from "@/components/landing/TeamSection";
+import { GallerySection } from "@/components/landing/GallerySection";
 import { TestimonialSlider } from "@/components/landing/TestimonialSlider";
 import { FAQSection } from "@/components/landing/FAQSection";
 import { ContactMap } from "@/components/landing/ContactMap";
@@ -32,6 +33,7 @@ function Index() {
       <main>
         <HeroSection />
         <TeamSection />
+        <GallerySection />
         <BeforeAfterSlider />
         <TestimonialSlider />
         <FAQSection />
