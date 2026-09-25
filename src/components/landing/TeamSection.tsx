@@ -60,7 +60,7 @@ export function TeamSection() {
 
                       return (
                         <div
-                          key={credential.title}
+                          key={`${credential.title}-${credential.detail}`}
                           className="flex min-h-24 flex-col justify-center rounded-lg border border-border/70 bg-background p-4"
                         >
                           <div className="flex items-center gap-2">

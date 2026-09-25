@@ -31,7 +31,7 @@ export const clinicConfig = {
     phone: "+55 54 99955-9059",
     phoneDisplay: "(54) 99955-9059",
     whatsapp: "5554999559059",
-    whatsappMessage: "Olá! Gostaria de agendar minha avaliação inicial.",
+    whatsappMessage: "Oi, tudo bem? Vim pelo site e gostaria de agendar uma avaliação. Qual o melhor dia e horário?",
     email: "contato@reabilitarerechim.com.br",
     addressTitle: "Reabilitar – Consultório de Especialidades Odontológicas",
     address: {
@@ -103,7 +103,7 @@ export const clinicConfig = {
   team: [
     {
       name: "Dra. Priscila Santin",
-      role: "Cirurgiã-Dentista · Implantodontia e Prótese",
+      role: "Clínica Geral · Prótese e Implantodontia",
       cro: "CRO-RS 13049",
       bio:
         "Atendimento cuidadoso e individualizado, com foco no bem-estar de cada paciente e atualização contínua nas melhores práticas da odontologia.",
@@ -116,16 +116,16 @@ export const clinicConfig = {
       ],
     },
     {
-      name: "Dr. Tiago",
-      role: "Cirurgião-Dentista",
-      cro: "CRO-RS 000000",
+      name: "Dr. Tiago Smagala",
+      role: "Clínica Geral · Saúde da Família e Ortodontia",
+      cro: "CRO-RS 14967",
       bio:
         "Atendimento atencioso e personalizado, com dedicação à saúde bucal, ao conforto e às necessidades individuais de cada paciente.",
       photo: "",
       credentials: [
         { title: "Graduação", detail: "Odontologia - instituição a confirmar" },
-        { title: "Especialização", detail: "Área de atuação a confirmar" },
-        { title: "Pós-graduação", detail: "Formação complementar a confirmar" },
+        { title: "Especialização", detail: "Saúde da Família" },
+        { title: "Especialização", detail: "Ortodontia" },
         { title: "Experiência", detail: "Mais de 20 anos de odontologia" },
       ],
     },
