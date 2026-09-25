@@ -16,7 +16,6 @@ export function buildSEOHead() {
     name: brand.name,
     description: seo.description,
     telephone: contact.phone,
-    email: contact.email,
     address: {
       "@type": "PostalAddress",
       streetAddress: contact.address.street,
@@ -25,7 +24,20 @@ export function buildSEOHead() {
       postalCode: contact.address.zip,
       addressCountry: "BR",
     },
-    openingHours: contact.hours,
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "11:30",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "13:00",
+        closes: "17:30",
+      },
+    ],
     url: seo.canonical,
   };
 

@@ -35,7 +35,7 @@ export function Header() {
           <a href="/#credenciais" className="transition hover:text-primary">Sobre</a>
           <a href="/#depoimentos" className="transition hover:text-primary">Depoimentos</a>
           <a href="/#faq" className="transition hover:text-primary">Dúvidas</a>
-          <a href={`tel:${contact.phone}`} className="transition hover:text-primary">
+          <a href="/#contato" className="transition hover:text-primary">
             Contato
           </a>
         </nav>
@@ -80,7 +80,7 @@ export function Header() {
                 <a href="/#faq" className="border-b border-border py-4">Dúvidas</a>
               </SheetClose>
               <SheetClose asChild>
-                <a href={`tel:${contact.phone}`} className="border-b border-border py-4">Contato</a>
+                <a href="/#contato" className="border-b border-border py-4">Contato</a>
               </SheetClose>
             </nav>
 
