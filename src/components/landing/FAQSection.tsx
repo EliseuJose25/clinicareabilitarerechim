@@ -17,7 +17,7 @@ export function FAQSection() {
             Perguntas frequentes
           </h2>
           <p className="mt-2 text-muted-foreground">
-            Ainda tem dúvidas? Fale com nossa equipe.
+            As perguntas que mais ouvimos na recepção.
           </p>
         </div>
 

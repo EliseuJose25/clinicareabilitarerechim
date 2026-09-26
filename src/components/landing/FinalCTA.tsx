@@ -27,10 +27,7 @@ export function FinalCTA() {
       />
 
       <div className="relative mx-auto max-w-4xl px-4 text-center md:px-6">
-        <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-white/90">
-          {finalCta.eyebrow}
-        </span>
-        <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-white md:text-5xl">
+        <h2 className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-5xl">
           {finalCta.title}
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg">

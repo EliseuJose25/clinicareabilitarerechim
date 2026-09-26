@@ -36,10 +36,10 @@ export function TestimonialSlider() {
       <div className="mx-auto max-w-4xl px-3 sm:px-4 md:px-6">
         <div className="text-center">
           <h2 className="text-[22px] font-semibold leading-tight tracking-tight text-foreground sm:text-2xl md:text-4xl">
-            O que dizem nossos pacientes
+            Tem paciente que vem desde criança
           </h2>
           <p className="mt-2 text-sm text-muted-foreground md:text-base">
-            Histórias reais de quem confiou no nosso trabalho.
+            Relatos de quem se trata com a gente há anos.
           </p>
         </div>
 
