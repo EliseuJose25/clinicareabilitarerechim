@@ -86,7 +86,7 @@ export const clinicConfig = {
   // ---------- Hero ----------
   hero: {
     eyebrow: "Mais de 20 anos de odontologia em Erechim",
-    title: "Seu sorriso, renovado com total dedicação e sem pressa.",
+    title: "Odontologia raiz: honesta, sem pressa e só com o que você realmente precisa.",
     subtitle:
       "Atendimento particular, com mais de 20 anos de prática pautada pela honestidade e pelo cuidado individual com cada paciente.",
     bullets: [
@@ -106,7 +106,7 @@ export const clinicConfig = {
       role: "Clínica Geral · Prótese e Implantodontia",
       cro: "CRO-RS 13049",
       bio:
-        "Atendimento cuidadoso e individualizado, com foco no bem-estar de cada paciente e atualização contínua nas melhores práticas da odontologia.",
+        "Formada pela UPF em 2001, começou atendendo em São Valentim antes de fundar a Reabilitar em Erechim. Especialista em Prótese Dentária e em Implantodontia, trata cada caso com o que chama de odontologia raiz: explicar tudo com clareza e indicar só o que o paciente realmente precisa.",
       photo: "",
       credentials: [
         { title: "Graduação", detail: "Odontologia - UPF, Passo Fundo (2001)" },
@@ -120,7 +120,7 @@ export const clinicConfig = {
       role: "Clínica Geral · Saúde da Família e Ortodontia",
       cro: "CRO-RS 14967",
       bio:
-        "Atendimento atencioso e personalizado, com dedicação à saúde bucal, ao conforto e às necessidades individuais de cada paciente.",
+        "Sócio da Reabilitar, com mais de 20 anos de odontologia. Atua em clínica geral e é especialista em Saúde da Família e Ortodontia.",
       photo: "",
       credentials: [
         { title: "Graduação", detail: "Odontologia - instituição a confirmar" },
@@ -130,6 +130,12 @@ export const clinicConfig = {
       ],
     },
   ],
+
+  // ---------- Frase em destaque ----------
+  quote: {
+    text: "Nunca fizemos nada pensando só em ganhar dinheiro, e sim no bem-estar de quem nos procura. Essa honestidade é a nossa marca.",
+    author: "Dra. Priscila Santin",
+  },
 
   // ---------- Depoimentos ----------
   // Depoimentos reais de pacientes (autorizados). Fotos serão adicionadas depois.

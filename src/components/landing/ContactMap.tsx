@@ -22,7 +22,7 @@ export function ContactMap() {
             Onde estamos
           </h2>
           <p className="mt-2 text-muted-foreground">
-            Venha nos visitar ou fale conosco agora.
+            No antigo Edifício Sanenge, na Av. Sete de Setembro.
           </p>
         </div>
 

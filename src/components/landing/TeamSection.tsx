@@ -19,9 +19,8 @@ export function TeamSection() {
     <section id="credenciais" className="border-b border-border/60 bg-secondary py-12 md:py-20">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-primary">Nossa equipe</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-            Profissionais dedicados ao seu cuidado
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            Mais de 45 anos de odontologia somados
           </h2>
         </div>
 

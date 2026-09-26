@@ -19,6 +19,7 @@
  */
 
 @theme inline {
+  --font-heading: "Lora", serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -66,17 +67,17 @@
 :root {
   --radius: 0.625rem;
   /* Paleta oficial:
-     Primary    #0C94C8  Azul Reabilitar
+     Primary    #1E4DB7  Azul Royal Reabilitar
      Gold/CTA   #FF7A59  Coral
      Bg light   #F7FBFC  Off-White Azulado
-     Foreground #0B3B4D  Azul-Marinho                   */
+     Foreground #10264A  Azul-Marinho                   */
   --background: #ffffff;
-  --foreground: #0b3b4d;
+  --foreground: #10264a;
   --card: #ffffff;
-  --card-foreground: #0b3b4d;
+  --card-foreground: #10264a;
   --popover: #ffffff;
-  --popover-foreground: #0b3b4d;
-  --primary: #0c94c8;
+  --popover-foreground: #10264a;
+  --primary: #1e4db7;
   --primary-foreground: #ffffff;
   --secondary: #f7fbfc;
   --secondary-foreground: #0b3b4d;
@@ -88,7 +89,7 @@
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: #e5e7eb;
   --input: #e5e7eb;
-  --ring: #0b3b4d;
+  --ring: #1e4db7;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -96,12 +97,12 @@
   --chart-5: oklch(0.769 0.188 70.08);
   --sidebar: #f7fbfc;
   --sidebar-foreground: #0b3b4d;
-  --sidebar-primary: #0c94c8;
+  --sidebar-primary: #1e4db7;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #ffffff;
   --sidebar-accent-foreground: #0b3b4d;
   --sidebar-border: #e5e7eb;
-  --sidebar-ring: #0c94c8;
+  --sidebar-ring: #1e4db7;
   --gold: #ff7a59;
   --gold-foreground: #ffffff;
 }
@@ -151,5 +152,11 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading);
   }
 }

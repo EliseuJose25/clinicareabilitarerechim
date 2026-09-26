@@ -83,10 +83,7 @@ export function BeforeAfterSlider() {
     >
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
-            Casos reais
-          </span>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             Antes e depois
           </h2>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground md:text-lg">
