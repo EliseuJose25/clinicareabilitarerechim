@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep prominent clinic statements in `clinicConfig` and render them through focused landing sections, so content remains centrally editable.
