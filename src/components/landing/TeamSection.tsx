@@ -34,7 +34,7 @@ export function TeamSection() {
                 <ImagePlaceholder
                   src={professional.photo}
                   alt={`Foto de ${professional.name}`}
-                  aspectRatio="4 / 3"
+                  aspectRatio="4 / 5"
                   className="rounded-none"
                 />
               </div>
