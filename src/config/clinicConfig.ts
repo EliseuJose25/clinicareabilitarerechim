@@ -15,6 +15,7 @@ import consultorioSalaEspera from "@/assets/consultorio-sala-espera.jpg";
 import consultorioCadeira2Vista from "@/assets/consultorio-cadeira-2-vista.jpg";
 import consultorioCadeira1 from "@/assets/consultorio-cadeira-1.jpg";
 import consultorioSalaAtendimento from "@/assets/consultorio-sala-atendimento.jpg";
+import draPriscila from "@/assets/dra-priscila.jpg";
 
 export const clinicConfig = {
   // ---------- Identidade ----------
@@ -107,7 +108,7 @@ export const clinicConfig = {
       cro: "CRO-RS 13049",
       bio:
         "Formada pela UPF em 2001, começou atendendo em São Valentim antes de fundar a Reabilitar em Erechim. Especialista em Prótese Dentária e em Implantodontia, trata cada caso com o que chama de odontologia raiz: explicar tudo com clareza e indicar só o que o paciente realmente precisa.",
-      photo: "",
+      photo: draPriscila,
       credentials: [
         { title: "Graduação", detail: "Odontologia - UPF, Passo Fundo (2001)" },
         { title: "Especialização", detail: "Prótese Dentária - CEOM, Passo Fundo (2007)" },
