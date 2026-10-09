@@ -16,16 +16,6 @@ export function FinalCTA() {
       id="agendar"
       className="relative overflow-hidden border-b border-border/60 bg-primary py-16 md:py-24"
     >
-      {/* Detalhe decorativo dourado sutil */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-20"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 20% 20%, hsl(var(--gold)) 0, transparent 40%), radial-gradient(circle at 80% 80%, hsl(var(--gold)) 0, transparent 40%)",
-        }}
-      />
-
       <div className="relative mx-auto max-w-4xl px-4 text-center md:px-6">
         <h2 className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-5xl">
           {finalCta.title}

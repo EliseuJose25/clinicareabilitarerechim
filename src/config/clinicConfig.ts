@@ -116,20 +116,21 @@ export const clinicConfig = {
         { title: "Experiência", detail: "25 anos de odontologia" },
       ],
     },
-    {
-      name: "Dr. Tiago Smagala",
-      role: "Clínica Geral · Saúde da Família e Ortodontia",
-      cro: "CRO-RS 14967",
-      bio:
-        "Sócio da Reabilitar, com mais de 20 anos de odontologia. Atua em clínica geral e é especialista em Saúde da Família e Ortodontia.",
-      photo: "",
-      credentials: [
-        { title: "Graduação", detail: "Odontologia - instituição a confirmar" },
-        { title: "Especialização", detail: "Saúde da Família" },
-        { title: "Especialização", detail: "Ortodontia" },
-        { title: "Experiência", detail: "Mais de 20 anos de odontologia" },
-      ],
-    },
+    // Dr. Tiago oculto até enviar foto e dados. Para reativar, basta descomentar este bloco.
+    // {
+    //   name: "Dr. Tiago Smagala",
+    //   role: "Clínica Geral · Saúde da Família e Ortodontia",
+    //   cro: "CRO-RS 14967",
+    //   bio:
+    //     "Sócio da Reabilitar, com mais de 20 anos de odontologia. Atua em clínica geral e é especialista em Saúde da Família e Ortodontia.",
+    //   photo: "",
+    //   credentials: [
+    //     { title: "Graduação", detail: "Odontologia - instituição a confirmar" },
+    //     { title: "Especialização", detail: "Saúde da Família" },
+    //     { title: "Especialização", detail: "Ortodontia" },
+    //     { title: "Experiência", detail: "Mais de 20 anos de odontologia" },
+    //   ],
+    // },
   ],
 
   // ---------- Frase em destaque ----------
@@ -207,7 +208,7 @@ export const clinicConfig = {
     eyebrow: "Consultório de especialidades odontológicas",
     title: "Seu sorriso ideal começa com uma conversa, não com um compromisso",
     subtitle:
-      "A avaliação inicial é sem custo e sem pressão. Você sai de lá com um plano de tratamento claro — decide depois, no seu tempo.",
+      "Sem pressão: você sai da avaliação com um plano de tratamento claro e decide depois, no seu tempo.",
     primaryLabel: "Agendar Avaliação",
   },
 
@@ -227,10 +228,6 @@ export const clinicConfig = {
       question: "Quanto tempo dura uma avaliação inicial?",
       answer:
         "A primeira consulta dura em média 45 minutos, incluindo exame clínico e apresentação do plano de tratamento.",
-    },
-    {
-      question: "Quais as formas de pagamento?",
-      answer: "Aceitamos Pix e dinheiro.",
     },
     {
       question: "Por que agendar aqui e não em outra clínica?",

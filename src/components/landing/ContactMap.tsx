@@ -43,8 +43,8 @@ export function ContactMap() {
           <div className="flex flex-col justify-center gap-4 rounded-2xl border border-border/70 bg-secondary/40 p-6 md:p-8">
             <div className="flex items-start gap-3">
               <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-              <div className="text-sm text-foreground">
-                <p className="font-semibold">{contact.addressTitle}</p>
+              <div className="text-base text-foreground">
+                <p className="font-semibold text-primary">{contact.addressTitle}</p>
                 <p className="text-muted-foreground">{contact.address.street}</p>
                 <p className="text-muted-foreground">
                   {contact.address.city} - {contact.address.state}, {contact.address.zip}
@@ -53,13 +53,13 @@ export function ContactMap() {
             </div>
             <div className="flex items-start gap-3">
               <Clock className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-              <p className="text-sm text-muted-foreground">{contact.hours}</p>
+              <p className="text-base text-muted-foreground">{contact.hours}</p>
             </div>
             <div className="flex items-start gap-3">
               <Phone className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
               <a
-                href={`tel:${contact.phone}`}
-                className="text-sm font-medium text-foreground hover:text-primary"
+                href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`}
+                className="text-base font-medium text-primary hover:underline"
               >
                 {contact.phoneDisplay}
               </a>

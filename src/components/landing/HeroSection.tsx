@@ -45,7 +45,7 @@ export function HeroSection() {
               {cta.primaryLabel}
             </a>
             <a
-              href={`tel:${contact.phone}`}
+              href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`}
               className="inline-flex items-center justify-center rounded-full border-2 border-primary bg-transparent px-6 py-3 text-sm font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground"
             >
               Ligar agora
@@ -59,6 +59,7 @@ export function HeroSection() {
             src={hero.image || images.hero}
             alt={hero.imageAlt}
             aspectRatio="4 / 5"
+            priority
           />
         </div>
       </div>
