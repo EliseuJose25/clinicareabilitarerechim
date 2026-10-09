@@ -15,13 +15,13 @@ export function GallerySection() {
           </p>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-4 md:mt-12 md:grid-cols-2 md:gap-6">
+        <div className="mt-8 grid grid-cols-2 gap-3 md:mt-12 md:grid-cols-4 md:gap-4">
           {gallery.map((image) => (
             <figure key={image.alt} className="overflow-hidden rounded-lg">
               <img
                 src={image.src}
                 alt={image.alt}
-                className="aspect-[4/3] h-full w-full object-cover"
+                className="aspect-[3/4] h-full w-full object-cover"
                 loading="lazy"
               />
             </figure>

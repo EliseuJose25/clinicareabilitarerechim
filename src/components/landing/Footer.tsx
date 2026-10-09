@@ -52,10 +52,10 @@ export function Footer() {
         </div>
 
         {/* Linha 3: Créditos */}
-        <p className="text-xs text-muted-foreground/70">
+        <p className="text-xs text-muted-foreground">
           Desenvolvido por Studio Flow Tech
         </p>
-        <p className="text-xs text-muted-foreground/70">
+        <p className="text-xs text-muted-foreground">
           Reabilitar Consultório de Especialidades Odontológicas Ltda. — CNPJ 05.390.391/0001-11
         </p>
       </div>

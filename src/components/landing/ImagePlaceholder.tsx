@@ -10,6 +10,7 @@ interface ImagePlaceholderProps {
   className?: string;
   /** Formato do placeholder — retangular (default) ou circular (para avatares). */
   rounded?: "xl" | "full";
+  priority?: boolean;
 }
 
 /**
@@ -23,6 +24,7 @@ export function ImagePlaceholder({
   aspectRatio = "4 / 5",
   className = "",
   rounded = "xl",
+  priority = false,
 }: ImagePlaceholderProps) {
   const radius = rounded === "full" ? "rounded-full" : "rounded-2xl";
   const base = `relative w-full overflow-hidden bg-muted ${radius} ${className}`;
@@ -34,7 +36,8 @@ export function ImagePlaceholder({
           src={src}
           alt={alt}
           className="h-full w-full object-cover"
-          loading="lazy"
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : undefined}
         />
       </div>
     );

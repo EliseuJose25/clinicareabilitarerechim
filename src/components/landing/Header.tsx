@@ -31,7 +31,7 @@ export function Header() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-primary/75 md:flex">
+        <nav className="hidden items-center gap-8 text-sm font-medium text-primary md:flex">
           <a href="/#credenciais" className="transition hover:text-primary">Sobre</a>
           <a href="/#depoimentos" className="transition hover:text-primary">Depoimentos</a>
           <a href="/#faq" className="transition hover:text-primary">Dúvidas</a>

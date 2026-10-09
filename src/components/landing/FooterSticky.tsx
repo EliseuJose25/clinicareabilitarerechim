@@ -23,7 +23,7 @@ export function FooterSticky() {
           <MessageCircle className="h-4 w-4" /> WhatsApp
         </a>
         <a
-          href={`tel:${contact.phone}`}
+          href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`}
           className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-4 py-3 text-sm font-semibold text-primary"
         >
           <Phone className="h-4 w-4" /> Ligar
