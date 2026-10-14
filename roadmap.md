@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Ajustar somente o hero com vídeo conforme o documento e validar em 375, 768 e 1440 px.
+- [x] Ajustar somente o hero com vídeo conforme o documento e validar em 375, 768 e 1440 px (build OK, vídeo tocando e sem erros no navegador).
 
 - [x] Aplicar e validar o lote de conformidade, equipe, contraste, localização e ajustes técnicos solicitado.
 
