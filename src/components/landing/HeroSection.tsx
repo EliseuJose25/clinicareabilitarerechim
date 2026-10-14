@@ -23,6 +23,18 @@ function HeroVideo({ mp4, webm, poster }: { mp4: string; webm: string; poster: s
     const video = videoRef.current;
     if (!video) return;
 
+    // O atributo muted não é refletido no HTML renderizado no servidor;
+    // sem essas propriedades o navegador bloqueia o autoplay com som.
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute("muted", "");
+
+    const onError = () => {
+      console.warn("HeroVideo: falha ao carregar o vídeo", video.error?.code);
+      setStaticOnly(true);
+    };
+    video.addEventListener("error", onError);
+
     const tryPlay = () => {
       const result = video.play();
       if (result && typeof result.catch === "function") {
@@ -30,6 +42,10 @@ function HeroVideo({ mp4, webm, poster }: { mp4: string; webm: string; poster: s
       }
     };
     tryPlay();
+
+    // Segunda tentativa quando o vídeo ficar pronto para tocar.
+    const onCanPlay = () => tryPlay();
+    video.addEventListener("canplay", onCanPlay);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -39,7 +55,11 @@ function HeroVideo({ mp4, webm, poster }: { mp4: string; webm: string; poster: s
       { threshold: 0.05 },
     );
     observer.observe(video);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      video.removeEventListener("error", onError);
+      video.removeEventListener("canplay", onCanPlay);
+    };
   }, []);
 
   if (staticOnly) {
