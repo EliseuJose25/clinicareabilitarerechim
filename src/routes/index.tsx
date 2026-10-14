@@ -8,7 +8,6 @@ import { GallerySection } from "@/components/landing/GallerySection";
 import { TestimonialSlider } from "@/components/landing/TestimonialSlider";
 import { FAQSection } from "@/components/landing/FAQSection";
 import { ContactMap } from "@/components/landing/ContactMap";
-import { BeforeAfterSlider } from "@/components/landing/BeforeAfterSlider";
 import { FinalCTA } from "@/components/landing/FinalCTA";
 import { FooterSticky } from "@/components/landing/FooterSticky";
 import { Footer } from "@/components/landing/Footer";
@@ -36,7 +35,6 @@ function Index() {
         <TeamSection />
         <QuoteSection />
         <GallerySection />
-        <BeforeAfterSlider />
         <TestimonialSlider />
         <FAQSection />
         <FinalCTA />
