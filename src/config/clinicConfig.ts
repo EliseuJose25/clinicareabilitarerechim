@@ -102,6 +102,18 @@ export const clinicConfig = {
     ],
     image: consultorioSalaEspera,
     imageAlt: "Sala de espera do consultório Reabilitar",
+    // Vídeo do hero. Se ficar vazio (ex.: mp4: ""), o hero volta a usar a imagem acima.
+    video: {
+      mp4: "/videos/hero.mp4",
+      webm: "/videos/hero.webm",
+      poster: "/videos/hero-poster.jpg",
+    },
+  },
+
+  // ---------- Barra do topo ----------
+  header: {
+    ctaLabel: "Agende uma conversa",
+    ctaLabelShort: "Agendar",
   },
 
   // ---------- Equipe profissional ----------

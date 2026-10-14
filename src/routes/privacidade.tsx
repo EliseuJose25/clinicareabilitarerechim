@@ -26,7 +26,7 @@ function PrivacidadePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
-      <main className="mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-20">
+      <main className="mx-auto max-w-3xl px-4 pb-12 pt-32 md:px-6 md:pb-20 md:pt-40">
         <Link to="/" className="text-sm font-medium text-primary hover:underline">
           ← Voltar ao início
         </Link>
