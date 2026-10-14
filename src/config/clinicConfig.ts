@@ -3,12 +3,13 @@
  * Para personalizar para um novo cliente, altere APENAS este arquivo.
  * (Textos, cores, links, contatos, SEO, analytics, etc.)
  */
-import ba1Before from "@/assets/ba-1-before.jpg";
-import ba1After from "@/assets/ba-1-after.jpg";
-import ba2Before from "@/assets/ba-2-before.jpg";
-import ba2After from "@/assets/ba-2-after.jpg";
-import ba3Before from "@/assets/ba-3-before.jpg";
-import ba3After from "@/assets/ba-3-after.jpg";
+// Fotos dos casos "Antes e Depois" — mantidas no projeto e reativadas junto com clinicConfig.beforeAfter.
+// import ba1Before from "@/assets/ba-1-before.jpg";
+// import ba1After from "@/assets/ba-1-after.jpg";
+// import ba2Before from "@/assets/ba-2-before.jpg";
+// import ba2After from "@/assets/ba-2-after.jpg";
+// import ba3Before from "@/assets/ba-3-before.jpg";
+// import ba3After from "@/assets/ba-3-after.jpg";
 import depEliseu from "@/assets/depoimento-eliseu.jpg";
 import depTatiane from "@/assets/depoimento-tatiane.jpg";
 import consultorioSalaEspera from "@/assets/consultorio-sala-espera.jpg";
@@ -165,47 +166,61 @@ export const clinicConfig = {
   ],
 
   // ---------- Casos: Antes e Depois ----------
-  // Fotos clínicas reais de sorrisos. O comparador exige o MESMO enquadramento
-  // para before/after; use objectPosition para ajustar o foco e scale para
-  // corrigir pequenas diferenças de zoom.
-  beforeAfter: [
-    {
-      title: "Clareamento + Alinhamento",
-      description: "Sorriso uniforme e branco após protocolo estético completo.",
-      beforeImage: ba1Before,
-      afterImage: ba1After,
-      beforeAlt: "Antes - clareamento e alinhamento",
-      afterAlt: "Depois - clareamento e alinhamento",
-      beforePosition: "center 63%",
-      afterPosition: "center 63%",
-      beforeScale: 1,
-      afterScale: 1,
-    },
-    {
-      title: "Lentes de Contato Dental",
-      description: "Reabilitação do formato e da cor com facetas de porcelana.",
-      beforeImage: ba2Before,
-      afterImage: ba2After,
-      beforeAlt: "Antes - lentes de contato dental",
-      afterAlt: "Depois - lentes de contato dental",
-      beforePosition: "center 48%",
-      afterPosition: "center 48%",
-      beforeScale: 1,
-      afterScale: 1,
-    },
-    {
-      title: "Implante Dentário",
-      description: "Recuperação total do sorriso com implante unitário.",
-      beforeImage: ba3Before,
-      afterImage: ba3After,
-      beforeAlt: "Antes - implante dentário",
-      afterAlt: "Depois - implante dentário",
-      beforePosition: "center 53%",
-      afterPosition: "center 53%",
-      beforeScale: 1,
-      afterScale: 1,
-    },
-  ],
+  // Seção fora do ar: reativar quando houver casos reais autorizados.
+  // Para reativar: descomente o bloco de dados abaixo e volte a renderizar
+  // <BeforeAfterSlider /> em src/routes/index.tsx.
+  // O comparador exige o MESMO enquadramento para before/after; use
+  // objectPosition para ajustar o foco e scale para corrigir diferenças de zoom.
+  beforeAfter: [] as {
+    title: string;
+    description: string;
+    beforeImage: string;
+    afterImage: string;
+    beforeAlt: string;
+    afterAlt: string;
+    beforePosition?: string;
+    afterPosition?: string;
+    beforeScale?: number;
+    afterScale?: number;
+  }[],
+  // beforeAfter: [
+  //   {
+  //     title: "Clareamento + Alinhamento",
+  //     description: "Sorriso uniforme e branco após protocolo estético completo.",
+  //     beforeImage: ba1Before,
+  //     afterImage: ba1After,
+  //     beforeAlt: "Antes - clareamento e alinhamento",
+  //     afterAlt: "Depois - clareamento e alinhamento",
+  //     beforePosition: "center 63%",
+  //     afterPosition: "center 63%",
+  //     beforeScale: 1,
+  //     afterScale: 1,
+  //   },
+  //   {
+  //     title: "Lentes de Contato Dental",
+  //     description: "Reabilitação do formato e da cor com facetas de porcelana.",
+  //     beforeImage: ba2Before,
+  //     afterImage: ba2After,
+  //     beforeAlt: "Antes - lentes de contato dental",
+  //     afterAlt: "Depois - lentes de contato dental",
+  //     beforePosition: "center 48%",
+  //     afterPosition: "center 48%",
+  //     beforeScale: 1,
+  //     afterScale: 1,
+  //   },
+  //   {
+  //     title: "Implante Dentário",
+  //     description: "Recuperação total do sorriso com implante unitário.",
+  //     beforeImage: ba3Before,
+  //     afterImage: ba3After,
+  //     beforeAlt: "Antes - implante dentário",
+  //     afterAlt: "Depois - implante dentário",
+  //     beforePosition: "center 53%",
+  //     afterPosition: "center 53%",
+  //     beforeScale: 1,
+  //     afterScale: 1,
+  //   },
+  // ],
 
   // ---------- Bloco de CTA Final ----------
   finalCta: {
@@ -227,11 +242,6 @@ export const clinicConfig = {
       question: "Vocês atendem convênio?",
       answer:
         "Não. Atendemos apenas de forma particular — isso nos permite dedicar tempo e cuidado total a cada paciente, sem pressa e sem protocolos padronizados.",
-    },
-    {
-      question: "Quanto tempo dura uma avaliação inicial?",
-      answer:
-        "A primeira consulta dura em média 45 minutos, incluindo exame clínico e apresentação do plano de tratamento.",
     },
     {
       question: "Por que agendar aqui e não em outra clínica?",
