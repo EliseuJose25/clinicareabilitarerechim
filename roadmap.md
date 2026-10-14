@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Ajustar hero abaixo de lg (tagline equilibrada, 1º item do bullets oculto, botões só onde a barra fixa não está) e nova mensagem do WhatsApp (build OK, conferido em 375/400/600/768/1440).
+
+
 - [x] Ajustar somente o hero com vídeo conforme o documento e validar em 375, 768 e 1440 px (build OK, vídeo tocando e sem erros no navegador).
 
 - [x] Aplicar e validar o lote de conformidade, equipe, contraste, localização e ajustes técnicos solicitado.
