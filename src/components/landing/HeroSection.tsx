@@ -119,15 +119,15 @@ export function HeroSection() {
       </p>
 
       <ul className="mt-6 space-y-2">
-        {hero.bullets.map((b) => (
-          <li key={b} className="flex items-start gap-2 text-sm text-foreground">
+        {hero.bullets.map((b, i) => (
+          <li key={b} className={`items-start gap-2 text-sm text-foreground ${i === 0 ? "hidden lg:flex" : "flex"}`}>
             <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
             <span>{b}</span>
           </li>
         ))}
       </ul>
 
-      <div className="mt-8 flex flex-wrap justify-center gap-4 md:justify-start">
+      <div className="mt-8 hidden flex-wrap justify-center gap-4 md:flex md:justify-start">
         <a
           href={whatsappUrl}
           target="_blank"
