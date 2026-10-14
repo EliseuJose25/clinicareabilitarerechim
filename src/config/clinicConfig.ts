@@ -93,6 +93,8 @@ export const clinicConfig = {
   hero: {
     eyebrow: "Mais de 20 anos de odontologia em Erechim",
     title: "Odontologia raiz: honesta, sem pressa e só com o que você realmente precisa.",
+    display: { line1: "Odontologia", line2: "raiz" },
+    tagline: "honesta, sem pressa e só com o que você realmente precisa.",
     subtitle:
       "Atendimento particular, com mais de 20 anos de prática pautada pela honestidade e pelo cuidado individual com cada paciente.",
     bullets: [

@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep prominent clinic statements in `clinicConfig` and render them through focused landing sections, so content remains centrally editable.
+- Keep video-hero display text in clinicConfig and its decorative title layers inside one accessible h1; this preserves editable content without duplicate announcements.

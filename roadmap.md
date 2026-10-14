@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Ajustar somente o hero com vídeo conforme o documento e validar em 375, 768 e 1440 px.
+
 - [x] Aplicar e validar o lote de conformidade, equipe, contraste, localização e ajustes técnicos solicitado.
 
 - [x] Garantir escala mínima de 1 nos seis enquadramentos do comparador.
