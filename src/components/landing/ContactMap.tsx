@@ -1,5 +1,5 @@
 import { clinicConfig } from "@/config/clinicConfig";
-import { MapPin, Clock, Phone } from "lucide-react";
+import { MapPin, Clock, Phone, Star, Navigation, ExternalLink } from "lucide-react";
 
 /**
  * ContactMap - seção de contato com mapa embutido do Google Maps.
@@ -65,14 +65,35 @@ export function ContactMap() {
               </a>
             </div>
 
-            <a
-              href={contact.address.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition hover:bg-gold/90"
-            >
-              Traçar rota no Google Maps
-            </a>
+            <div className="mt-2 flex flex-wrap gap-3">
+              <a
+                href={contact.reviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition hover:bg-gold/90"
+              >
+                <Star className="h-4 w-4" />
+                Avaliar a Reabilitar no Google
+              </a>
+              <a
+                href={contact.googleBusinessUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition hover:bg-muted"
+              >
+                <ExternalLink className="h-4 w-4" />
+                Ver perfil no Google Maps
+              </a>
+              <a
+                href={contact.address.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition hover:bg-muted"
+              >
+                <Navigation className="h-4 w-4" />
+                Traçar rota no Google Maps
+              </a>
+            </div>
           </div>
         </div>
       </div>

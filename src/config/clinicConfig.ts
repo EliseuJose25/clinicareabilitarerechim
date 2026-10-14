@@ -43,6 +43,10 @@ export const clinicConfig = {
       mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=Av.+Sete+de+Setembro,+431,+Erechim+-+RS",
     },
     hours: "Segunda a sexta: 8h às 11h30 e 13h às 17h30",
+    // Link oficial de avaliação no Google (usado no botão "Avaliar a Reabilitar no Google")
+    reviewUrl: "https://g.page/r/CRZlU8bU73LzEBM/review",
+    // Perfil compartilhado da Reabilitar no Google Maps
+    googleBusinessUrl: "https://share.google/xxIfpFPU9wpdzpX38",
   },
 
   // ---------- Redes sociais ----------
