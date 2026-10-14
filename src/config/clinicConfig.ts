@@ -52,7 +52,7 @@ export const clinicConfig = {
 
   // ---------- Redes sociais ----------
   social: {
-    instagram: "https://instagram.com/reabilitarerechim",
+    instagram: "https://www.instagram.com/reabilitarodontoerechim/",
   },
 
   // ---------- CTA principal ----------
