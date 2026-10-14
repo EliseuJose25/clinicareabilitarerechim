@@ -1,4 +1,5 @@
 import { clinicConfig } from "@/config/clinicConfig";
+import placaSala605 from "@/assets/placa-sala-605.jpg";
 import { MapPin, Clock, Phone, Star, Navigation, ExternalLink } from "lucide-react";
 
 /**
@@ -41,6 +42,17 @@ export function ContactMap() {
           </div>
 
           <div className="flex flex-col justify-center gap-4 rounded-2xl border border-border/70 bg-secondary/40 p-6 md:p-8">
+            <figure>
+              <img
+                src={placaSala605}
+                alt="Placa de acrílico da Reabilitar – Consultório de Especialidades Odontológicas, fixada na parede acima da porta da sala 605, com o logotipo de dente azul e a indicação Sala 605"
+                className="w-full rounded-2xl object-cover"
+                loading="lazy"
+              />
+              <figcaption className="mt-2 text-sm text-muted-foreground">
+                Sala 605, Av. Sete de Setembro, 431
+              </figcaption>
+            </figure>
             <div className="flex items-start gap-3">
               <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
               <div className="text-base text-foreground">
