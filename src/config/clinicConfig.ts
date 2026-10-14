@@ -33,7 +33,7 @@ export const clinicConfig = {
     phone: "+55 54 99955-9059",
     phoneDisplay: "(54) 99955-9059",
     whatsapp: "5554999559059",
-    whatsappMessage: "Oi, tudo bem? Vim pelo site e gostaria de agendar uma avaliação. Qual o melhor dia e horário?",
+    whatsappMessage: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de marcar uma consulta. Quais dias e horários vocês têm disponíveis? Desde já, obrigado!",
     email: "contato@reabilitarerechim.com.br",
     addressTitle: "Reabilitar – Consultório de Especialidades Odontológicas",
     address: {

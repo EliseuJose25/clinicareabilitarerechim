@@ -189,19 +189,19 @@ export function HeroSection() {
                 </span>
               </span>
             </h1>
-            <p className="mt-6 font-heading text-lg italic text-muted-foreground lg:hidden">{hero.tagline}</p>
+            <p className="mt-6 font-heading text-base text-balance italic text-muted-foreground min-[400px]:text-lg lg:hidden">{hero.tagline}</p>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg lg:max-w-sm lg:text-sm">
               {hero.subtitle}
             </p>
             <ul className="mt-6 space-y-2 lg:hidden">
-              {hero.bullets.map((b) => (
-                <li key={b} className="flex items-start gap-2 text-sm text-foreground">
+              {hero.bullets.map((b, i) => (
+                <li key={b} className={`items-start gap-2 text-sm text-foreground ${i === 0 ? "hidden lg:flex" : "flex"}`}>
                   <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
                   <span>{b}</span>
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex flex-wrap justify-center gap-4 md:justify-start">
+            <div className="mt-8 hidden flex-wrap justify-center gap-4 md:flex md:justify-start">
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition hover:bg-gold/90">
                 {cta.primaryLabel}
               </a>
