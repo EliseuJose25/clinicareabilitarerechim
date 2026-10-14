@@ -35,10 +35,17 @@ function HeroVideo({ mp4, webm, poster }: { mp4: string; webm: string; poster: s
     };
     video.addEventListener("error", onError);
 
+    let playFailed = false;
+
     const tryPlay = () => {
       const result = video.play();
       if (result && typeof result.catch === "function") {
-        result.catch(() => setStaticOnly(true));
+        result.catch(() => {
+          // Na primeira falha, aguarda uma nova tentativa no "canplay"
+          // antes de cair no poster; na segunda, mostra o poster.
+          if (playFailed) setStaticOnly(true);
+          playFailed = true;
+        });
       }
     };
     tryPlay();
