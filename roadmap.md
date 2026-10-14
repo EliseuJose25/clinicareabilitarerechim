@@ -17,3 +17,4 @@
 - [x] Criar a seção Nossa estrutura após a equipe
 - [x] Usar a sala de espera na imagem principal
 - [x] Adicionar a razão social e o CNPJ no rodapé
+- [x] Adicionar avaliação e perfil do Google em "Onde estamos", mantendo o botão de rota
