@@ -18,3 +18,4 @@
 - [x] Usar a sala de espera na imagem principal
 - [x] Adicionar a razão social e o CNPJ no rodapé
 - [x] Adicionar avaliação e perfil do Google em "Onde estamos", mantendo o botão de rota
+- [x] Ocultar a seção Antes e depois (dados comentados) e remover a pergunta sobre duração da avaliação do FAQ
