@@ -150,21 +150,65 @@ export function HeroSection() {
     return (
       <section
         id="top"
-        className="relative overflow-hidden border-b border-border/60 bg-background pt-[calc(5rem+env(safe-area-inset-top))] lg:grid lg:min-h-[100svh] lg:grid-cols-2 lg:pt-0"
+        className="relative overflow-hidden border-b border-border/60 bg-background pt-[calc(5rem+env(safe-area-inset-top))] lg:grid lg:min-h-[max(100svh,50rem)] lg:grid-cols-2 lg:pt-0"
       >
         {/* Vídeo: primeiro no mobile/tablet; metade direita no desktop */}
         <div className="relative h-[42svh] min-h-[260px] w-full lg:order-2 lg:h-auto lg:min-h-0">
           <HeroVideo mp4={video.mp4} webm={video.webm} poster={video.poster} />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-hero-overlay/35" />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 top-0 hidden h-32 bg-gradient-to-b from-black/35 to-transparent lg:block"
+            className="pointer-events-none absolute inset-x-0 top-0 hidden h-32 bg-gradient-to-b from-hero-scrim/35 to-transparent lg:block"
           />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-48 bg-gradient-to-t from-hero-scrim/45 to-transparent lg:block" />
+          <p className="absolute bottom-16 left-10 hidden max-w-xs font-heading text-2xl italic leading-snug text-hero-on-video lg:block xl:text-3xl">
+            {hero.tagline}
+          </p>
         </div>
 
         {/* Conteúdo: alinhado ao eixo do container max-w-6xl no desktop */}
-        <div className="flex items-center px-4 py-10 md:px-6 md:py-14 lg:order-1 lg:pb-16 lg:pl-[max(2.5rem,calc((100vw-72rem)/2))] lg:pr-12 lg:pt-32">
-          <div className="w-full motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-[600ms]">
-            {content}
+        <div className="flex items-center px-4 py-10 md:px-6 md:py-14 lg:order-1 lg:items-end lg:pb-16 lg:pl-[max(2.5rem,calc((100vw-72rem)/2))] lg:pr-12 lg:pt-[36rem]">
+          <div className="w-full">
+            <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
+              {hero.eyebrow}
+            </span>
+            <h1 className="mt-5 font-heading text-[3.25rem] font-normal leading-[0.95] tracking-normal text-foreground sm:text-[6.5rem] lg:pointer-events-none lg:absolute lg:inset-x-0 lg:top-[26%] lg:z-10 lg:mt-0 lg:select-none lg:text-[7rem] xl:text-[10.35rem] 2xl:text-[12rem]">
+              <span className="sr-only">{hero.title}</span>
+              <span aria-hidden="true" className="block lg:hidden">
+                <span className="block motion-safe:hero-title-enter">{hero.display.line1}</span>
+                <span className="ml-6 block italic motion-safe:hero-title-enter motion-safe:[animation-delay:120ms]">{hero.display.line2}</span>
+              </span>
+              <span aria-hidden="true" className="relative hidden lg:block">
+                <span className="block text-foreground [clip-path:inset(0_50%_0_0)]">
+                  <span className="block pl-[max(2.5rem,calc((100vw-72rem)/2))] motion-safe:hero-title-enter">{hero.display.line1}</span>
+                  <span className="block pl-[40%] italic motion-safe:hero-title-enter motion-safe:[animation-delay:120ms]">{hero.display.line2}</span>
+                </span>
+                <span className="absolute inset-0 block text-hero-on-video [clip-path:inset(0_0_0_50%)]">
+                  <span className="block pl-[max(2.5rem,calc((100vw-72rem)/2))] motion-safe:hero-title-enter">{hero.display.line1}</span>
+                  <span className="block pl-[40%] italic motion-safe:hero-title-enter motion-safe:[animation-delay:120ms]">{hero.display.line2}</span>
+                </span>
+              </span>
+            </h1>
+            <p className="mt-6 font-heading text-lg italic text-muted-foreground lg:hidden">{hero.tagline}</p>
+            <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg lg:max-w-sm lg:text-sm">
+              {hero.subtitle}
+            </p>
+            <ul className="mt-6 space-y-2 lg:hidden">
+              {hero.bullets.map((b) => (
+                <li key={b} className="flex items-start gap-2 text-sm text-foreground">
+                  <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap justify-center gap-4 md:justify-start">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition hover:bg-gold/90">
+                {cta.primaryLabel}
+              </a>
+              <a href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`} className="inline-flex items-center justify-center rounded-full border-2 border-primary bg-transparent px-6 py-3 text-sm font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground">
+                Ligar agora
+              </a>
+            </div>
           </div>
         </div>
       </section>
