@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Validar menu em tela cheia da Etapa 2A, cartões e acessibilidade sem publicar.
+- [ ] Etapa 4: "Contato" abrirá o painel "Agende uma conversa"; depende da implementação dessa etapa, mantendo WhatsApp por enquanto.
+
 - [x] Ajustar hero abaixo de lg (tagline equilibrada, 1º item do bullets oculto, botões só onde a barra fixa não está) e nova mensagem do WhatsApp (build OK, conferido em 375/400/600/768/1440).
 
 

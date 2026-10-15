@@ -162,6 +162,50 @@
   animation: hero-title-enter 600ms ease-out both;
 }
 
+@keyframes menu-item-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.menu-overlay .menu-main-link {
+  font-size: 2.25rem;
+  line-height: 1.1;
+  white-space: normal;
+}
+
+@media (min-width: 400px) {
+  .menu-overlay .menu-main-link { font-size: 2.5rem; }
+}
+
+@media (min-width: 768px) {
+  .menu-overlay .menu-main-link { font-size: 3.5rem; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .menu-overlay:where([data-state="open"]) .menu-stagger {
+    animation: menu-item-enter 200ms ease-out both;
+  }
+  .menu-overlay nav .menu-stagger:nth-child(2) { animation-delay: 40ms; }
+  .menu-overlay nav .menu-stagger:nth-child(3) { animation-delay: 80ms; }
+  .menu-overlay nav .menu-stagger:nth-child(4) { animation-delay: 120ms; }
+  .menu-overlay .menu-treatments { animation-delay: 160ms; }
+  .menu-overlay .menu-networks { animation-delay: 360ms; }
+  .menu-overlay .menu-treatment { animation-delay: 200ms; }
+  .menu-overlay .menu-treatment:nth-child(2) { animation-delay: 240ms; }
+  .menu-overlay .menu-treatment:nth-child(3) { animation-delay: 280ms; }
+  .menu-overlay .menu-treatment:nth-child(4) { animation-delay: 320ms; }
+  .menu-overlay .menu-treatment:nth-child(5) { animation-delay: 360ms; }
+}
+
+@media (hover: none) {
+  .menu-overlay .menu-treatment-arrow { opacity: 0.5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-overlay { animation: none; }
+  .menu-overlay * { transition: none; }
+}
+
 @layer base {
   html {
     scroll-padding-top: 5rem;
