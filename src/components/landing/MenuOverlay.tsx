@@ -1,6 +1,6 @@
 import { ArrowUpRight, Instagram, MessageCircle, X } from "lucide-react";
 // Ícones SVG inline para os treatments no desktop — evita dependência de lucide-react no desktop grid.
-import icon from "/assets/reabilitar-icon.png";
+import icon from "@/assets/reabilitar-icon.png";
 import { Button } from "@/components/ui/button";
 import { SheetClose, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet";
 import { clinicConfig } from "@/config/clinicConfig";
