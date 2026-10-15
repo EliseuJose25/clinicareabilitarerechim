@@ -182,13 +182,12 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .menu-overlay[data-state="open"] .menu-stagger {
+  .menu-overlay:where([data-state="open"]) .menu-stagger {
     animation: menu-item-enter 200ms ease-out both;
   }
-  .menu-overlay .menu-stagger:nth-child(2) { animation-delay: 40ms; }
-  .menu-overlay .menu-stagger:nth-child(3) { animation-delay: 80ms; }
-  .menu-overlay .menu-stagger:nth-child(4) { animation-delay: 120ms; }
-  .menu-overlay .menu-stagger:nth-child(5) { animation-delay: 160ms; }
+  .menu-overlay nav .menu-stagger:nth-child(2) { animation-delay: 40ms; }
+  .menu-overlay nav .menu-stagger:nth-child(3) { animation-delay: 80ms; }
+  .menu-overlay nav .menu-stagger:nth-child(4) { animation-delay: 120ms; }
   .menu-overlay .menu-treatments { animation-delay: 160ms; }
   .menu-overlay .menu-networks { animation-delay: 360ms; }
   .menu-overlay .menu-treatment { animation-delay: 200ms; }
