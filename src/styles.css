@@ -203,7 +203,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .menu-overlay, body > [data-slot="unused-menu-overlay"] { animation: none; }
+  .menu-overlay { animation: none; }
   .menu-overlay * { transition: none; }
 }
 

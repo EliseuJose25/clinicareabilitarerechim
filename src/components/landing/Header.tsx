@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { clinicConfig } from "@/config/clinicConfig";
 import icon from "@/assets/reabilitar-icon.png";
 import { Button } from "@/components/ui/button";
+import { MenuOverlay } from "@/components/landing/MenuOverlay";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,10 +11,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {
   Sheet,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ChevronDown, Menu, MessageCircle, Phone, Plus } from "lucide-react";
@@ -23,7 +20,7 @@ import { ChevronDown, Menu, MessageCircle, Phone, Plus } from "lucide-react";
  * Em md+ fica transparente sobre o hero até rolar ~24px; abaixo de md é sempre sólido.
  */
 export function Header({ overVideo = false }: { overVideo?: boolean }) {
-  const { brand, contact, cta, header } = clinicConfig;
+  const { brand, contact, header } = clinicConfig;
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -71,35 +68,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
                 <span className="hidden sm:inline">Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="flex w-[min(85vw,22rem)] flex-col">
-              <SheetHeader className="text-left">
-                <SheetTitle className="flex items-center gap-2.5">
-                  <img src={icon} alt="Reabilitar" className="h-10 w-auto" />
-                  <span translate="no" className="text-primary">{brand.logoText}</span>
-                </SheetTitle>
-              </SheetHeader>
-
-              <nav className="mt-8 flex flex-col text-base font-medium text-foreground">
-                <SheetClose asChild>
-                  <a href="/#credenciais" className="border-b border-border py-4">Sobre</a>
-                </SheetClose>
-                <SheetClose asChild>
-                  <a href="/#depoimentos" className="border-b border-border py-4">Depoimentos</a>
-                </SheetClose>
-                <SheetClose asChild>
-                  <a href="/#faq" className="border-b border-border py-4">Dúvidas</a>
-                </SheetClose>
-                <SheetClose asChild>
-                  <a href="/#contato" className="border-b border-border py-4">Contato</a>
-                </SheetClose>
-              </nav>
-
-              <Button asChild className="mt-6 rounded-full bg-gold text-gold-foreground hover:bg-gold/90">
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  {cta.primaryLabel}
-                </a>
-              </Button>
-            </SheetContent>
+            <MenuOverlay />
           </Sheet>
         </div>
 
