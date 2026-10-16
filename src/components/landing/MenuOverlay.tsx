@@ -27,7 +27,7 @@ export function MenuOverlay() {
   return (
     <SheetContent
       side="right"
-      className="menu-overlay z-[60] h-dvh w-screen max-w-none gap-0 overflow-hidden border-0 bg-hero-overlay p-0 text-hero-on-video sm:max-w-none data-[state=open]:slide-in-from-right-0 data-[state=closed]:slide-out-to-right-0 data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:duration-200 data-[state=closed]:duration-200 motion-reduce:animate-none lg:max-w-none lg:items-stretch lg:justify-between lg:rounded-none lg:border-none [&>button]:hidden"
+      className="menu-overlay z-[60] h-dvh w-screen max-w-none gap-0 overflow-x-hidden overflow-y-hidden border-0 bg-hero-overlay p-0 text-hero-on-video sm:max-w-none data-[state=open]:slide-in-from-right-0 data-[state=closed]:slide-out-to-right-0 data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:duration-200 data-[state=closed]:duration-200 motion-reduce:animate-none lg:max-w-none lg:items-stretch lg:justify-between lg:rounded-none lg:border-none [&>button]:hidden"
     >
       <SheetTitle className="sr-only">Menu principal</SheetTitle>
       <SheetDescription className="sr-only">Navegação da Reabilitar, tratamentos e contatos.</SheetDescription>
