@@ -1,3 +1,4 @@
+import { useId } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { clinicConfig } from "@/config/clinicConfig";
@@ -12,9 +13,11 @@ import {
 const treatmentIcons = [ToothCheckIcon, ToothImplantIcon, ToothCrownIcon, ToothBracesIcon, ToothSparkleIcon];
 
 export function TreatmentCards({ variant }: { variant: "menu" }) {
+  const titleId = useId();
+
   return (
-    <section data-variant={variant} aria-labelledby="menu-treatments-title">
-      <h2 id="menu-treatments-title" className="mb-4 text-xl text-hero-on-video">Tratamentos</h2>
+    <section data-variant={variant} aria-labelledby={titleId}>
+      <h2 id={titleId} className="mb-4 text-xl text-hero-on-video">Tratamentos</h2>
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-5">
         {clinicConfig.treatments.map((treatment, index) => {
           const TreatmentIcon = treatmentIcons[index];
