@@ -1,8 +1,15 @@
-import { ArrowUpRight, Bone, Puzzle, Smile, Sparkles, Stethoscope } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { clinicConfig } from "@/config/clinicConfig";
+import {
+  ToothBracesIcon,
+  ToothImplantIcon,
+  ToothCrownIcon,
+  ToothCheckIcon,
+  ToothSparkleIcon,
+} from "@/components/icons/ToothIcons";
 
-const treatmentIcons = { Smile, Bone, Puzzle, Stethoscope, Sparkles };
+const treatmentIcons = [ToothCheckIcon, ToothImplantIcon, ToothCrownIcon, ToothBracesIcon, ToothSparkleIcon];
 
 export function TreatmentCards({ variant }: { variant: "menu" }) {
   return (
@@ -10,7 +17,7 @@ export function TreatmentCards({ variant }: { variant: "menu" }) {
       <h2 id="menu-treatments-title" className="mb-4 text-xl text-hero-on-video">Tratamentos</h2>
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-5">
         {clinicConfig.treatments.map((treatment, index) => {
-          const TreatmentIcon = treatmentIcons[treatment.icon];
+          const TreatmentIcon = treatmentIcons[index];
           return (
             <Button
               key={treatment.id}
