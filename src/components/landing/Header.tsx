@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { clinicConfig } from "@/config/clinicConfig";
 import icon from "@/assets/reabilitar-icon.png";
 import { Button } from "@/components/ui/button";
@@ -16,6 +16,7 @@ import {
 import { ChevronDown, Menu, MessageCircle, Phone, Plus } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { TreatmentCards } from "@/components/landing/TreatmentCards";
+import { useContactPanel } from "@/components/landing/ContactPanel";
 
 /**
  * Header fixo com logo, botão Menu (gaveta), telefone (desktop) e CTA em pílula.
@@ -25,8 +26,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
   const { brand, contact, header } = clinicConfig;
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const triggerRef = useRef<HTMLButtonElement | null>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const { open: openContactPanel } = useContactPanel();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY >= 24);
@@ -52,7 +52,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
       }`}
     >
       <div className="flex h-20 w-full items-center justify-between gap-2 px-4 md:px-6 lg:px-10">
-        {/* Esquerda: logo + Menu */}
+        {/* Esquerda: logo + Menu + Serviços (lg+) */}
         <div className="flex min-w-0 items-center gap-1 sm:gap-3">
           <a href="/#top" className="flex items-center gap-2.5">
             <img src={icon} alt="Reabilitar" className="h-10 w-auto" />
@@ -75,6 +75,35 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
             </SheetTrigger>
             <MenuOverlay />
           </Sheet>
+
+          <Popover open={servicesOpen} onOpenChange={setServicesOpen}>
+            <PopoverTrigger asChild>
+              <Button
+                type="button"
+                variant="ghost"
+                className="hidden h-11 min-w-11 gap-1.5 px-2.5 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary sm:px-3 lg:inline-flex"
+                aria-label="Abrir lista de serviços"
+                aria-expanded={servicesOpen}
+                aria-haspopup="dialog"
+              >
+                Serviços
+                <ChevronDown
+                  aria-hidden="true"
+                  className={`h-4 w-4 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent
+              align="start"
+              sideOffset={12}
+              className="w-[min(92vw,64rem)] rounded-3xl border border-border/60 bg-secondary p-6 text-foreground shadow-2xl"
+            >
+              <span className="mb-4 block text-xs font-semibold uppercase tracking-wider text-foreground/60">
+                Serviços
+              </span>
+              <TreatmentCards variant="dropdown" />
+            </PopoverContent>
+          </Popover>
         </div>
 
         {/* Direita: telefone (lg+) + CTA */}
@@ -109,16 +138,16 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={openContactPanel}
             className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-gold px-4 py-2.5 text-sm font-semibold text-gold-foreground shadow-sm transition hover:bg-gold/90 md:px-5"
+            aria-label="Agendar uma conversa"
           >
             <span className="md:hidden">{header.ctaLabelShort}</span>
             <span className="hidden md:inline">{header.ctaLabel}</span>
             <Plus className="h-4 w-4" aria-hidden="true" />
-          </a>
+          </button>
         </div>
       </div>
     </header>
