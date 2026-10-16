@@ -24,7 +24,7 @@ export const clinicConfig = {
     shortName: "Reabilitar",
     logoText: "Reabilitar",
     tagline:
-      "Mais de 20 anos praticando a odontologia raiz: cuidado honesto, cada decisão pensada para você.",
+      "25 anos praticando a odontologia raiz: cuidado honesto, cada decisão pensada para você.",
   },
 
   contact: {
@@ -86,11 +86,12 @@ export const clinicConfig = {
   ],
 
   hero: {
-    eyebrow: "Mais de 20 anos de odontologia em Erechim",
+    eyebrow: "25 anos de odontologia · Erechim/RS",
     title: "Odontologia raiz: honesta, sem pressa e só com o que você realmente precisa.",
     display: { line1: "Odontologia", line2: "raiz" },
-    tagline: "honesta, sem pressa e só com o que você realmente precisa.",
-    subtitle: "Atendimento particular, com mais de 20 anos de prática pautada pela honestidade e pelo cuidado individual com cada paciente.",
+        tagline: "Honesta, sem pressa e só com o que você realmente precisa.",
+    subtitle:
+      "Atendimento particular, com cuidado individual e tempo para explicar cada etapa.",
     bullets: [
       "Mais de 20 anos de experiência em odontologia raiz",
       "Atendimento particular, sem convênios, com foco total em você",
@@ -177,7 +178,7 @@ export const clinicConfig = {
 
   seo: {
     title: "Reabilitar - Consultório de Especialidades Odontológicas em Erechim/RS",
-    description: "Consultório odontológico particular em Erechim/RS, com mais de 20 anos de experiência em ortodontia, implantes, próteses e estética. Atendimento honesto e individualizado — agende sua avaliação.",
+    description: "Consultório odontológico particular em Erechim/RS, com 25 anos de experiência em ortodontia, implantes, próteses e estética. Atendimento honesto e individualizado — agende sua consulta.",
     keywords: "dentista Erechim, implante dentário Erechim, ortodontia Erechim, clínica odontológica Erechim RS, prótese dentária Erechim",
     canonical: "https://reabilitarerechim.com.br/",
     ogImage: "",
