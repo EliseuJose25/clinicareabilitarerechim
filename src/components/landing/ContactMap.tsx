@@ -82,16 +82,16 @@ export function ContactMap() {
                 href={contact.reviewUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition hover:bg-gold/90"
+                className="btn-gmap-primary inline-flex items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition-colors duration-200 hover:bg-[#10264A] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#10264A] focus-visible:ring-offset-2 motion-reduce:transition-none"
               >
-                <Star className="h-4 w-4" />
+                <Star className="h-4 w-4 transition-colors duration-200 group-hover/btn:text-white group-focus-visible/btn:text-white" />
                 Avaliar a Reabilitar no Google
               </a>
               <a
                 href={contact.googleBusinessUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition hover:bg-muted"
+                className="btn-gmap-secondary inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition-colors duration-200 hover:border-[#1E4DB7] hover:bg-[#1E4DB7] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E4DB7] focus-visible:ring-offset-2 motion-reduce:transition-none"
               >
                 <ExternalLink className="h-4 w-4" />
                 Ver perfil no Google Maps
@@ -100,7 +100,7 @@ export function ContactMap() {
                 href={contact.address.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition hover:bg-muted"
+                className="btn-gmap-secondary inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition-colors duration-200 hover:border-[#1E4DB7] hover:bg-[#1E4DB7] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E4DB7] focus-visible:ring-offset-2 motion-reduce:transition-none"
               >
                 <Navigation className="h-4 w-4" />
                 Traçar rota no Google Maps
