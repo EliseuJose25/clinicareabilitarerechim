@@ -304,12 +304,12 @@ export function ContactPanel() {
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(90deg, rgba(16,38,74,0) 0%, rgba(16,38,74,0.18) 60%, rgba(16,38,74,0.32) 100%)",
+                  "linear-gradient(90deg, rgba(16,38,74,0) 0%, rgba(16,38,74,0.35) 55%, rgba(16,38,74,0.6) 100%)",
               }}
               aria-hidden="true"
             />
             <h3
-              className="absolute -bottom-6 left-6 font-heading text-foreground"
+              className="absolute -bottom-2 left-6 font-heading text-foreground/50 mix-blend-multiply"
               style={{
                 fontSize: "clamp(3.5rem, 13vw, 11rem)",
                 lineHeight: 0.9,
