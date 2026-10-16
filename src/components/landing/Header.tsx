@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { clinicConfig } from "@/config/clinicConfig";
 import icon from "@/assets/reabilitar-icon.png";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ChevronDown, Menu, MessageCircle, Phone, Plus } from "lucide-react";
-import { useRef, useState } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { TreatmentCards } from "@/components/landing/TreatmentCards";
 
