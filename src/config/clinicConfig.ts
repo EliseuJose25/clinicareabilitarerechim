@@ -56,11 +56,11 @@ export const clinicConfig = {
   },
 
   treatments: [
-    { id: "ortodontia", name: "Ortodontia", icon: "Smile", message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Ortodontia." },
-    { id: "implantes-cirurgia", name: "Implantes e cirurgia", icon: "Bone", message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Implantes e cirurgia." },
-    { id: "protese", name: "Prótese", icon: "Puzzle", message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Prótese." },
-    { id: "clinica-geral", name: "Clínica geral", icon: "Stethoscope", message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Clínica geral." },
-    { id: "estetica", name: "Estética", icon: "Sparkles", message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Estética." },
+    { id: "ortodontia", name: "Ortodontia", icon: "ToothBraces", message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Ortodontia." },
+    { id: "implantes-cirurgia", name: "Implantes e cirurgia", icon: "ToothImplant", message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Implantes e cirurgia." },
+    { id: "protese", name: "Prótese", icon: "ToothCrown", message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Prótese." },
+    { id: "clinica-geral", name: "Clínica geral", icon: "ToothCheck", message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Clínica geral." },
+    { id: "estetica", name: "Estética", icon: "ToothSparkle", message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Estética." },
   ],
 
   // ---------- CTA principal ----------
