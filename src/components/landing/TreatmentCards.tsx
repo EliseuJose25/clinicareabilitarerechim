@@ -42,7 +42,7 @@ export function TreatmentCards({ variant }: { variant: "menu" }) {
                     loading="lazy"
                     decoding="async"
                     alt=""
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] group-focus-visible:scale-[1.02]"
+                    className="h-full w-full object-cover transition-transform duration-200 motion-reduce:transition-none group-hover:scale-[1.02] group-focus-visible:scale-[1.02]"
                   />
                   <ArrowUpRight
                     aria-hidden="true"
