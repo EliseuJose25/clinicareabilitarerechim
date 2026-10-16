@@ -1,4 +1,4 @@
-import { ArrowUpRight, Instagram, MessageCircle, X } from "lucide-react";
+import { ArrowUpRight, Instagram, X } from "lucide-react";
 import icon from "@/assets/reabilitar-icon.png";
 import { Button } from "@/components/ui/button";
 import { SheetClose, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet";
@@ -37,14 +37,14 @@ export function MenuOverlay() {
         <div className="shrink-0 pt-[env(safe-area-inset-top)]">
           <div className="mx-auto flex h-20 w-full max-w-xl items-center justify-between gap-2 px-6 lg:grid lg:max-w-[96rem] lg:grid-cols-[32%_minmax(0,1fr)] lg:gap-12 lg:px-10">
             <div className="flex min-w-0 items-center gap-2.5">
-              <img src={icon} alt="" className="h-10 w-auto" />
+              <img src={icon} alt="" className="h-10 w-auto brightness-0 invert" />
               <span translate="no" className="text-base font-semibold">{brand.logoText}</span>
             </div>
             <SheetClose asChild>
               <Button
                 type="button"
                 variant="ghost"
-                className="min-h-11 shrink-0 gap-2 rounded-md px-3 text-hero-on-video hover:bg-hero-on-video/10 hover:text-hero-on-video focus-visible:ring-2 focus-visible:ring-gold max-lg:text-primary lg:justify-self-end lg:text-hero-on-video lg:hover:bg-hero-on-video/10 lg:hover:text-hero-on-video"
+                className="min-h-11 shrink-0 gap-2 rounded-md px-3 text-hero-on-video hover:bg-hero-on-video/10 hover:text-hero-on-video focus-visible:ring-2 focus-visible:ring-gold lg:justify-self-end lg:text-hero-on-video lg:hover:bg-hero-on-video/10 lg:hover:text-hero-on-video"
               >
                 Fechar <X aria-hidden="true" className="size-5" />
               </Button>
@@ -82,7 +82,7 @@ export function MenuOverlay() {
             <div className="menu-stagger menu-networks mt-8 flex flex-wrap items-center gap-3">
               {[
                 { label: "Instagram da Reabilitar", href: social.instagram, Icon: Instagram },
-                { label: "WhatsApp da Reabilitar", href: whatsappUrl, Icon: MessageCircle },
+                { label: "WhatsApp da Reabilitar", href: whatsappUrl, Icon: WhatsAppIcon },
               ].map(({ label, href, Icon }) => (
                 <Button
                   key={label}
