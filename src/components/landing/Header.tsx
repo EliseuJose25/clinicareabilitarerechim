@@ -14,6 +14,9 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ChevronDown, Menu, MessageCircle, Phone, Plus } from "lucide-react";
+import { useRef, useState } from "react";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { TreatmentCards } from "@/components/landing/TreatmentCards";
 
 /**
  * Header fixo com logo, botão Menu (gaveta), telefone (desktop) e CTA em pílula.
@@ -22,6 +25,9 @@ import { ChevronDown, Menu, MessageCircle, Phone, Plus } from "lucide-react";
 export function Header({ overVideo = false }: { overVideo?: boolean }) {
   const { brand, contact, header } = clinicConfig;
   const [scrolled, setScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY >= 24);
