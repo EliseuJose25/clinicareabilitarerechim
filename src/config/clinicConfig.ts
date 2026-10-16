@@ -59,11 +59,56 @@ export const clinicConfig = {
   },
 
   treatments: [
-    { id: "ortodontia", name: "Ortodontia", image: "ortodontia", message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Ortodontia." },
-    { id: "implantes-cirurgia", name: "Implantes e cirurgia", image: "implantes-cirurgia", message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Implantes e cirurgia." },
-    { id: "protese", name: "Prótese", image: "protese", message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Prótese." },
-    { id: "clinica-geral", name: "Clínica geral", image: "clinica-geral", message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Clínica geral." },
-    { id: "estetica", name: "Estética", image: "estetica", message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Estética." },
+    {
+      id: "ortodontia",
+      name: "Ortodontia",
+      headline: "Ortodontia",
+      image: "ortodontia",
+      message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Ortodontia.",
+      summary:
+        "Avaliação e acompanhamento para alinhar os dentes e corrigir a mordida, com o aparelho mais adequado a cada caso.",
+      procedures: ["Aparelhos", "Acompanhamento"],
+    },
+    {
+      id: "implantes-cirurgia",
+      name: "Implantes e cirurgia",
+      headline: "Implantes e cirurgia",
+      image: "implantes-cirurgia",
+      message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Implantes e cirurgia.",
+      summary:
+        "Implantes, levantamento de seio maxilar, remoção de cistos e extrações, com explicação de cada etapa antes de começar.",
+      procedures: ["Implantes", "Seio maxilar", "Cistos", "Extrações"],
+    },
+    {
+      id: "protese",
+      name: "Prótese",
+      headline: "Prótese",
+      image: "protese",
+      message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Prótese.",
+      summary:
+        "Reposição de dentes ausentes e recuperação da mastigação, com planejamento individual.",
+      procedures: ["Reposição de dentes", "Reabilitação"],
+    },
+    {
+      id: "clinica-geral",
+      name: "Clínica geral",
+      headline: "Clínica geral",
+      image: "clinica-geral",
+      message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Clínica geral.",
+      summary:
+        "Limpeza, prevenção e cuidados do dia a dia para manter a saúde da boca.",
+      procedures: ["Limpeza", "Prevenção"],
+    },
+    {
+      id: "estetica",
+      name: "Estética",
+      headline: "Estética",
+      image: "estetica",
+      message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Estética.",
+      summary:
+        "Clareamento e restaurações, com atenção ao aspecto natural dos dentes.",
+      procedures: ["Clareamento", "Restaurações"],
+    },
   ],
 
   cta: {
