@@ -1,5 +1,6 @@
 # Roadmap
 
+- [x] Aplicar a imagem enviada da Prótese no card correspondente (Serviços e menu em tela cheia), sem publicar.
 - [x] Validar menu em tela cheia da Etapa 2A, cartões e acessibilidade sem publicar.
 - [ ] Etapa 4: "Contato" abrirá o painel "Agende uma conversa"; depende da implementação dessa etapa, mantendo WhatsApp por enquanto.
 
