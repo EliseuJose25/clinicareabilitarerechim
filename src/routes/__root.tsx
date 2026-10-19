@@ -14,6 +14,10 @@ import clinicImage from "@/assets/consultorio-sala-espera.jpg";
 import { clinicConfig } from "@/config/clinicConfig";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import {
+  ContactPanel,
+  ContactPanelProvider,
+} from "@/components/landing/ContactPanel";
 
 function NotFoundComponent() {
   return (
@@ -132,8 +136,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <ContactPanelProvider>
+        <Outlet />
+        <ContactPanel />
+      </ContactPanelProvider>
     </QueryClientProvider>
   );
 }

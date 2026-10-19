@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { SheetClose, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet";
 import { clinicConfig } from "@/config/clinicConfig";
 import { TreatmentCards } from "@/components/landing/TreatmentCards";
+import { useContactPanel } from "@/components/landing/ContactPanel";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -15,14 +16,19 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 export function MenuOverlay() {
   const { brand, contact, social } = clinicConfig;
+  const { open: openContactPanel } = useContactPanel();
   const whatsappUrl = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(contact.whatsappMessage)}`;
 
   const navLinks = [
     { label: "Sobre nós", href: "/#credenciais" },
     { label: "Depoimentos", href: "/#depoimentos" },
     { label: "Onde estamos", href: "/#contato" },
-    { label: "Contato", href: whatsappUrl, external: true },
+    { label: "Contato" },
   ];
+
+  const handleContatoClick = () => {
+    setTimeout(() => openContactPanel(), 250);
+  };
 
   return (
     <SheetContent
@@ -58,21 +64,29 @@ export function MenuOverlay() {
           {/* ── Mobile (< lg): empilhado ── */}
           <div className="mx-auto w-full max-w-xl pt-6 max-lg:block lg:hidden">
             <nav aria-label="Menu principal" className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <div key={link.label} className="menu-stagger min-w-0">
-                  <SheetClose asChild>
-                    <Button
-                      asChild
-                      variant="ghost"
-                      className="menu-main-link min-h-14 h-auto max-w-full justify-start gap-2 rounded-sm px-0 py-2 text-left font-heading font-normal text-hero-on-video transition-[transform,color] duration-200 hover:translate-x-2 hover:bg-transparent hover:text-gold focus-visible:translate-x-2 focus-visible:text-gold focus-visible:ring-2 focus-visible:ring-gold [&_svg]:size-5"
-                    >
-                      <a href={link.href} target={link.external ? "_blank" : undefined} rel={link.external ? "noopener noreferrer" : undefined}>
-                        {link.label} {link.external && <ArrowUpRight aria-hidden="true" />}
-                      </a>
-                    </Button>
-                  </SheetClose>
-                </div>
-              ))}
+              {navLinks.map((link) => {
+                const isContato = link.label === "Contato";
+                return (
+                  <div key={link.label} className="menu-stagger min-w-0">
+                    <SheetClose asChild>
+                      <Button
+                        asChild={!isContato}
+                        variant="ghost"
+                        className="menu-main-link min-h-14 h-auto max-w-full justify-start gap-2 rounded-sm px-0 py-2 text-left font-heading font-normal text-hero-on-video transition-[transform,color] duration-200 hover:translate-x-2 hover:bg-transparent hover:text-gold focus-visible:translate-x-2 focus-visible:text-gold focus-visible:ring-2 focus-visible:ring-gold [&_svg]:size-5"
+                        onClick={isContato ? handleContatoClick : undefined}
+                      >
+                        {isContato ? (
+                          <span>{link.label}</span>
+                        ) : (
+                          <a href={link.href} target={link.external ? "_blank" : undefined} rel={link.external ? "noopener noreferrer" : undefined}>
+                            {link.label} {link.external && <ArrowUpRight aria-hidden="true" />}
+                          </a>
+                        )}
+                      </Button>
+                    </SheetClose>
+                  </div>
+                );
+              })}
             </nav>
 
             <div className="menu-stagger menu-treatments mt-10">
@@ -154,23 +168,38 @@ export function MenuOverlay() {
 
               {/* 4 links grandes em grade 2×2 */}
               <nav aria-label="Menu principal" className="grid shrink-0 grid-cols-2 gap-x-8 gap-y-6">
-                {navLinks.map((link) => (
-                  <SheetClose key={link.label} asChild>
-                    <a
-                      href={link.href}
-                      target={link.external ? "_blank" : undefined}
-                      rel={link.external ? "noopener noreferrer" : undefined}
-                      className="group flex min-w-0 items-end justify-start gap-2 text-hero-on-video transition-transform duration-200 hover:translate-x-2 hover:text-gold focus-visible:translate-x-2 focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-                    >
-                      <span className="break-words font-heading text-4xl font-normal leading-tight xl:text-5xl 2xl:text-6xl">
-                        {link.label}
-                      </span>
-                      {link.external && (
-                        <ArrowUpRight aria-hidden="true" className="mb-2 size-5 shrink-0" />
+                {navLinks.map((link) => {
+                  const isContato = link.label === "Contato";
+                  return (
+                    <SheetClose key={link.label} asChild>
+                      {isContato ? (
+                        <button
+                          type="button"
+                          onClick={handleContatoClick}
+                          className="group flex min-w-0 items-end justify-start gap-2 text-hero-on-video transition-transform duration-200 hover:translate-x-2 hover:text-gold focus-visible:translate-x-2 focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                        >
+                          <span className="break-words font-heading text-4xl font-normal leading-tight xl:text-5xl 2xl:text-6xl">
+                            {link.label}
+                          </span>
+                        </button>
+                      ) : (
+                        <a
+                          href={link.href}
+                          target={link.external ? "_blank" : undefined}
+                          rel={link.external ? "noopener noreferrer" : undefined}
+                          className="group flex min-w-0 items-end justify-start gap-2 text-hero-on-video transition-transform duration-200 hover:translate-x-2 hover:text-gold focus-visible:translate-x-2 focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                        >
+                          <span className="break-words font-heading text-4xl font-normal leading-tight xl:text-5xl 2xl:text-6xl">
+                            {link.label}
+                          </span>
+                          {link.external && (
+                            <ArrowUpRight aria-hidden="true" className="mb-2 size-5 shrink-0" />
+                          )}
+                        </a>
                       )}
-                    </a>
-                  </SheetClose>
-                ))}
+                    </SheetClose>
+                  );
+                })}
               </nav>
 
             </div>

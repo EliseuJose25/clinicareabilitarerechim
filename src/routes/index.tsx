@@ -12,10 +12,6 @@ import { FinalCTA } from "@/components/landing/FinalCTA";
 import { FooterSticky } from "@/components/landing/FooterSticky";
 import { Footer } from "@/components/landing/Footer";
 import { PalatisIntegration } from "@/components/landing/PalatisIntegration";
-import {
-  ContactPanel,
-  ContactPanelProvider,
-} from "@/components/landing/ContactPanel";
 import { buildSEOHead } from "@/components/landing/SEOHead";
 
 // Head configurado via buildSEOHead (Schema.org Dentist + meta tags).
@@ -31,26 +27,23 @@ export const Route = createFileRoute("/")({
  */
 function Index() {
   return (
-    <ContactPanelProvider>
-      <div className="min-h-screen bg-background text-foreground antialiased">
-        <AnalyticsManager />
-        <Header overVideo />
-        <main>
-          <HeroSection />
-          <TeamSection />
-          <QuoteSection />
-          <GallerySection />
-          <TestimonialSlider />
-          <FAQSection />
-          <FinalCTA />
-          <ContactMap />
-        </main>
-        <Footer />
-        <FooterSticky />
-        {/* Slot reservado - ativar quando a integração Palatis AI estiver pronta */}
-        <PalatisIntegration />
-      </div>
-      <ContactPanel />
-    </ContactPanelProvider>
+    <div className="min-h-screen bg-background text-foreground antialiased">
+      <AnalyticsManager />
+      <Header overVideo />
+      <main>
+        <HeroSection />
+        <TeamSection />
+        <QuoteSection />
+        <GallerySection />
+        <TestimonialSlider />
+        <FAQSection />
+        <FinalCTA />
+        <ContactMap />
+      </main>
+      <Footer />
+      <FooterSticky />
+      {/* Slot reservado - ativar quando a integração Palatis AI estiver pronta */}
+      <PalatisIntegration />
+    </div>
   );
 }
