@@ -209,15 +209,15 @@ export function MenuOverlay() {
             </div>
 
             {/* ── Coluna direita: tratamentos + links grandes ── */}
-            <div className="menu-overlay-desktop-main flex min-h-0 min-w-0 flex-col justify-between gap-10 overflow-y-auto">
+            <div className="menu-overlay-desktop-main flex min-h-0 min-w-0 flex-col justify-between gap-10 overflow-x-hidden overflow-y-auto">
 
               {/* Tratamentos em grid: 3 cols em lg, 5 cols em xl */}
-              <div>
+              <div className="min-w-0">
                 <TreatmentCards variant="menu" />
               </div>
 
               {/* 4 links grandes em grade 2×2 */}
-              <nav aria-label="Menu principal" className="menu-desktop-nav grid shrink-0 grid-cols-2 gap-x-8 gap-y-6">
+              <nav aria-label="Menu principal" className="menu-desktop-nav grid min-w-0 shrink-0 grid-cols-2 gap-x-8 gap-y-6">
                 {navLinks.map((link) => {
                   const isContato = link.label === "Contato";
                   return (
