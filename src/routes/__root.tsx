@@ -18,6 +18,7 @@ import {
   ContactPanel,
   ContactPanelProvider,
 } from "@/components/landing/ContactPanel";
+import { THEME_INIT_SCRIPT } from "@/components/landing/ThemeToggle";
 
 function NotFoundComponent() {
   return (
@@ -119,8 +120,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR">
+    // suppressHydrationWarning: o script abaixo pode adicionar a classe "dark" antes da hidratação.
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
+        {/* Aplica o tema guardado antes da primeira pintura (sem piscar). */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <HeadContent />
       </head>
       <body>

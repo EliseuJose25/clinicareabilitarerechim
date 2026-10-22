@@ -6,6 +6,7 @@ import { SheetClose, SheetContent, SheetDescription, SheetTitle } from "@/compon
 import { clinicConfig } from "@/config/clinicConfig";
 import { TreatmentCards } from "@/components/landing/TreatmentCards";
 import { useContactPanel } from "@/components/landing/ContactPanel";
+import { ThemeToggle } from "@/components/landing/ThemeToggle";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -158,6 +159,7 @@ export function MenuOverlay() {
                   </a>
                 </Button>
               ))}
+              <ThemeToggle className="size-12 bg-hero-on-video/10 text-hero-on-video hover:bg-secondary hover:text-foreground focus-visible:ring-gold" />
               <SheetClose asChild>
                 <Button
                   asChild

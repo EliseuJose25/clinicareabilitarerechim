@@ -46,7 +46,7 @@ export function GallerySection() {
               <img
                 src={image.src}
                 alt={image.alt}
-                className="aspect-[3/4] h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:transition-none"
+                className="aspect-[3/4] h-full w-full object-cover transition-transform duration-300 dark:brightness-95 group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:transition-none"
                 loading="lazy"
               />
               {/* Legenda curta só visual: o alt da imagem já descreve a foto. */}

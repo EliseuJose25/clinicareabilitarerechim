@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { clinicConfig } from "@/config/clinicConfig";
 import icon from "@/assets/reabilitar-icon.png";
+import iconNegativo from "@/assets/reabilitar-icon-negativo.png";
 import { Button } from "@/components/ui/button";
 import { MenuOverlay } from "@/components/landing/MenuOverlay";
 import {
@@ -18,6 +19,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { TreatmentCards } from "@/components/landing/TreatmentCards";
 import { useContactPanel } from "@/components/landing/ContactPanel";
 import { ScrollProgress } from "@/components/landing/ScrollProgress";
+import { ThemeToggle } from "@/components/landing/ThemeToggle";
 
 /**
  * Header fixo com logo, botão Menu (gaveta), telefone (desktop) e CTA em pílula.
@@ -68,7 +70,14 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
         {/* Esquerda: logo + Menu + Serviços (lg+) */}
         <div className="flex min-w-0 items-center gap-1 sm:gap-3">
           <a href="/#top" className="flex items-center gap-2.5">
-            <img src={icon} alt="Reabilitar" className="h-10 w-auto" />
+            {/* Logo troca conforme o tema (sem filtro invert). */}
+            <img src={icon} alt="Reabilitar" className="h-10 w-auto dark:hidden" />
+            <img
+              src={iconNegativo}
+              alt="Reabilitar"
+              loading="lazy"
+              className="hidden h-10 w-auto dark:block"
+            />
             <span translate="no" className="text-base font-semibold tracking-tight text-primary">
               {brand.logoText}
             </span>
@@ -119,8 +128,15 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
           </Popover>
         </div>
 
-        {/* Direita: telefone (lg+) + CTA */}
+        {/* Direita: tema e telefone (lg+) + CTA */}
         <div className="flex shrink-0 items-center gap-3 lg:gap-6">
+          <ThemeToggle
+            className={`hidden lg:inline-flex ${
+              phoneOnVideo
+                ? "text-white hover:bg-white/10 focus-visible:ring-white"
+                : "text-primary hover:bg-primary/10 focus-visible:ring-ring"
+            }`}
+          />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button
@@ -131,7 +147,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
               >
                 <span className="flex flex-col leading-tight">
                   <span className="text-sm font-medium">{contact.phone}</span>
-                  <span translate="no" className="text-xs opacity-80">{brand.logoText}</span>
+                  <span translate="no" className="text-xs opacity-80 dark:opacity-100">{brand.logoText}</span>
                 </span>
                 <ChevronDown className="h-4 w-4" aria-hidden="true" />
                 <span className="sr-only">Opções de contato por telefone</span>

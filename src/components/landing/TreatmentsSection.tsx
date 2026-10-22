@@ -84,7 +84,7 @@ export function TreatmentsSection() {
                 {treatment.procedures.map((procedure) => (
                   <li
                     key={procedure}
-                    className="rounded-full bg-primary/10 px-2.5 py-1 text-xs text-primary"
+                    className="rounded-full bg-primary/10 px-2.5 py-1 text-xs text-primary dark:text-foreground"
                   >
                     {procedure}
                   </li>
