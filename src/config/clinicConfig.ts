@@ -111,6 +111,31 @@ export const clinicConfig = {
     },
   ],
 
+  // Seção "Primeira consulta" (logo após Tratamentos).
+  firstVisit: {
+    title: "Como é a sua primeira consulta",
+    subtitle: "Sem pressa e sem surpresa: veja o que acontece desde a hora em que você chega.",
+    steps: [
+      {
+        title: "Uma conversa",
+        description: "Você conta o que sente, o que incomoda e o que espera. Ouvimos antes de examinar.",
+      },
+      {
+        title: "O exame",
+        description: "Avaliamos a sua boca com calma e explicamos o que encontramos, em linguagem simples.",
+      },
+      {
+        title: "As opções",
+        description: "Se houver necessidade de tratamento, explicamos as opções indicadas para o seu caso.",
+      },
+      {
+        title: "A decisão é sua",
+        description: "Você tira suas dúvidas e decide no seu tempo.",
+      },
+    ],
+    cta: "Agendar uma conversa",
+  },
+
   cta: {
     primaryLabel: "Agendar Avaliação",
     secondaryLabel: "Fale no WhatsApp",
