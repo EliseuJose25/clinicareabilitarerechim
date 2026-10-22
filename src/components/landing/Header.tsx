@@ -22,8 +22,12 @@ import { useContactPanel } from "@/components/landing/ContactPanel";
 import { ScrollProgress } from "@/components/landing/ScrollProgress";
 import { ThemeToggle } from "@/components/landing/ThemeToggle";
 
+// Itens do menu "Contato": 44px de altura; o fundo coral marca o hover e o foco do teclado.
+const CONTACT_ITEM =
+  "min-h-11 cursor-pointer gap-3 rounded-lg px-3 text-sm font-medium focus:bg-gold focus:text-gold-foreground [&>svg]:size-4";
+
 /**
- * Header fixo com logo, botão Menu (gaveta), telefone (desktop) e CTA em pílula.
+ * Header fixo com logo, botão Menu (gaveta), Serviços e Contato (desktop) e CTA em pílula.
  * Em md+ fica transparente sobre o hero até rolar ~24px; abaixo de md é sempre sólido.
  */
 export function Header({ overVideo = false }: { overVideo?: boolean }) {
@@ -31,18 +35,33 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
   const servicesBackdropRef = useRef<HTMLDivElement>(null);
   const { open: openContactPanel } = useContactPanel();
 
-  // Menu em tela cheia e dropdown "Serviços" nunca ficam abertos ao mesmo tempo.
+  // Menu em tela cheia, dropdown "Serviços" e menu "Contato": só um aberto por vez.
   const handleMenuOpenChange = (open: boolean) => {
     setMenuOpen(open);
-    if (open) setServicesOpen(false);
+    if (open) {
+      setServicesOpen(false);
+      setContactOpen(false);
+    }
   };
 
   const handleServicesOpenChange = (open: boolean) => {
     setServicesOpen(open);
-    if (open) setMenuOpen(false);
+    if (open) {
+      setMenuOpen(false);
+      setContactOpen(false);
+    }
+  };
+
+  const handleContactOpenChange = (open: boolean) => {
+    setContactOpen(open);
+    if (open) {
+      setMenuOpen(false);
+      setServicesOpen(false);
+    }
   };
 
   useEffect(() => {
@@ -58,7 +77,8 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
   const telUrl = `tel:${contact.phone.replace(/[^\d+]/g, "")}`;
 
   const transparent = !scrolled;
-  const phoneOnVideo = overVideo && transparent;
+  // Desktop no topo da página: o lado direito do cabeçalho fica sobre o vídeo do hero.
+  const rightOnVideo = overVideo && transparent;
 
   return (
     <header
@@ -152,40 +172,51 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
             )}
         </div>
 
-        {/* Direita: tema e telefone (lg+) + CTA */}
+        {/* Direita: tema e Contato (lg+) + CTA */}
         <div className="flex shrink-0 items-center gap-3 lg:gap-6">
           <ThemeToggle
             className={`hidden lg:inline-flex ${
-              phoneOnVideo
+              rightOnVideo
                 ? "text-white hover:bg-white/10 focus-visible:ring-white"
                 : "text-primary hover:bg-primary/10 focus-visible:ring-ring dark:text-white dark:hover:bg-white/10 dark:hover:text-gold"
             }`}
           />
-          <DropdownMenu>
+          {/* modal={false}: um clique em "Serviços" ou "Menu" fecha este e já abre o outro. */}
+          <DropdownMenu open={contactOpen} onOpenChange={handleContactOpenChange} modal={false}>
             <DropdownMenuTrigger asChild>
-              <button
+              <Button
                 type="button"
-                className={`hidden min-h-11 items-center gap-1.5 text-left transition-colors lg:flex ${
-                  phoneOnVideo ? "text-white" : "text-primary dark:text-white dark:hover:text-gold"
+                variant="ghost"
+                aria-haspopup="menu"
+                aria-expanded={contactOpen}
+                className={`hidden h-11 min-w-11 gap-1.5 px-2.5 text-sm font-medium sm:px-3 lg:inline-flex ${
+                  rightOnVideo
+                    ? "text-white hover:bg-white/10 hover:text-white"
+                    : "text-primary hover:bg-primary/10 hover:text-primary dark:text-white dark:hover:bg-white/10 dark:hover:text-gold"
                 }`}
               >
-                <span className="flex flex-col leading-tight">
-                  <span className="text-sm font-medium">{contact.phone}</span>
-                  <span translate="no" className="text-xs opacity-80 dark:opacity-100">{brand.logoText}</span>
-                </span>
-                <ChevronDown className="h-4 w-4" aria-hidden="true" />
-                <span className="sr-only">Opções de contato por telefone</span>
-              </button>
+                Contato
+                <ChevronDown
+                  aria-hidden="true"
+                  className={`h-4 w-4 transition-transform duration-200 ${contactOpen ? "rotate-180" : ""}`}
+                />
+              </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem asChild>
-                <a href={telUrl} className="cursor-pointer">
-                  <Phone className="mr-2 h-4 w-4" /> Ligar agora
+            <DropdownMenuContent
+              align="end"
+              sideOffset={12}
+              className="min-w-60 rounded-2xl border-border/60 p-2 shadow-xl dark:bg-card dark:text-foreground"
+            >
+              <DropdownMenuItem asChild className={CONTACT_ITEM}>
+                <a href={telUrl}>
+                  <Phone aria-hidden="true" />
+                  Ligar {contact.phoneDisplay}
                 </a>
               </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
-                  <MessageCircle className="mr-2 h-4 w-4" /> Chamar no WhatsApp
+              <DropdownMenuItem asChild className={CONTACT_ITEM}>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle aria-hidden="true" />
+                  Chamar no WhatsApp
                 </a>
               </DropdownMenuItem>
             </DropdownMenuContent>
