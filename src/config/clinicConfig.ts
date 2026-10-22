@@ -160,7 +160,7 @@ export const clinicConfig = {
       name: "Dra. Priscila Santin",
       role: "Clínica Geral · Prótese e Implantodontia",
       cro: "CRO-RS 13049",
-      bio: "Formada pela UPF em 2001, começou atendendo em São Valentim antes de fundar a Reabilitar em Erechim. Especialista em Prótese Dentária e em Implantodontia, trata cada caso com o que chama de odontologia raiz: explicar tudo com clareza e indicar só o que o paciente realmente precisa.",
+      bio: "Formada pela UPF em 2001, começou atendendo em São Valentim antes de fundar a Reabilitar em Erechim. Com especialização em Prótese Dentária e Implantodontia, trata cada caso com o que chama de odontologia raiz: explicar tudo com clareza e indicar só o que o paciente realmente precisa.",
       photo: draPriscila,
       credentials: [
         { title: "Graduação", detail: "Odontologia - UPF, Passo Fundo (2001)" },
@@ -180,7 +180,7 @@ export const clinicConfig = {
     {
       name: "Eliseu Novak",
       role: "Paciente desde os 12 anos",
-      quote: "Comecei a tratar com a Dra. Priscila aos 12 anos, ainda em São Valentim, minha cidade natal, quando ela estava recém-formada. Quando ela abriu a Reabilitar aqui em Erechim, continuei como paciente. Hoje tenho 38 anos e nunca procurei outro dentista. Meus dentes estão saudáveis, então não preciso ir com muita frequência — mas quando preciso, é só com ela. Sempre fui muito bem atendido, até para marcar consulta pelo WhatsApp resolvem rápido. Prefiro ficar com dor a procurar outro dentista.",
+      quote: "Comecei a tratar com a Dra. Priscila aos 12 anos, ainda em São Valentim, minha cidade natal, quando ela estava recém-formada. Quando ela abriu a Reabilitar aqui em Erechim, continuei como paciente. Hoje tenho 38 anos e nunca procurei outro dentista. Meus dentes estão saudáveis, então não preciso ir com muita frequência — mas quando preciso, é só com ela. Sempre fui muito bem atendido, até para marcar consulta pelo WhatsApp resolvem rápido.",
       rating: 5,
       photo: depEliseu,
     },
@@ -208,7 +208,7 @@ export const clinicConfig = {
 
   finalCta: {
     eyebrow: "Consultório de especialidades odontológicas",
-    title: "Seu sorriso ideal começa com uma conversa, não com um compromisso",
+    title: "Seu cuidado começa com uma conversa, não com um compromisso",
     subtitle: "Sem pressão: você sai da avaliação com um plano de tratamento claro e decide depois, no seu tempo.",
     primaryLabel: "Agendar Avaliação",
   },
@@ -216,7 +216,7 @@ export const clinicConfig = {
   faq: [
     { question: "Tenho medo de dentista, isso é um problema?", answer: "Não. Explicamos cada etapa antes de fazer e respeitamos o seu ritmo para tornar o atendimento o mais tranquilo e confortável possível." },
     { question: "Vocês atendem convênio?", answer: "Não. Atendemos apenas de forma particular — isso nos permite dedicar tempo e cuidado total a cada paciente, sem pressa e sem protocolos padronizados." },
-    { question: "Por que agendar aqui e não em outra clínica?", answer: "Porque prezamos por honestidade e cuidado individual em cada etapa — não indicamos tratamentos desnecessários, e você sempre entende o porquê de cada decisão antes de seguir." },
+    { question: "Como funciona o atendimento no consultório?", answer: "A equipe conversa com você para entender sua necessidade, avaliar o caso e explicar as opções de cuidado indicadas. Você pode esclarecer suas dúvidas e compreender as próximas etapas antes de decidir como prosseguir." },
     { question: "Como faço para agendar?", answer: "Você pode agendar diretamente pelo WhatsApp ou clicando em um dos botões de agendamento nesta página." },
   ],
 
