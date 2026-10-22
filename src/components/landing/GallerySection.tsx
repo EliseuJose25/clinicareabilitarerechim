@@ -1,5 +1,6 @@
 import type { FocusEvent } from "react";
 import { clinicConfig } from "@/config/clinicConfig";
+import { Reveal, REVEAL_STAGGER_MS } from "@/components/landing/Reveal";
 
 /**
  * GallerySection - fotos do consultório em cartões com legenda.
@@ -23,19 +24,21 @@ export function GallerySection() {
   return (
     <section id="estrutura" className="border-b border-border/60 bg-background py-12 md:py-20">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             Conheça o consultório
           </h2>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground md:text-lg">
             Sala 605, no centro de Erechim: é aqui que você vai ser atendido.
           </p>
-        </div>
+        </Reveal>
 
         <div className="-mx-4 mt-8 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 py-1 [scrollbar-width:none] md:mx-0 md:mt-12 md:grid md:grid-cols-4 md:gap-4 md:overflow-visible md:p-0 [&::-webkit-scrollbar]:hidden">
-          {gallery.map((image) => (
-            <figure
+          {gallery.map((image, index) => (
+            <Reveal
+              as="figure"
               key={image.alt}
+              delay={index * REVEAL_STAGGER_MS}
               tabIndex={0}
               onFocus={revealCard}
               className="group relative isolate w-[78%] shrink-0 snap-start overflow-hidden rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:w-auto"
@@ -53,7 +56,7 @@ export function GallerySection() {
               >
                 {image.caption}
               </figcaption>
-            </figure>
+            </Reveal>
           ))}
         </div>
       </div>

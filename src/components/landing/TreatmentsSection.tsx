@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { clinicConfig } from "@/config/clinicConfig";
 import { useContactPanel } from "@/components/landing/ContactPanel";
+import { Reveal, REVEAL_STAGGER_MS } from "@/components/landing/Reveal";
 
 const TREATMENT_HASH_PREFIX = "#tratamento-";
 
@@ -45,18 +46,22 @@ export function TreatmentsSection() {
   return (
     <section id="tratamentos" className="border-b border-border/60 bg-background py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-          Tratamentos
-        </h2>
-        <p className="mt-3 text-base text-muted-foreground md:text-lg">
-          O que fazemos no consultório, explicado de forma simples.
-        </p>
+        <Reveal>
+          <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            Tratamentos
+          </h2>
+          <p className="mt-3 text-base text-muted-foreground md:text-lg">
+            O que fazemos no consultório, explicado de forma simples.
+          </p>
+        </Reveal>
 
         <div className="mt-8 grid gap-5 md:mt-10 md:grid-cols-2 lg:mt-14 lg:grid-cols-3">
-          {treatments.map((treatment) => (
+          {treatments.map((treatment, index) => (
             // Celular: grade com o ícone à esquerda; md+: coluna.
-            <article
+            <Reveal
+              as="article"
               key={treatment.id}
+              delay={index * REVEAL_STAGGER_MS}
               id={`tratamento-${treatment.id}`}
               className={`grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-4 rounded-3xl border border-border/70 bg-card p-5 md:flex md:h-full md:flex-col md:p-7 ${CARD_HOVER}`}
             >
@@ -98,10 +103,11 @@ export function TreatmentsSection() {
                   →
                 </span>
               </a>
-            </article>
+            </Reveal>
           ))}
 
-          <div
+          <Reveal
+            delay={treatments.length * REVEAL_STAGGER_MS}
             className={`flex flex-col justify-center rounded-3xl bg-hero-overlay p-7 text-hero-on-video ${CARD_HOVER}`}
           >
             <h3 className="font-heading text-[22px] font-semibold">Não sabe por onde começar?</h3>
@@ -115,7 +121,7 @@ export function TreatmentsSection() {
             >
               Agendar uma conversa
             </button>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

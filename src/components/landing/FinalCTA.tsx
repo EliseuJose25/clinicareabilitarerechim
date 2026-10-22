@@ -1,6 +1,7 @@
 import { clinicConfig } from "@/config/clinicConfig";
 import { CalendarCheck } from "lucide-react";
 import { useContactPanel } from "@/components/landing/ContactPanel";
+import { Reveal } from "@/components/landing/Reveal";
 
 /**
  * FinalCTA - bloco de chamada para ação final, com fundo em Azul Marinho
@@ -15,7 +16,7 @@ export function FinalCTA() {
       id="agendar"
       className="relative overflow-hidden border-b border-border/60 bg-hero-overlay py-16 md:py-24"
     >
-      <div className="relative mx-auto max-w-4xl px-4 text-center md:px-6">
+      <Reveal className="relative mx-auto max-w-4xl px-4 text-center md:px-6">
         <h2 className="font-heading text-3xl font-semibold leading-tight tracking-tight text-white md:text-5xl">
           {finalCta.title}
         </h2>
@@ -33,7 +34,7 @@ export function FinalCTA() {
             {finalCta.primaryLabel || cta.primaryLabel}
           </button>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

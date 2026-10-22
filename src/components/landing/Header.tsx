@@ -17,6 +17,7 @@ import { ChevronDown, Menu, MessageCircle, Phone, Plus } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { TreatmentCards } from "@/components/landing/TreatmentCards";
 import { useContactPanel } from "@/components/landing/ContactPanel";
+import { ScrollProgress } from "@/components/landing/ScrollProgress";
 
 /**
  * Header fixo com logo, botão Menu (gaveta), telefone (desktop) e CTA em pílula.
@@ -162,6 +163,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
           </button>
         </div>
       </div>
+      <ScrollProgress />
     </header>
   );
 }

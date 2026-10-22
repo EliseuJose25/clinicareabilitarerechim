@@ -1,6 +1,7 @@
 import { clinicConfig } from "@/config/clinicConfig";
 import placaSala605 from "@/assets/placa-sala-605.jpg";
 import { MapPin, Clock, Phone, Star, Navigation, ExternalLink } from "lucide-react";
+import { Reveal, REVEAL_STAGGER_MS } from "./Reveal";
 
 /**
  * ContactMap - seção de contato com mapa embutido do Google Maps.
@@ -18,17 +19,17 @@ export function ContactMap() {
   return (
     <section id="contato" className="border-b border-border/60 bg-background py-10 md:py-16">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <div className="text-center">
+        <Reveal className="text-center">
           <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             Onde estamos
           </h2>
           <p className="mt-2 text-muted-foreground">
             No antigo Edifício Sanenge, na Av. Sete de Setembro.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-8 grid gap-6 md:mt-12 md:grid-cols-[1.2fr_1fr] md:gap-10">
-          <div className="overflow-hidden rounded-2xl border border-border bg-muted">
+          <Reveal className="overflow-hidden rounded-2xl border border-border bg-muted">
             <div className="relative aspect-[4/3] w-full">
               <iframe
                 title={`Mapa de ${brand.name}`}
@@ -39,9 +40,12 @@ export function ContactMap() {
                 allowFullScreen
               />
             </div>
-          </div>
+          </Reveal>
 
-          <div className="flex flex-col justify-center gap-4 rounded-2xl border border-border/70 bg-secondary/40 p-6 md:p-8">
+          <Reveal
+            delay={REVEAL_STAGGER_MS}
+            className="flex flex-col justify-center gap-4 rounded-2xl border border-border/70 bg-secondary/40 p-6 md:p-8"
+          >
             <figure>
               <img
                 src={placaSala605}
@@ -106,7 +110,7 @@ export function ContactMap() {
                 Traçar rota no Google Maps
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ import { clinicConfig } from "@/config/clinicConfig";
 import { Instagram } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import iconNegativo from "@/assets/reabilitar-icon-negativo.png";
+import { Reveal } from "@/components/landing/Reveal";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -48,7 +49,7 @@ export function Footer() {
 
   return (
     <footer className="bg-hero-overlay pb-28 pt-12 text-white/80 md:pb-10 md:pt-16">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+      <Reveal className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="grid divide-y divide-white/15 lg:grid-cols-[1.2fr_1fr_1fr_1.3fr] lg:gap-10 lg:divide-y-0">
           {/* Coluna 1: marca + redes */}
           <div className="pb-8 lg:pb-0">
@@ -139,7 +140,7 @@ export function Footer() {
           </p>
           <p>Desenvolvido por Studio Flow Tech</p>
         </div>
-      </div>
+      </Reveal>
     </footer>
   );
 }
