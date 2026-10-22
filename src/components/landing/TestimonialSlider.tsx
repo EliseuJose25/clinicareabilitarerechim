@@ -73,7 +73,7 @@ export function TestimonialSlider() {
             role="group"
             aria-label="Depoimentos de pacientes"
             onKeyDown={handleKeyDown}
-            className="mt-8 rounded-2xl border border-border/70 bg-card p-5 md:mt-10 md:p-10 lg:grid lg:grid-cols-[30%_minmax(0,1fr)] lg:gap-12 lg:p-12"
+            className="mt-8 rounded-2xl border border-border/70 bg-card p-5 dark:bg-background md:mt-10 md:p-10 lg:grid lg:grid-cols-[30%_minmax(0,1fr)] lg:gap-12 lg:p-12"
           >
             {/* ── Desktop (lg+): lista de pacientes ── */}
             <div data-selector className="hidden flex-col self-start lg:flex">
@@ -167,11 +167,12 @@ export function TestimonialSlider() {
                               alt={`Foto de ${testimonial.name}`}
                               aspectRatio="1 / 1"
                               rounded="full"
+                              className="dark:brightness-95"
                             />
                           ) : (
                             <div
                               aria-hidden="true"
-                              className="flex aspect-square w-16 items-center justify-center rounded-full bg-primary/10 font-semibold text-primary"
+                              className="flex aspect-square w-16 items-center justify-center rounded-full bg-primary/10 font-semibold text-primary dark:text-foreground"
                             >
                               {initials}
                             </div>

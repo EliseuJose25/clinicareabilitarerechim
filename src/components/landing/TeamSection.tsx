@@ -30,7 +30,7 @@ export function TeamSection() {
           {team.map((professional) => (
             <article
               key={professional.name}
-              className="flex h-full flex-col overflow-hidden rounded-lg border border-border/70 bg-card shadow-sm"
+              className="flex h-full flex-col overflow-hidden rounded-lg border border-border/70 bg-card shadow-sm dark:bg-background"
             >
               <div className="w-full">
                 <ImagePlaceholder
@@ -43,7 +43,7 @@ export function TeamSection() {
 
               <div className="flex flex-1 flex-col p-5 md:p-6">
                 <div>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary dark:text-foreground">
                     <BadgeCheck className="h-3.5 w-3.5" /> {professional.cro}
                   </span>
                   <h3 className="mt-4 text-2xl font-semibold text-foreground">{professional.name}</h3>
@@ -62,7 +62,7 @@ export function TeamSection() {
                       return (
                         <div
                           key={`${credential.title}-${credential.detail}`}
-                          className="flex min-h-24 flex-col justify-center rounded-lg border border-border/70 bg-background p-4"
+                          className="flex min-h-24 flex-col justify-center rounded-lg border border-border/70 bg-background p-4 dark:bg-secondary"
                         >
                           <div className="flex items-center gap-2">
                             <CredentialIcon className="h-4 w-4 flex-shrink-0 text-primary" />

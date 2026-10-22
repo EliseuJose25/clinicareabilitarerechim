@@ -34,7 +34,7 @@ export function ContactMap() {
               <iframe
                 title={`Mapa de ${brand.name}`}
                 src={embedSrc}
-                className="absolute inset-0 h-full w-full border-0"
+                className="absolute inset-0 h-full w-full border-0 dark:opacity-90"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
@@ -50,7 +50,7 @@ export function ContactMap() {
               <img
                 src={placaSala605}
                 alt="Placa de acrílico da Reabilitar – Consultório de Especialidades Odontológicas, fixada na parede acima da porta da sala 605, com o logotipo de dente azul e a indicação Sala 605"
-                className="w-full rounded-2xl object-cover"
+                className="w-full rounded-2xl object-cover dark:brightness-95"
                 loading="lazy"
               />
               <figcaption className="mt-2 text-sm text-muted-foreground">
@@ -86,7 +86,7 @@ export function ContactMap() {
                 href={contact.reviewUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gmap-primary inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition-colors duration-200 hover:bg-[#10264A] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#10264A] focus-visible:ring-offset-2 motion-reduce:transition-none md:w-auto"
+                className="btn-gmap-primary inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition-colors duration-200 hover:bg-hero-overlay hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hero-overlay dark:hover:bg-primary dark:hover:text-primary-foreground dark:focus-visible:ring-ring focus-visible:ring-offset-2 motion-reduce:transition-none md:w-auto"
               >
                 <Star className="h-4 w-4 transition-colors duration-200 group-hover/btn:text-white group-focus-visible/btn:text-white" />
                 Avaliar a Reabilitar no Google
@@ -95,7 +95,7 @@ export function ContactMap() {
                 href={contact.googleBusinessUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gmap-secondary inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition-colors duration-200 hover:border-[#1E4DB7] hover:bg-[#1E4DB7] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E4DB7] focus-visible:ring-offset-2 motion-reduce:transition-none md:w-auto"
+                className="btn-gmap-secondary inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition-colors duration-200 hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:transition-none md:w-auto"
               >
                 <ExternalLink className="h-4 w-4" />
                 Ver perfil no Google Maps
@@ -104,7 +104,7 @@ export function ContactMap() {
                 href={contact.address.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gmap-secondary inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition-colors duration-200 hover:border-[#1E4DB7] hover:bg-[#1E4DB7] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E4DB7] focus-visible:ring-offset-2 motion-reduce:transition-none md:w-auto"
+                className="btn-gmap-secondary inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition-colors duration-200 hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:transition-none md:w-auto"
               >
                 <Navigation className="h-4 w-4" />
                 Traçar rota no Google Maps
