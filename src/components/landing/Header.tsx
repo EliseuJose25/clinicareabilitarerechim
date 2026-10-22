@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { clinicConfig } from "@/config/clinicConfig";
 import icon from "@/assets/reabilitar-icon.png";
 import iconNegativo from "@/assets/reabilitar-icon-negativo.png";
@@ -30,6 +31,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const servicesBackdropRef = useRef<HTMLDivElement>(null);
   const { open: openContactPanel } = useContactPanel();
 
   // Menu em tela cheia e dropdown "Serviços" nunca ficam abertos ao mesmo tempo.
@@ -118,6 +120,13 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
             <PopoverContent
               align="start"
               sideOffset={12}
+              // Clique na camada escurecida: fecha no "click" (abaixo), não no
+              // pointerdown, para o clique não atravessar até a página.
+              onPointerDownOutside={(event) => {
+                if (servicesBackdropRef.current?.contains(event.target as Node)) {
+                  event.preventDefault();
+                }
+              }}
               className="menu-services-panel w-[min(92vw,64rem)] rounded-3xl border border-border/60 bg-secondary p-6 text-foreground shadow-2xl"
             >
               <span className="mb-4 block text-xs font-semibold uppercase tracking-wider text-foreground/60">
@@ -126,6 +135,18 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
               <TreatmentCards variant="dropdown" onSelect={() => setServicesOpen(false)} />
             </PopoverContent>
           </Popover>
+          {/* Dropdown "Serviços" aberto: camada escurecida sob o cabeçalho (portal no
+              body, abaixo do cabeçalho z-40 e do painel z-50). Clicar nela fecha. */}
+          {servicesOpen &&
+            createPortal(
+              <div
+                ref={servicesBackdropRef}
+                aria-hidden="true"
+                onClick={() => setServicesOpen(false)}
+                className="fixed inset-x-0 bottom-0 top-[calc(5rem+env(safe-area-inset-top))] z-30 bg-black/45 backdrop-blur-sm animate-in fade-in-0 duration-150 motion-reduce:animate-none"
+              />,
+              document.body,
+            )}
         </div>
 
         {/* Direita: tema e telefone (lg+) + CTA */}

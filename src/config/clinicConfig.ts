@@ -17,6 +17,12 @@ import iconeImplantesCirurgia from "@/assets/treatments/icone-implantes-cirurgia
 import iconeProtese from "@/assets/treatments/icone-protese.png";
 import iconeClinicaGeral from "@/assets/treatments/icone-clinica-geral.png";
 import iconeEstetica from "@/assets/treatments/icone-estetica.png";
+// Versões com círculo azul-claro, para fundos escuros.
+import iconeOrtodontiaClaro from "@/assets/treatments/icone-ortodontia-claro.png";
+import iconeImplantesCirurgiaClaro from "@/assets/treatments/icone-implantes-cirurgia-claro.png";
+import iconeProteseClaro from "@/assets/treatments/icone-protese-claro.png";
+import iconeClinicaGeralClaro from "@/assets/treatments/icone-clinica-geral-claro.png";
+import iconeEsteticaClaro from "@/assets/treatments/icone-estetica-claro.png";
 
 export const clinicConfig = {
   brand: {
@@ -56,6 +62,15 @@ export const clinicConfig = {
     protese: iconeProtese,
     "clinica-geral": iconeClinicaGeral,
     estetica: iconeEstetica,
+  },
+
+  // Mesmos ícones para fundos escuros (tema escuro e menu azul-marinho).
+  treatmentImagesDark: {
+    ortodontia: iconeOrtodontiaClaro,
+    "implantes-cirurgia": iconeImplantesCirurgiaClaro,
+    protese: iconeProteseClaro,
+    "clinica-geral": iconeClinicaGeralClaro,
+    estetica: iconeEsteticaClaro,
   },
 
   treatments: [

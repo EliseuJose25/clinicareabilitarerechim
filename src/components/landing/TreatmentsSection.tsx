@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { clinicConfig } from "@/config/clinicConfig";
 import { useContactPanel } from "@/components/landing/ContactPanel";
 import { Reveal, REVEAL_STAGGER_MS } from "@/components/landing/Reveal";
+import { TreatmentIcon } from "@/components/landing/TreatmentIcon";
 
 const TREATMENT_HASH_PREFIX = "#tratamento-";
 
@@ -15,7 +16,7 @@ const CARD_HOVER =
  * Links diretos: /#tratamento-{id} rola até a seção.
  */
 export function TreatmentsSection() {
-  const { treatments, treatmentImages, contact } = clinicConfig;
+  const { treatments, contact } = clinicConfig;
   const { open: openContactPanel } = useContactPanel();
 
   useEffect(() => {
@@ -65,13 +66,9 @@ export function TreatmentsSection() {
               id={`tratamento-${treatment.id}`}
               className={`grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-4 rounded-3xl border border-border/70 bg-card p-5 md:flex md:h-full md:flex-col md:p-7 ${CARD_HOVER}`}
             >
-              <img
-                src={treatmentImages[treatment.id]}
-                alt=""
-                width={512}
-                height={512}
-                loading="lazy"
-                decoding="async"
+              <TreatmentIcon
+                id={treatment.id}
+                surface="auto"
                 className="row-span-4 h-14 w-14 object-contain md:h-[72px] md:w-[72px]"
               />
               <h3 className="col-start-2 font-heading text-[22px] font-semibold text-foreground md:mt-5">
