@@ -4,6 +4,7 @@ import { Header } from "@/components/landing/Header";
 import { HeroSection } from "@/components/landing/HeroSection";
 import { TeamSection } from "@/components/landing/TeamSection";
 import { TreatmentsSection } from "@/components/landing/TreatmentsSection";
+import { FirstVisitSection } from "@/components/landing/FirstVisitSection";
 import { QuoteSection } from "@/components/landing/QuoteSection";
 import { GallerySection } from "@/components/landing/GallerySection";
 import { TestimonialSlider } from "@/components/landing/TestimonialSlider";
@@ -35,6 +36,7 @@ function Index() {
         <HeroSection />
         <TeamSection />
         <TreatmentsSection />
+        <FirstVisitSection />
         <QuoteSection />
         <GallerySection />
         <TestimonialSlider />
