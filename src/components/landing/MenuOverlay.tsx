@@ -1,6 +1,6 @@
 import { useId, useState } from "react";
 import { ArrowUpRight, ChevronDown, Instagram, X } from "lucide-react";
-import icon from "@/assets/reabilitar-icon.png";
+import iconNegativo from "@/assets/reabilitar-icon-negativo.png";
 import { Button } from "@/components/ui/button";
 import { SheetClose, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet";
 import { clinicConfig } from "@/config/clinicConfig";
@@ -60,7 +60,7 @@ export function MenuOverlay() {
         <div className="shrink-0 pt-[env(safe-area-inset-top)]">
           <div className="mx-auto flex h-20 w-full max-w-xl items-center justify-between gap-2 px-6 lg:grid lg:max-w-[96rem] lg:grid-cols-[32%_minmax(0,1fr)] lg:gap-12 lg:px-10">
             <div className="flex min-w-0 items-center gap-2.5">
-              <img src={icon} alt="" className="h-10 w-auto brightness-0 invert" />
+              <img src={iconNegativo} alt="" className="h-10 w-auto" />
               <span translate="no" className="text-base font-semibold">{brand.logoText}</span>
             </div>
             <SheetClose asChild>
