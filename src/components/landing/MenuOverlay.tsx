@@ -1,4 +1,5 @@
-import { ArrowUpRight, Instagram, X } from "lucide-react";
+import { useId, useState } from "react";
+import { ArrowUpRight, ChevronDown, Instagram, X } from "lucide-react";
 import icon from "@/assets/reabilitar-icon.png";
 import { Button } from "@/components/ui/button";
 import { SheetClose, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet";
@@ -14,17 +15,33 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
+type MenuLink = {
+  label: string;
+  href?: string;
+  external?: boolean;
+  isServices?: boolean;
+};
+
 export function MenuOverlay() {
   const { brand, contact, social } = clinicConfig;
   const { open: openContactPanel } = useContactPanel();
   const whatsappUrl = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(contact.whatsappMessage)}`;
 
-  const navLinks = [
+  const [isServicosOpen, setIsServicosOpen] = useState(false);
+  const servicosButtonId = useId();
+  const servicosPanelId = useId();
+
+  const navLinks: MenuLink[] = [
     { label: "Sobre nós", href: "/#credenciais" },
     { label: "Depoimentos", href: "/#depoimentos" },
     { label: "Onde estamos", href: "/#contato" },
     { label: "Contato" },
   ];
+
+  // Somente no mobile: "Serviços" entra entre "Sobre nós" e "Depoimentos".
+  const mobileNavLinks: MenuLink[] = navLinks.flatMap((link) =>
+    link.label === "Depoimentos" ? [{ label: "Serviços", isServices: true }, link] : [link],
+  );
 
   const handleContatoClick = () => {
     setTimeout(() => openContactPanel(), 250);
@@ -59,12 +76,47 @@ export function MenuOverlay() {
         </div>
 
         {/* Área de conteúdo com scroll interno */}
-        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 pb-[calc(env(safe-area-inset-bottom)+2rem)] max-lg:px-6 lg:overflow-hidden lg:px-10">
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 pb-[calc(env(safe-area-inset-bottom)+1rem)] max-lg:px-6 lg:overflow-hidden lg:px-10 lg:pb-[calc(env(safe-area-inset-bottom)+2rem)]">
 
           {/* ── Mobile (< lg): empilhado ── */}
-          <div className="mx-auto w-full max-w-xl pt-6 max-lg:block lg:hidden">
-            <nav aria-label="Menu principal" className="flex flex-col gap-4">
-              {navLinks.map((link) => {
+          <div className="mx-auto w-full max-w-xl pt-4 max-lg:block lg:hidden">
+            <nav aria-label="Menu principal" className="flex flex-col gap-3">
+              {mobileNavLinks.map((link) => {
+                if (link.isServices) {
+                  return (
+                    <div key={link.label} className="menu-stagger min-w-0">
+                      <button
+                        id={servicosButtonId}
+                        type="button"
+                        aria-expanded={isServicosOpen}
+                        aria-controls={servicosPanelId}
+                        onClick={() => setIsServicosOpen((open) => !open)}
+                        className="menu-main-link min-h-14 h-auto max-w-full justify-start gap-2 rounded-sm px-0 py-2 text-left font-heading font-normal text-hero-on-video transition-[transform,color] duration-200 hover:translate-x-2 hover:bg-transparent hover:text-gold focus-visible:translate-x-2 focus-visible:text-gold focus-visible:ring-2 focus-visible:ring-gold motion-reduce:transition-none [&_svg]:size-5"
+                      >
+                        <span>{link.label}</span>
+                        <ChevronDown
+                          aria-hidden="true"
+                          className={`shrink-0 transition-transform duration-200 motion-reduce:transition-none ${isServicosOpen ? "rotate-180" : ""}`}
+                        />
+                      </button>
+
+                      <div
+                        id={servicosPanelId}
+                        role="region"
+                        aria-labelledby={servicosButtonId}
+                        inert={isServicosOpen ? undefined : true}
+                        className={`grid transition-[grid-template-rows,opacity] duration-200 motion-reduce:transition-none ${isServicosOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+                      >
+                        <div className="overflow-hidden">
+                          <div className="pt-3">
+                            <TreatmentCards variant="menu-compact" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+
                 const isContato = link.label === "Contato";
                 return (
                   <div key={link.label} className="menu-stagger min-w-0">
@@ -89,11 +141,7 @@ export function MenuOverlay() {
               })}
             </nav>
 
-            <div className="menu-stagger menu-treatments mt-10">
-              <TreatmentCards variant="menu" />
-            </div>
-
-            <div className="menu-stagger menu-networks mt-8 flex flex-wrap items-center gap-3">
+            <div className="menu-stagger menu-networks mt-6 flex flex-wrap items-center gap-3">
               {[
                 { label: "Instagram da Reabilitar", href: social.instagram, Icon: Instagram },
                 { label: "WhatsApp da Reabilitar", href: whatsappUrl, Icon: WhatsAppIcon },
@@ -123,7 +171,7 @@ export function MenuOverlay() {
           </div>
 
           {/* ── Desktop (lg+): duas colunas com altura total ── */}
-          <div className="mx-auto hidden h-full w-full max-w-[96rem] grid-cols-[32%_minmax(0,1fr)] items-stretch gap-12 pt-8 lg:grid">
+          <div className="menu-overlay-desktop mx-auto hidden h-full w-full max-w-[96rem] grid-cols-[32%_minmax(0,1fr)] items-stretch gap-12 pt-8 lg:grid">
 
             {/* ── Coluna esquerda: ícones sociais + FAQ ── */}
             <div className="flex min-w-0 flex-col items-start justify-between gap-6">
@@ -159,7 +207,7 @@ export function MenuOverlay() {
             </div>
 
             {/* ── Coluna direita: tratamentos + links grandes ── */}
-            <div className="flex min-h-0 min-w-0 flex-col justify-between gap-10 overflow-y-auto">
+            <div className="menu-overlay-desktop-main flex min-h-0 min-w-0 flex-col justify-between gap-10 overflow-y-auto">
 
               {/* Tratamentos em grid: 3 cols em lg, 5 cols em xl */}
               <div>
@@ -167,7 +215,7 @@ export function MenuOverlay() {
               </div>
 
               {/* 4 links grandes em grade 2×2 */}
-              <nav aria-label="Menu principal" className="grid shrink-0 grid-cols-2 gap-x-8 gap-y-6">
+              <nav aria-label="Menu principal" className="menu-desktop-nav grid shrink-0 grid-cols-2 gap-x-8 gap-y-6">
                 {navLinks.map((link) => {
                   const isContato = link.label === "Contato";
                   return (
@@ -178,7 +226,7 @@ export function MenuOverlay() {
                           onClick={handleContatoClick}
                           className="group flex min-w-0 items-end justify-start gap-2 text-hero-on-video transition-transform duration-200 hover:translate-x-2 hover:text-gold focus-visible:translate-x-2 focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                         >
-                          <span className="break-words font-heading text-4xl font-normal leading-tight xl:text-5xl 2xl:text-6xl">
+                          <span className="menu-desktop-link break-words font-heading text-4xl font-normal leading-tight xl:text-5xl 2xl:text-6xl">
                             {link.label}
                           </span>
                         </button>
@@ -189,7 +237,7 @@ export function MenuOverlay() {
                           rel={link.external ? "noopener noreferrer" : undefined}
                           className="group flex min-w-0 items-end justify-start gap-2 text-hero-on-video transition-transform duration-200 hover:translate-x-2 hover:text-gold focus-visible:translate-x-2 focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                         >
-                          <span className="break-words font-heading text-4xl font-normal leading-tight xl:text-5xl 2xl:text-6xl">
+                          <span className="menu-desktop-link break-words font-heading text-4xl font-normal leading-tight xl:text-5xl 2xl:text-6xl">
                             {link.label}
                           </span>
                           {link.external && (

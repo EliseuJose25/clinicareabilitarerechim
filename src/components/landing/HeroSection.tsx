@@ -76,7 +76,7 @@ function HeroVideo({ mp4, webm, poster }: { mp4: string; webm: string; poster: s
   return (
     <video
       ref={videoRef}
-      className="absolute inset-0 h-full w-full object-cover [object-position:30%_50%]"
+      className="pointer-events-none absolute inset-0 h-full w-full object-cover [object-position:30%_50%]"
       muted
       loop
       playsInline
@@ -84,7 +84,6 @@ function HeroVideo({ mp4, webm, poster }: { mp4: string; webm: string; poster: s
       preload="metadata"
       poster={poster}
       aria-hidden="true"
-      tabIndex={-1}
       disablePictureInPicture
     >
       {webm && <source src={webm} type="video/webm" />}
@@ -119,8 +118,8 @@ export function HeroSection() {
       </p>
 
       <ul className="mt-6 space-y-2">
-        {hero.bullets.map((b, i) => (
-          <li key={b} className={`items-start gap-2 text-sm text-foreground ${i === 0 ? "hidden lg:flex" : "flex"}`}>
+        {hero.bullets.map((b) => (
+          <li key={b} className="flex items-start gap-2 text-sm text-foreground">
             <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
             <span>{b}</span>
           </li>
@@ -189,13 +188,16 @@ export function HeroSection() {
                 </span>
               </span>
             </h1>
-            <p className="mt-6 font-heading text-base text-balance italic text-muted-foreground min-[400px]:text-lg lg:hidden">{hero.tagline}</p>
+            <div aria-hidden="true" className="mt-5 h-0.5 w-12 bg-gold lg:hidden" />
+            <p className="mt-4 font-heading text-lg text-balance italic text-foreground/80 min-[400px]:text-xl lg:hidden">
+              {hero.tagline}
+            </p>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg lg:max-w-sm lg:text-sm">
               {hero.subtitle}
             </p>
             <ul className="mt-6 space-y-2 lg:hidden">
-              {hero.bullets.map((b, i) => (
-                <li key={b} className={`items-start gap-2 text-sm text-foreground ${i === 0 ? "hidden lg:flex" : "flex"}`}>
+              {hero.bullets.map((b) => (
+                <li key={b} className="flex items-start gap-2 text-sm text-foreground">
                   <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
                   <span>{b}</span>
                 </li>

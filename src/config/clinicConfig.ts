@@ -11,12 +11,12 @@ import consultorioCadeira1 from "@/assets/consultorio-cadeira-1.jpg";
 import consultorioSalaAtendimento from "@/assets/consultorio-sala-atendimento.jpg";
 import draPriscila from "@/assets/dra-priscila.jpg";
 
-// Imagens dos tratamentos (vinculadas pelo ID no array treatments abaixo).
-import tratamentoOrtodontia from "@/assets/treatments/tratamento-ortodontia.jpg";
-import tratamentoImplantesCirurgia from "@/assets/treatments/tratamento-implantes-cirurgia.jpg";
-import tratamentoProtese from "@/assets/treatments/tratamento-protese.jpg";
-import tratamentoClinicaGeral from "@/assets/treatments/tratamento-clinica-geral.jpg";
-import tratamentoEstetica from "@/assets/treatments/tratamento-estetica.jpg";
+// Ícones dos tratamentos (vinculados pelo ID no array treatments abaixo).
+import iconeOrtodontia from "@/assets/treatments/icone-ortodontia.png";
+import iconeImplantesCirurgia from "@/assets/treatments/icone-implantes-cirurgia.png";
+import iconeProtese from "@/assets/treatments/icone-protese.png";
+import iconeClinicaGeral from "@/assets/treatments/icone-clinica-geral.png";
+import iconeEstetica from "@/assets/treatments/icone-estetica.png";
 
 export const clinicConfig = {
   brand: {
@@ -51,11 +51,11 @@ export const clinicConfig = {
   },
 
   treatmentImages: {
-    ortodontia: tratamentoOrtodontia,
-    "implantes-cirurgia": tratamentoImplantesCirurgia,
-    protese: tratamentoProtese,
-    "clinica-geral": tratamentoClinicaGeral,
-    estetica: tratamentoEstetica,
+    ortodontia: iconeOrtodontia,
+    "implantes-cirurgia": iconeImplantesCirurgia,
+    protese: iconeProtese,
+    "clinica-geral": iconeClinicaGeral,
+    estetica: iconeEstetica,
   },
 
   treatments: [
@@ -63,7 +63,7 @@ export const clinicConfig = {
       id: "ortodontia",
       name: "Ortodontia",
       headline: "Ortodontia",
-      image: "ortodontia",
+      image: iconeOrtodontia,
       message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Ortodontia.",
       summary:
         "Avaliação e acompanhamento para alinhar os dentes e corrigir a mordida, com o aparelho mais adequado a cada caso.",
@@ -73,7 +73,7 @@ export const clinicConfig = {
       id: "implantes-cirurgia",
       name: "Implantes e cirurgia",
       headline: "Implantes e cirurgia",
-      image: "implantes-cirurgia",
+      image: iconeImplantesCirurgia,
       message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Implantes e cirurgia.",
       summary:
         "Implantes, levantamento de seio maxilar, remoção de cistos e extrações, com explicação de cada etapa antes de começar.",
@@ -83,7 +83,7 @@ export const clinicConfig = {
       id: "protese",
       name: "Prótese",
       headline: "Prótese",
-      image: "protese",
+      image: iconeProtese,
       message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Prótese.",
       summary:
         "Reposição de dentes ausentes e recuperação da mastigação, com planejamento individual.",
@@ -93,7 +93,7 @@ export const clinicConfig = {
       id: "clinica-geral",
       name: "Clínica geral",
       headline: "Clínica geral",
-      image: "clinica-geral",
+      image: iconeClinicaGeral,
       message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Clínica geral.",
       summary:
         "Limpeza, prevenção e cuidados do dia a dia para manter a saúde da boca.",
@@ -103,7 +103,7 @@ export const clinicConfig = {
       id: "estetica",
       name: "Estética",
       headline: "Estética",
-      image: "estetica",
+      image: iconeEstetica,
       message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Estética.",
       summary:
         "Clareamento e restaurações, com atenção ao aspecto natural dos dentes.",
@@ -138,7 +138,6 @@ export const clinicConfig = {
     subtitle:
       "Atendimento particular, com cuidado individual e tempo para explicar cada etapa.",
     bullets: [
-      "Mais de 20 anos de experiência em odontologia raiz",
       "Atendimento particular, sem convênios, com foco total em você",
       "Plano de tratamento claro antes de qualquer decisão",
     ],

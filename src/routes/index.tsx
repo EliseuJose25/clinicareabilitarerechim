@@ -3,6 +3,7 @@ import { AnalyticsManager } from "@/components/landing/AnalyticsManager";
 import { Header } from "@/components/landing/Header";
 import { HeroSection } from "@/components/landing/HeroSection";
 import { TeamSection } from "@/components/landing/TeamSection";
+import { TreatmentsSection } from "@/components/landing/TreatmentsSection";
 import { QuoteSection } from "@/components/landing/QuoteSection";
 import { GallerySection } from "@/components/landing/GallerySection";
 import { TestimonialSlider } from "@/components/landing/TestimonialSlider";
@@ -33,6 +34,7 @@ function Index() {
       <main>
         <HeroSection />
         <TeamSection />
+        <TreatmentsSection />
         <QuoteSection />
         <GallerySection />
         <TestimonialSlider />

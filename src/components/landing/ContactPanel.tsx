@@ -1,6 +1,7 @@
 import {
   createContext,
   useContext,
+  useEffect,
   useId,
   useMemo,
   useRef,
@@ -79,6 +80,17 @@ export function ContactPanel() {
   const messageId = useId();
   const messageCountId = useId();
   const nameInputRef = useRef<HTMLInputElement | null>(null);
+  const messageInputRef = useRef<HTMLTextAreaElement | null>(null);
+  const sendButtonRef = useRef<HTMLButtonElement | null>(null);
+  const fieldTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const buttonTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (fieldTimerRef.current) clearTimeout(fieldTimerRef.current);
+      if (buttonTimerRef.current) clearTimeout(buttonTimerRef.current);
+    };
+  }, []);
 
   const trimmedName = name.trim();
   const trimmedMessage = message.trim();
@@ -99,6 +111,40 @@ export function ContactPanel() {
     )}`;
   };
 
+  /**
+   * Teclado virtual: o campo focado é rolado para o centro da área visível
+   * (acima do teclado) cerca de 250 ms depois do foco, tempo médio de abertura
+   * do teclado. O botão de enviar continua acessível logo abaixo do campo.
+   */
+  const scrollFieldIntoView = (element: HTMLElement | null, keepButton = false) => {
+    if (!element) return;
+    if (fieldTimerRef.current) clearTimeout(fieldTimerRef.current);
+    if (buttonTimerRef.current) clearTimeout(buttonTimerRef.current);
+    fieldTimerRef.current = setTimeout(() => {
+      const viewport = window.visualViewport;
+      const visibleHeight = viewport?.height ?? window.innerHeight;
+      const keyboardInset = Math.max(0, window.innerHeight - visibleHeight);
+      const behavior: ScrollBehavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth";
+      // "center" respeita a margem de rolagem: com o teclado medido, o campo
+      // fica centralizado na faixa visível acima dele.
+      element.style.setProperty("scroll-margin-bottom", `${keyboardInset}px`);
+      element.scrollIntoView({ block: "center", behavior });
+      if (!keepButton) return;
+      buttonTimerRef.current = setTimeout(() => {
+        const button = sendButtonRef.current;
+        if (!button) return;
+        const current = window.visualViewport;
+        const visibleBottom = (current?.offsetTop ?? 0) + (current?.height ?? window.innerHeight);
+        if (button.getBoundingClientRect().bottom > visibleBottom) {
+          button.style.setProperty("scroll-margin-top", "1rem");
+          button.scrollIntoView({ block: "end", behavior });
+        }
+      }, 400);
+    }, 250);
+  };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (trimmedName.length < 2) {
@@ -116,7 +162,7 @@ export function ContactPanel() {
     <Sheet open={isOpen} onOpenChange={(open) => (open ? null : close())}>
       <SheetContent
         side="right"
-        className="contact-panel z-[70] h-dvh w-screen max-w-none gap-0 overflow-x-hidden overflow-y-auto border-0 bg-secondary p-0 text-foreground sm:max-w-none data-[state=open]:slide-in-from-right-0 data-[state=closed]:slide-out-to-right-0 data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:duration-250 data-[state=closed]:duration-200 motion-safe:data-[state=open]:animate-[contact-panel-in_250ms_ease-out] motion-safe:data-[state=closed]:animate-[contact-panel-out_200ms_ease-in] motion-reduce:animate-none [&>button]:hidden"
+        className="contact-panel z-[70] h-dvh w-screen max-w-none gap-0 overflow-x-hidden overflow-y-auto overscroll-contain border-0 bg-secondary p-0 pb-[calc(env(safe-area-inset-bottom)+1.5rem)] text-foreground sm:max-w-none data-[state=open]:slide-in-from-right-0 data-[state=closed]:slide-out-to-right-0 data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:duration-250 data-[state=closed]:duration-200 motion-safe:data-[state=open]:animate-[contact-panel-in_250ms_ease-out] motion-safe:data-[state=closed]:animate-[contact-panel-out_200ms_ease-in] motion-reduce:animate-none [&>button]:hidden"
       >
         <SheetTitle className="sr-only">Agende uma conversa</SheetTitle>
         <SheetDescription className="sr-only">
@@ -214,6 +260,7 @@ export function ContactPanel() {
                       setNameError(null);
                     }
                   }}
+                  onFocus={() => scrollFieldIntoView(nameInputRef.current)}
                   aria-invalid={nameError ? true : undefined}
                   aria-describedby={nameError ? nameErrorId : undefined}
                   placeholder="Seu nome"
@@ -254,17 +301,20 @@ export function ContactPanel() {
                 </div>
                 <div className="flex flex-col gap-3 lg:flex-row lg:items-stretch">
                   <textarea
+                    ref={messageInputRef}
                     id={messageId}
                     name="message"
                     rows={3}
                     maxLength={300}
                     value={message}
                     onChange={(event) => setMessage(event.target.value)}
+                    onFocus={() => scrollFieldIntoView(messageInputRef.current, true)}
                     aria-describedby={messageCountId}
                     placeholder="Conte rapidamente o que você precisa"
                     className="min-h-14 w-full flex-1 resize-none rounded-3xl border border-foreground/15 bg-background px-5 py-4 text-base text-foreground placeholder:text-foreground/50 focus-visible:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   />
                   <button
+                    ref={sendButtonRef}
                     type="submit"
                     aria-label="Enviar pelo WhatsApp"
                     disabled={!canSubmit}
@@ -292,27 +342,27 @@ export function ContactPanel() {
 
             {/* Palavra gigante - mobile: fim do conteúdo; desktop: ancora do rodapé */}
             <div className="mt-10 lg:hidden">
-              <h3 className="text-balance font-heading text-[clamp(2.5rem,12vw,4.5rem)] font-normal leading-[0.95] text-foreground">
+              <h3 className="text-balance font-heading text-[clamp(2.75rem,12vw,4.5rem)] font-normal leading-[1.02] text-foreground">
                 Agende uma conversa
               </h3>
             </div>
           </div>
 
           {/* Rodapé decorativo - desktop */}
-          <div className="pointer-events-none relative hidden h-44 overflow-hidden lg:block">
+          <div className="pointer-events-none relative hidden overflow-hidden lg:block">
             <div
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(90deg, rgba(16,38,74,0) 0%, rgba(16,38,74,0.35) 55%, rgba(16,38,74,0.6) 100%)",
+                  "linear-gradient(180deg, rgba(16,38,74,0) 0%, rgba(16,38,74,0.08) 55%, rgba(16,38,74,0.16) 100%)",
               }}
               aria-hidden="true"
             />
             <h3
-              className="absolute -bottom-2 left-6 font-heading text-foreground/50 mix-blend-multiply"
+              className="relative mx-6 pt-10 pb-6 font-heading text-foreground"
               style={{
-                fontSize: "clamp(3.5rem, 13vw, 11rem)",
-                lineHeight: 0.9,
+                fontSize: "clamp(3rem, 9vw, 8rem)",
+                lineHeight: 1,
               }}
             >
               Agende uma conversa

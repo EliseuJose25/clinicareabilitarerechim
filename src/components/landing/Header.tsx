@@ -25,8 +25,20 @@ import { useContactPanel } from "@/components/landing/ContactPanel";
 export function Header({ overVideo = false }: { overVideo?: boolean }) {
   const { brand, contact, header } = clinicConfig;
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const { open: openContactPanel } = useContactPanel();
+
+  // Menu em tela cheia e dropdown "Serviços" nunca ficam abertos ao mesmo tempo.
+  const handleMenuOpenChange = (open: boolean) => {
+    setMenuOpen(open);
+    if (open) setServicesOpen(false);
+  };
+
+  const handleServicesOpenChange = (open: boolean) => {
+    setServicesOpen(open);
+    if (open) setMenuOpen(false);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY >= 24);
@@ -61,7 +73,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
             </span>
           </a>
 
-          <Sheet>
+          <Sheet open={menuOpen} onOpenChange={handleMenuOpenChange}>
             <SheetTrigger asChild>
               <Button
                 type="button"
@@ -76,7 +88,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
             <MenuOverlay />
           </Sheet>
 
-          <Popover open={servicesOpen} onOpenChange={setServicesOpen}>
+          <Popover open={servicesOpen} onOpenChange={handleServicesOpenChange}>
             <PopoverTrigger asChild>
               <Button
                 type="button"
@@ -96,12 +108,12 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
             <PopoverContent
               align="start"
               sideOffset={12}
-              className="w-[min(92vw,64rem)] rounded-3xl border border-border/60 bg-secondary p-6 text-foreground shadow-2xl"
+              className="menu-services-panel w-[min(92vw,64rem)] rounded-3xl border border-border/60 bg-secondary p-6 text-foreground shadow-2xl"
             >
               <span className="mb-4 block text-xs font-semibold uppercase tracking-wider text-foreground/60">
                 Serviços
               </span>
-              <TreatmentCards variant="dropdown" />
+              <TreatmentCards variant="dropdown" onSelect={() => setServicesOpen(false)} />
             </PopoverContent>
           </Popover>
         </div>
