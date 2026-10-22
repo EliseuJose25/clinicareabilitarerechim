@@ -152,7 +152,7 @@ export function HeroSection() {
         className="relative overflow-hidden border-b border-border/60 bg-background pt-[calc(5rem+env(safe-area-inset-top))] lg:grid lg:min-h-[max(100svh,50rem)] lg:grid-cols-2 lg:pt-0"
       >
         {/* Vídeo: primeiro no mobile/tablet; metade direita no desktop */}
-        <div className="relative h-[42svh] min-h-[260px] w-full lg:order-2 lg:h-auto lg:min-h-0">
+        <div className="relative aspect-[16/10] max-h-[42vh] w-full lg:order-2 lg:aspect-auto lg:h-auto lg:max-h-none lg:min-h-0">
           <HeroVideo mp4={video.mp4} webm={video.webm} poster={video.poster} />
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-hero-overlay/35" />
           <div
@@ -166,7 +166,7 @@ export function HeroSection() {
         </div>
 
         {/* Conteúdo: alinhado ao eixo do container max-w-6xl no desktop */}
-        <div className="flex items-center px-4 py-10 md:px-6 md:py-14 lg:order-1 lg:items-end lg:pb-16 lg:pl-[max(2.5rem,calc((100vw-72rem)/2))] lg:pr-12 lg:pt-[36rem]">
+        <div className="flex items-center px-4 pb-10 pt-8 md:px-6 md:py-14 lg:order-1 lg:items-end lg:pb-16 lg:pl-[max(2.5rem,calc((100vw-72rem)/2))] lg:pr-12 lg:pt-[36rem]">
           <div className="w-full">
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
               {hero.eyebrow}
@@ -175,7 +175,7 @@ export function HeroSection() {
               <span className="sr-only">{hero.title}</span>
               <span aria-hidden="true" className="block lg:hidden">
                 <span className="block motion-safe:hero-title-enter">{hero.display.line1}</span>
-                <span className="ml-6 block italic motion-safe:hero-title-enter motion-safe:[animation-delay:120ms]">{hero.display.line2}</span>
+                <span className="block italic motion-safe:hero-title-enter motion-safe:[animation-delay:120ms]">{hero.display.line2}</span>
               </span>
               <span aria-hidden="true" className="relative hidden lg:block">
                 <span className="block text-foreground [clip-path:inset(0_50%_0_0)]">

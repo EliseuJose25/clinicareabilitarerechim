@@ -164,7 +164,7 @@ export const clinicConfig = {
       "Atendimento particular, com cuidado individual e tempo para explicar cada etapa.",
     bullets: [
       "Atendimento particular, sem convênios, com foco total em você",
-      "Plano de tratamento claro antes de qualquer decisão",
+      "Explicação de cada etapa antes de começar",
     ],
     image: consultorioSalaEspera,
     imageAlt: "Sala de espera do consultório Reabilitar",
