@@ -1,6 +1,7 @@
 import { clinicConfig } from "@/config/clinicConfig";
 import { Award, BadgeCheck, BookOpen, CalendarCheck, GraduationCap } from "lucide-react";
 import { ImagePlaceholder } from "./ImagePlaceholder";
+import { Reveal } from "./Reveal";
 
 const credentialIcons = {
   Graduação: GraduationCap,
@@ -19,13 +20,13 @@ export function TeamSection() {
   return (
     <section id="credenciais" className="border-b border-border/60 bg-secondary py-12 md:py-20">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             {count === 1 ? "25 anos de odontologia, com a mesma honestidade" : "Mais de 45 anos de odontologia somados"}
           </h2>
-        </div>
+        </Reveal>
 
-        <div className={`mt-8 grid items-stretch gap-6 md:mt-12 md:gap-8 ${count === 1 ? "grid-cols-1 md:max-w-lg md:mx-auto" : "grid-cols-1 md:grid-cols-2"}`}>
+        <Reveal className={`mt-8 grid items-stretch gap-6 md:mt-12 md:gap-8 ${count === 1 ? "grid-cols-1 md:max-w-lg md:mx-auto" : "grid-cols-1 md:grid-cols-2"}`}>
           {team.map((professional) => (
             <article
               key={professional.name}
@@ -80,7 +81,7 @@ export function TeamSection() {
               </div>
             </article>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

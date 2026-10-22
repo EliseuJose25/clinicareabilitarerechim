@@ -164,7 +164,7 @@ export const clinicConfig = {
       "Atendimento particular, com cuidado individual e tempo para explicar cada etapa.",
     bullets: [
       "Atendimento particular, sem convênios, com foco total em você",
-      "Plano de tratamento claro antes de qualquer decisão",
+      "Explicação de cada etapa antes de começar",
     ],
     image: consultorioSalaEspera,
     imageAlt: "Sala de espera do consultório Reabilitar",
@@ -236,8 +236,8 @@ export const clinicConfig = {
   finalCta: {
     eyebrow: "Consultório de especialidades odontológicas",
     title: "Seu cuidado começa com uma conversa, não com um compromisso",
-    subtitle: "Sem pressão: você sai da avaliação com um plano de tratamento claro e decide depois, no seu tempo.",
-    primaryLabel: "Agendar Avaliação",
+    subtitle: "Sem pressão: você tira suas dúvidas, entende as opções para o seu caso e decide no seu tempo.",
+    primaryLabel: "Agende uma conversa",
   },
 
   faq: [

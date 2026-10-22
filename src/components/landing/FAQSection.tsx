@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { clinicConfig } from "@/config/clinicConfig";
 import { Plus, Minus } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 /**
  * FAQSection - acordeões expansíveis (um item aberto por vez).
@@ -12,16 +13,16 @@ export function FAQSection() {
   return (
     <section id="faq" className="border-b border-border/60 bg-background py-10 md:py-16">
       <div className="mx-auto max-w-3xl px-4 md:px-6">
-        <div className="text-center">
+        <Reveal className="text-center">
           <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             Perguntas frequentes
           </h2>
           <p className="mt-2 text-muted-foreground">
             As perguntas que mais ouvimos na recepção.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-8 space-y-3 md:mt-10">
+        <Reveal className="mt-8 space-y-3 md:mt-10">
           {faq.map((item, i) => {
             const isOpen = open === i;
             return (
@@ -48,7 +49,7 @@ export function FAQSection() {
               </div>
             );
           })}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

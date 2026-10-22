@@ -1,6 +1,7 @@
 import { clinicConfig } from "@/config/clinicConfig";
 import placaSala605 from "@/assets/placa-sala-605.jpg";
 import { MapPin, Clock, Phone, Star, Navigation, ExternalLink } from "lucide-react";
+import { Reveal, REVEAL_STAGGER_MS } from "./Reveal";
 
 /**
  * ContactMap - seção de contato com mapa embutido do Google Maps.
@@ -18,17 +19,17 @@ export function ContactMap() {
   return (
     <section id="contato" className="border-b border-border/60 bg-background py-10 md:py-16">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <div className="text-center">
+        <Reveal className="text-center">
           <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             Onde estamos
           </h2>
           <p className="mt-2 text-muted-foreground">
             No antigo Edifício Sanenge, na Av. Sete de Setembro.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-8 grid gap-6 md:mt-12 md:grid-cols-[1.2fr_1fr] md:gap-10">
-          <div className="overflow-hidden rounded-2xl border border-border bg-muted">
+          <Reveal className="overflow-hidden rounded-2xl border border-border bg-muted">
             <div className="relative aspect-[4/3] w-full">
               <iframe
                 title={`Mapa de ${brand.name}`}
@@ -39,9 +40,12 @@ export function ContactMap() {
                 allowFullScreen
               />
             </div>
-          </div>
+          </Reveal>
 
-          <div className="flex flex-col justify-center gap-4 rounded-2xl border border-border/70 bg-secondary/40 p-6 md:p-8">
+          <Reveal
+            delay={REVEAL_STAGGER_MS}
+            className="flex flex-col justify-center gap-4 rounded-2xl border border-border/70 bg-secondary/40 p-6 md:p-8"
+          >
             <figure>
               <img
                 src={placaSala605}
@@ -77,12 +81,12 @@ export function ContactMap() {
               </a>
             </div>
 
-            <div className="mt-2 flex flex-wrap gap-3">
+            <div className="mt-2 flex flex-col gap-3 md:flex-row md:flex-wrap">
               <a
                 href={contact.reviewUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gmap-primary inline-flex items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition-colors duration-200 hover:bg-[#10264A] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#10264A] focus-visible:ring-offset-2 motion-reduce:transition-none"
+                className="btn-gmap-primary inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition-colors duration-200 hover:bg-[#10264A] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#10264A] focus-visible:ring-offset-2 motion-reduce:transition-none md:w-auto"
               >
                 <Star className="h-4 w-4 transition-colors duration-200 group-hover/btn:text-white group-focus-visible/btn:text-white" />
                 Avaliar a Reabilitar no Google
@@ -91,7 +95,7 @@ export function ContactMap() {
                 href={contact.googleBusinessUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gmap-secondary inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition-colors duration-200 hover:border-[#1E4DB7] hover:bg-[#1E4DB7] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E4DB7] focus-visible:ring-offset-2 motion-reduce:transition-none"
+                className="btn-gmap-secondary inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition-colors duration-200 hover:border-[#1E4DB7] hover:bg-[#1E4DB7] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E4DB7] focus-visible:ring-offset-2 motion-reduce:transition-none md:w-auto"
               >
                 <ExternalLink className="h-4 w-4" />
                 Ver perfil no Google Maps
@@ -100,13 +104,13 @@ export function ContactMap() {
                 href={contact.address.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gmap-secondary inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition-colors duration-200 hover:border-[#1E4DB7] hover:bg-[#1E4DB7] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E4DB7] focus-visible:ring-offset-2 motion-reduce:transition-none"
+                className="btn-gmap-secondary inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition-colors duration-200 hover:border-[#1E4DB7] hover:bg-[#1E4DB7] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E4DB7] focus-visible:ring-offset-2 motion-reduce:transition-none md:w-auto"
               >
                 <Navigation className="h-4 w-4" />
                 Traçar rota no Google Maps
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
