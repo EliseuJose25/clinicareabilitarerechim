@@ -18,7 +18,10 @@ export function TeamSection() {
   const count: number = team.length;
 
   return (
-    <section id="credenciais" className="border-b border-border/60 bg-secondary py-12 md:py-20">
+    <section
+      id="credenciais"
+      className="border-b border-border/60 bg-secondary py-12 dark:border-transparent md:py-20"
+    >
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
@@ -32,22 +35,32 @@ export function TeamSection() {
               key={professional.name}
               className="flex h-full flex-col overflow-hidden rounded-lg border border-border/70 bg-card shadow-sm dark:bg-background"
             >
-              <div className="w-full">
-                <ImagePlaceholder
-                  src={professional.photo}
-                  alt={`Foto de ${professional.name}`}
-                  aspectRatio="4 / 5"
-                  className="rounded-none"
-                />
+              {/* Escuro: foto arredondada com brilho azul suave atrás e base que se
+                  funde com o cartão. No claro, foto de ponta a ponta como antes. */}
+              <div className="w-full dark:bg-[radial-gradient(ellipse_at_50%_45%,rgba(74,116,201,0.3),transparent_70%)] dark:p-5 dark:md:p-6">
+                <div className="relative dark:overflow-hidden dark:rounded-3xl dark:ring-1 dark:ring-white/10">
+                  <ImagePlaceholder
+                    src={professional.photo}
+                    alt={`Foto de ${professional.name}`}
+                    aspectRatio="4 / 5"
+                    className="rounded-none"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-1/3 bg-gradient-to-b from-transparent to-background dark:block"
+                  />
+                </div>
               </div>
 
               <div className="flex flex-1 flex-col p-5 md:p-6">
                 <div>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary dark:text-foreground">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary dark:bg-white/10 dark:text-white/80">
                     <BadgeCheck className="h-3.5 w-3.5" /> {professional.cro}
                   </span>
                   <h3 className="mt-4 text-2xl font-semibold text-foreground">{professional.name}</h3>
-                  <p className="mt-1 text-sm font-medium text-primary md:text-base">{professional.role}</p>
+                  <p className="mt-1 text-sm font-medium text-primary dark:text-white/80 md:text-base">
+                    {professional.role}
+                  </p>
                   <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                     {professional.bio}
                   </p>
@@ -65,8 +78,8 @@ export function TeamSection() {
                           className="flex min-h-24 flex-col justify-center rounded-lg border border-border/70 bg-background p-4 dark:bg-secondary"
                         >
                           <div className="flex items-center gap-2">
-                            <CredentialIcon className="h-4 w-4 flex-shrink-0 text-primary" />
-                            <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                            <CredentialIcon className="h-4 w-4 flex-shrink-0 text-primary dark:text-white/80" />
+                            <span className="text-xs font-semibold uppercase tracking-wider text-primary dark:text-white/80">
                               {credential.title}
                             </span>
                           </div>

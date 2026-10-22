@@ -17,7 +17,10 @@ export function ContactMap() {
   const embedSrc = `https://www.google.com/maps?q=${query}&output=embed`;
 
   return (
-    <section id="contato" className="border-b border-border/60 bg-background py-10 md:py-16">
+    <section
+      id="contato"
+      className="border-b border-border/60 bg-background py-10 dark:border-transparent md:py-16"
+    >
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <Reveal className="text-center">
           <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
@@ -58,9 +61,9 @@ export function ContactMap() {
               </figcaption>
             </figure>
             <div className="flex items-start gap-3">
-              <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+              <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary dark:text-white/80" />
               <div className="text-base text-foreground">
-                <p className="font-semibold text-primary">{contact.addressTitle}</p>
+                <p className="font-semibold text-primary dark:text-white">{contact.addressTitle}</p>
                 <p className="text-muted-foreground">{contact.address.street}</p>
                 <p className="text-muted-foreground">
                   {contact.address.city} - {contact.address.state}, {contact.address.zip}
@@ -68,11 +71,11 @@ export function ContactMap() {
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <Clock className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+              <Clock className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary dark:text-white/80" />
               <p className="text-base text-muted-foreground">{contact.hours}</p>
             </div>
             <div className="flex items-start gap-3">
-              <Phone className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+              <Phone className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary dark:text-white/80" />
               <a
                 href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`}
                 className="text-base font-medium text-primary hover:underline"
@@ -86,7 +89,7 @@ export function ContactMap() {
                 href={contact.reviewUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gmap-primary inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition-colors duration-200 hover:bg-hero-overlay hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hero-overlay dark:hover:bg-primary dark:hover:text-primary-foreground dark:focus-visible:ring-ring focus-visible:ring-offset-2 motion-reduce:transition-none md:w-auto"
+                className="btn-gmap-primary btn-shine inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition-colors duration-200 hover:bg-hero-overlay hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hero-overlay dark:hover:bg-gold/90 dark:hover:text-gold-foreground dark:focus-visible:ring-ring focus-visible:ring-offset-2 motion-reduce:transition-none md:w-auto"
               >
                 <Star className="h-4 w-4 transition-colors duration-200 group-hover/btn:text-white group-focus-visible/btn:text-white" />
                 Avaliar a Reabilitar no Google
@@ -95,7 +98,7 @@ export function ContactMap() {
                 href={contact.googleBusinessUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gmap-secondary inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition-colors duration-200 hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:transition-none md:w-auto"
+                className="btn-gmap-secondary inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition duration-200 hover:-translate-y-0.5 hover:border-gold hover:bg-transparent hover:text-gold hover:shadow-md focus-visible:-translate-y-0.5 focus-visible:border-gold focus-visible:bg-transparent focus-visible:text-gold focus-visible:shadow-md motion-reduce:transition-none dark:border-white/25 dark:text-white dark:hover:border-gold dark:hover:text-gold dark:focus-visible:border-gold dark:focus-visible:text-gold dark:bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:transition-none md:w-auto"
               >
                 <ExternalLink className="h-4 w-4" />
                 Ver perfil no Google Maps
@@ -104,7 +107,7 @@ export function ContactMap() {
                 href={contact.address.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gmap-secondary inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition-colors duration-200 hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:transition-none md:w-auto"
+                className="btn-gmap-secondary inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-primary transition duration-200 hover:-translate-y-0.5 hover:border-gold hover:bg-transparent hover:text-gold hover:shadow-md focus-visible:-translate-y-0.5 focus-visible:border-gold focus-visible:bg-transparent focus-visible:text-gold focus-visible:shadow-md motion-reduce:transition-none dark:border-white/25 dark:text-white dark:hover:border-gold dark:hover:text-gold dark:focus-visible:border-gold dark:focus-visible:text-gold dark:bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:transition-none md:w-auto"
               >
                 <Navigation className="h-4 w-4" />
                 Traçar rota no Google Maps

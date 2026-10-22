@@ -129,7 +129,7 @@
   --secondary: #12274a;
   --secondary-foreground: #f1f5fb;
   --muted: #12274a;
-  --muted-foreground: #a9bad3;
+  --muted-foreground: #c9d5e6;
   /* Um tom acima dos cartões, para hover/foco (ex.: itens de menu) aparecerem. */
   --accent: #1b3461;
   --accent-foreground: #f1f5fb;
@@ -291,6 +291,42 @@
 @media (prefers-reduced-motion: no-preference) {
   .menu-services-panel[data-state="open"] {
     animation: menu-services-panel-enter 150ms ease-out both;
+  }
+}
+
+/*
+ * Brilho nos botões coral (.btn-shine): uma faixa de luz diagonal atravessa o
+ * botão da esquerda para a direita em 900ms (30% de um ciclo de 3s) e repete.
+ * Sem animação com prefers-reduced-motion (a faixa fica fora do botão).
+ */
+@keyframes btn-shine {
+  0% {
+    transform: translateX(-200%) skewX(-20deg);
+  }
+  30%,
+  100% {
+    transform: translateX(350%) skewX(-20deg);
+  }
+}
+
+@layer components {
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-shine::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 40%;
+    background: linear-gradient(110deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    transform: translateX(-200%) skewX(-20deg);
+    pointer-events: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .btn-shine::after {
+      animation: btn-shine 3s ease-in-out infinite;
+    }
   }
 }
 

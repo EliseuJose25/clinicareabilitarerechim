@@ -45,7 +45,10 @@ export function TreatmentsSection() {
     `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(message)}`;
 
   return (
-    <section id="tratamentos" className="border-b border-border/60 bg-background py-16 md:py-24">
+    <section
+      id="tratamentos"
+      className="border-b border-border/60 bg-background py-16 dark:border-transparent md:py-24"
+    >
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <Reveal>
           <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
@@ -81,7 +84,7 @@ export function TreatmentsSection() {
                 {treatment.procedures.map((procedure) => (
                   <li
                     key={procedure}
-                    className="rounded-full bg-primary/10 px-2.5 py-1 text-xs text-primary dark:text-foreground"
+                    className="rounded-full bg-primary/10 px-2.5 py-1 text-xs text-primary dark:bg-white/10 dark:text-white"
                   >
                     {procedure}
                   </li>
@@ -114,7 +117,7 @@ export function TreatmentsSection() {
             <button
               type="button"
               onClick={openContactPanel}
-              className="mt-6 inline-flex min-h-11 items-center justify-center self-start rounded-full bg-gold px-7 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition-colors duration-200 hover:bg-gold/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-hero-overlay motion-reduce:transition-none"
+              className="btn-shine mt-6 inline-flex min-h-11 items-center justify-center self-start rounded-full bg-gold px-7 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition-colors duration-200 hover:bg-gold/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-hero-overlay motion-reduce:transition-none"
             >
               Agendar uma conversa
             </button>

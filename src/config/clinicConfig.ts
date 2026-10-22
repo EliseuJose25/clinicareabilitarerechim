@@ -152,7 +152,7 @@ export const clinicConfig = {
   },
 
   cta: {
-    primaryLabel: "Agendar Avaliação",
+    primaryLabel: "Agende uma conversa",
     secondaryLabel: "Fale no WhatsApp",
   },
 

@@ -80,7 +80,10 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
               loading="lazy"
               className="hidden h-10 w-auto dark:block"
             />
-            <span translate="no" className="text-base font-semibold tracking-tight text-primary">
+            <span
+              translate="no"
+              className="text-base font-semibold tracking-tight text-primary dark:text-white"
+            >
               {brand.logoText}
             </span>
           </a>
@@ -90,7 +93,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
               <Button
                 type="button"
                 variant="ghost"
-                className="h-11 min-w-11 gap-2 px-2.5 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary sm:px-3"
+                className="h-11 min-w-11 gap-2 px-2.5 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary dark:text-white dark:hover:bg-white/10 dark:hover:text-gold sm:px-3"
                 aria-label="Abrir menu"
               >
                 <Menu className="h-6 w-6" />
@@ -105,7 +108,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
               <Button
                 type="button"
                 variant="ghost"
-                className="hidden h-11 min-w-11 gap-1.5 px-2.5 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary sm:px-3 lg:inline-flex"
+                className="hidden h-11 min-w-11 gap-1.5 px-2.5 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary dark:text-white dark:hover:bg-white/10 dark:hover:text-gold sm:px-3 lg:inline-flex"
                 aria-label="Abrir lista de serviços"
                 aria-expanded={servicesOpen}
                 aria-haspopup="dialog"
@@ -155,7 +158,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
             className={`hidden lg:inline-flex ${
               phoneOnVideo
                 ? "text-white hover:bg-white/10 focus-visible:ring-white"
-                : "text-primary hover:bg-primary/10 focus-visible:ring-ring"
+                : "text-primary hover:bg-primary/10 focus-visible:ring-ring dark:text-white dark:hover:bg-white/10 dark:hover:text-gold"
             }`}
           />
           <DropdownMenu>
@@ -163,7 +166,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
               <button
                 type="button"
                 className={`hidden min-h-11 items-center gap-1.5 text-left transition-colors lg:flex ${
-                  phoneOnVideo ? "text-white" : "text-primary"
+                  phoneOnVideo ? "text-white" : "text-primary dark:text-white dark:hover:text-gold"
                 }`}
               >
                 <span className="flex flex-col leading-tight">
@@ -191,7 +194,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
           <button
             type="button"
             onClick={openContactPanel}
-            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-gold px-4 py-2.5 text-sm font-semibold text-gold-foreground shadow-sm transition hover:bg-gold/90 md:px-5"
+            className="btn-shine inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full bg-gold px-4 py-2.5 text-sm font-semibold text-gold-foreground shadow-sm transition hover:bg-gold/90 md:px-5"
             aria-label="Agendar uma conversa"
           >
             <span className="md:hidden">{header.ctaLabelShort}</span>
