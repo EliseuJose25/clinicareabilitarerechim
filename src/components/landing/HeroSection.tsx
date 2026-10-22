@@ -189,7 +189,8 @@ export function HeroSection() {
               </span>
             </h1>
             <div aria-hidden="true" className="mt-5 h-0.5 w-12 bg-gold lg:hidden" />
-            <p className="mt-4 font-heading text-lg text-balance italic text-foreground/80 min-[400px]:text-xl lg:hidden">
+            {/* Celular baixo: frase oculta para a barra fixa não cobrir o subtítulo. */}
+            <p className="mt-4 font-heading text-lg text-balance italic text-foreground/80 min-[400px]:text-xl max-md:[@media(max-height:740px)]:hidden lg:hidden">
               {hero.tagline}
             </p>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg lg:max-w-sm lg:text-sm">
