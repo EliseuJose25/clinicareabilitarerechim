@@ -149,10 +149,10 @@ export const clinicConfig = {
   },
 
   gallery: [
-    { src: consultorioSalaEspera, alt: "Sala de espera do consultório Reabilitar" },
-    { src: consultorioCadeira2Vista, alt: "Sala de atendimento odontológico com vista para o centro de Erechim" },
-    { src: consultorioCadeira1, alt: "Consultório odontológico com cadeira azul-clara" },
-    { src: consultorioSalaAtendimento, alt: "Sala de atendimento com mesa branca e poltrona" },
+    { src: consultorioSalaEspera, alt: "Sala de espera do consultório Reabilitar", caption: "Sala de espera" },
+    { src: consultorioCadeira2Vista, alt: "Sala de atendimento odontológico com vista para o centro de Erechim", caption: "Vista para o centro" },
+    { src: consultorioCadeira1, alt: "Consultório odontológico com cadeira azul-clara", caption: "Consultório" },
+    { src: consultorioSalaAtendimento, alt: "Sala de atendimento com mesa branca e poltrona", caption: "Sala de atendimento" },
   ],
 
   hero: {

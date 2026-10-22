@@ -152,7 +152,7 @@ export function TestimonialSlider() {
                       aria-hidden="true"
                       className="font-heading text-[clamp(1.75rem,3.2vw,3rem)] italic leading-tight text-foreground"
                     >
-                      “{testimonial.highlight}”
+                      “{capitalize(testimonial.highlight)}”
                     </p>
                     <blockquote className="mt-5 text-base leading-relaxed text-muted-foreground">
                       {testimonial.quote}
@@ -230,4 +230,9 @@ export function TestimonialSlider() {
       </div>
     </section>
   );
+}
+
+/** Primeira letra maiúscula só na exibição do destaque. */
+function capitalize(text: string) {
+  return text.charAt(0).toUpperCase() + text.slice(1);
 }
