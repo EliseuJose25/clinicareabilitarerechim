@@ -11,7 +11,10 @@ export function FAQSection() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="border-b border-border/60 bg-background py-10 md:py-16">
+    <section
+      id="faq"
+      className="border-b border-border/60 bg-background py-10 dark:border-transparent md:py-16"
+    >
       <div className="mx-auto max-w-3xl px-4 md:px-6">
         <Reveal className="text-center">
           <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
@@ -36,9 +39,9 @@ export function FAQSection() {
                     {item.question}
                   </span>
                   {isOpen ? (
-                    <Minus className="h-4 w-4 flex-shrink-0 text-primary" />
+                    <Minus className="h-4 w-4 flex-shrink-0 text-primary dark:text-white/80" />
                   ) : (
-                    <Plus className="h-4 w-4 flex-shrink-0 text-primary" />
+                    <Plus className="h-4 w-4 flex-shrink-0 text-primary dark:text-white/80" />
                   )}
                 </button>
                 {isOpen && (

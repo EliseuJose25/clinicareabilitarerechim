@@ -107,7 +107,7 @@ export function HeroSection() {
 
   const content = (
     <>
-      <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
+      <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary dark:bg-white/10 dark:text-white/80">
         {hero.eyebrow}
       </span>
       <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-foreground md:text-5xl">
@@ -120,7 +120,7 @@ export function HeroSection() {
       <ul className="mt-6 space-y-2">
         {hero.bullets.map((b) => (
           <li key={b} className="flex items-start gap-2 text-sm text-foreground">
-            <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+            <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary dark:text-white/80" />
             <span>{b}</span>
           </li>
         ))}
@@ -131,13 +131,13 @@ export function HeroSection() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition hover:bg-gold/90"
+          className="btn-shine inline-flex items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition hover:bg-gold/90"
         >
           {cta.primaryLabel}
         </a>
         <a
           href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`}
-          className="inline-flex items-center justify-center rounded-full border-2 border-primary bg-transparent px-6 py-3 text-sm font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground"
+          className="inline-flex items-center justify-center rounded-full border-2 border-primary bg-transparent px-6 py-3 text-sm font-semibold text-primary transition duration-200 hover:-translate-y-0.5 hover:border-gold hover:bg-transparent hover:text-gold hover:shadow-md focus-visible:-translate-y-0.5 focus-visible:border-gold focus-visible:bg-transparent focus-visible:text-gold focus-visible:shadow-md motion-reduce:transition-none dark:border-white/25 dark:text-white dark:hover:border-gold dark:hover:text-gold dark:focus-visible:border-gold dark:focus-visible:text-gold"
         >
           Ligar agora
         </a>
@@ -149,7 +149,7 @@ export function HeroSection() {
     return (
       <section
         id="top"
-        className="relative overflow-hidden border-b border-border/60 bg-background pt-[calc(5rem+env(safe-area-inset-top))] lg:grid lg:min-h-[max(100svh,50rem)] lg:grid-cols-2 lg:pt-0"
+        className="relative overflow-hidden border-b border-border/60 bg-background pt-[calc(5rem+env(safe-area-inset-top))] dark:border-transparent lg:grid lg:min-h-[max(100svh,50rem)] lg:grid-cols-2 lg:pt-0"
       >
         {/* Vídeo: primeiro no mobile/tablet; metade direita no desktop */}
         <div className="relative aspect-[16/10] max-h-[42vh] w-full lg:order-2 lg:aspect-auto lg:h-auto lg:max-h-none lg:min-h-0">
@@ -168,7 +168,7 @@ export function HeroSection() {
         {/* Conteúdo: alinhado ao eixo do container max-w-6xl no desktop */}
         <div className="flex items-center px-4 pb-10 pt-8 md:px-6 md:py-14 lg:order-1 lg:items-end lg:pb-16 lg:pl-[max(2.5rem,calc((100vw-72rem)/2))] lg:pr-12 lg:pt-[36rem]">
           <div className="w-full">
-            <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
+            <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary dark:bg-white/10 dark:text-white/80">
               {hero.eyebrow}
             </span>
             <h1 className="mt-5 font-heading text-[3.25rem] font-normal leading-[0.95] tracking-normal text-foreground sm:text-[6.5rem] lg:pointer-events-none lg:absolute lg:inset-x-0 lg:top-[26%] lg:z-10 lg:mt-0 lg:select-none lg:text-[7rem] xl:text-[10.35rem] 2xl:text-[12rem]">
@@ -199,16 +199,16 @@ export function HeroSection() {
             <ul className="mt-6 space-y-2 lg:hidden">
               {hero.bullets.map((b) => (
                 <li key={b} className="flex items-start gap-2 text-sm text-foreground">
-                  <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                  <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary dark:text-white/80" />
                   <span>{b}</span>
                 </li>
               ))}
             </ul>
             <div className="mt-8 hidden flex-wrap justify-center gap-4 md:flex md:justify-start">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition hover:bg-gold/90">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-shine inline-flex items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition hover:bg-gold/90">
                 {cta.primaryLabel}
               </a>
-              <a href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`} className="inline-flex items-center justify-center rounded-full border-2 border-primary bg-transparent px-6 py-3 text-sm font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground">
+              <a href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`} className="inline-flex items-center justify-center rounded-full border-2 border-primary bg-transparent px-6 py-3 text-sm font-semibold text-primary transition duration-200 hover:-translate-y-0.5 hover:border-gold hover:bg-transparent hover:text-gold hover:shadow-md focus-visible:-translate-y-0.5 focus-visible:border-gold focus-visible:bg-transparent focus-visible:text-gold focus-visible:shadow-md motion-reduce:transition-none dark:border-white/25 dark:text-white dark:hover:border-gold dark:hover:text-gold dark:focus-visible:border-gold dark:focus-visible:text-gold">
                 Ligar agora
               </a>
             </div>
@@ -221,7 +221,7 @@ export function HeroSection() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden border-b border-border/60 bg-background pt-[calc(5rem+env(safe-area-inset-top))]"
+      className="relative overflow-hidden border-b border-border/60 bg-background pt-[calc(5rem+env(safe-area-inset-top))] dark:border-transparent"
     >
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-2 md:gap-16 md:px-6 md:py-20 md:items-center">
         <div>{content}</div>

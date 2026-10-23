@@ -219,7 +219,7 @@ export function ContactPanel() {
                         className={cn(
                           "inline-flex h-11 cursor-pointer items-center gap-3 rounded-full border px-5 text-sm font-medium transition-colors",
                           selected
-                            ? "border-hero-overlay bg-hero-overlay text-hero-on-video dark:border-primary dark:bg-primary dark:text-primary-foreground"
+                            ? "border-gold bg-gold text-gold-foreground"
                             : "border-foreground/15 bg-background text-foreground hover:border-foreground/30",
                         )}
                       >
@@ -318,7 +318,7 @@ export function ContactPanel() {
                     type="submit"
                     aria-label="Enviar pelo WhatsApp"
                     disabled={!canSubmit}
-                    className="inline-flex h-14 w-full shrink-0 items-center justify-center gap-2 rounded-full bg-hero-overlay px-6 text-sm font-semibold text-hero-on-video shadow-sm transition hover:bg-hero-overlay/90 dark:bg-primary dark:text-primary-foreground dark:hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 lg:h-14 lg:w-14 lg:px-0"
+                    className="btn-shine inline-flex h-14 w-full shrink-0 items-center justify-center gap-2 rounded-full bg-hero-overlay px-6 text-sm font-semibold text-hero-on-video shadow-sm transition hover:bg-hero-overlay/90 dark:bg-gold dark:text-gold-foreground dark:hover:bg-gold/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 lg:h-14 lg:w-14 lg:px-0"
                   >
                     <ArrowRight aria-hidden="true" className="size-5" />
                     <span className="lg:sr-only">Enviar pelo WhatsApp</span>

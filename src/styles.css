@@ -129,7 +129,7 @@
   --secondary: #12274a;
   --secondary-foreground: #f1f5fb;
   --muted: #12274a;
-  --muted-foreground: #a9bad3;
+  --muted-foreground: #c9d5e6;
   /* Um tom acima dos cartões, para hover/foco (ex.: itens de menu) aparecerem. */
   --accent: #1b3461;
   --accent-foreground: #f1f5fb;
@@ -243,6 +243,42 @@
   }
   .menu-overlay .menu-desktop-nav {
     row-gap: 1rem;
+    /* Folga para o desenho das letras (Lora passa um pouco da linha): sem ela,
+       o tamanho em vh gera ~1px de sobra e uma barra vertical à toa. */
+    padding-bottom: 0.25rem;
+  }
+}
+
+/*
+ * Menu em tela cheia (lg+) em janelas bem baixas (ex.: 1366x560 úteis, com
+ * barra de favoritos). Complementa a regra acima para tudo caber sem rolagem;
+ * se ainda faltar espaço, só a rolagem vertical (discreta) aparece.
+ */
+@media (min-width: 1024px) and (max-height: 680px) {
+  .menu-overlay .menu-overlay-desktop {
+    padding-top: 0.25rem;
+  }
+  .menu-overlay .menu-overlay-desktop-main {
+    gap: 1rem;
+    scrollbar-width: thin;
+  }
+  .menu-overlay .menu-treatment {
+    min-height: 0;
+    padding: 0.5rem;
+  }
+  .menu-overlay .menu-treatment img {
+    width: 3rem;
+    height: 3rem;
+  }
+  .menu-overlay .menu-treatment > span:last-child {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .menu-overlay .menu-desktop-link {
+    font-size: clamp(1.5rem, 4.8vh, 2.25rem);
+  }
+  .menu-overlay .menu-desktop-nav {
+    row-gap: 0.5rem;
   }
 }
 
@@ -255,6 +291,42 @@
 @media (prefers-reduced-motion: no-preference) {
   .menu-services-panel[data-state="open"] {
     animation: menu-services-panel-enter 150ms ease-out both;
+  }
+}
+
+/*
+ * Brilho nos botões coral (.btn-shine): uma faixa de luz diagonal atravessa o
+ * botão da esquerda para a direita em 900ms (30% de um ciclo de 3s) e repete.
+ * Sem animação com prefers-reduced-motion (a faixa fica fora do botão).
+ */
+@keyframes btn-shine {
+  0% {
+    transform: translateX(-200%) skewX(-20deg);
+  }
+  30%,
+  100% {
+    transform: translateX(350%) skewX(-20deg);
+  }
+}
+
+@layer components {
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-shine::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 40%;
+    background: linear-gradient(110deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    transform: translateX(-200%) skewX(-20deg);
+    pointer-events: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .btn-shine::after {
+      animation: btn-shine 3s ease-in-out infinite;
+    }
   }
 }
 

@@ -57,7 +57,10 @@ export function TestimonialSlider() {
   if (total === 0) return null;
 
   return (
-    <section id="depoimentos" className="border-b border-border/60 bg-secondary py-12 md:py-20">
+    <section
+      id="depoimentos"
+      className="border-b border-border/60 bg-secondary py-12 dark:border-transparent md:py-20"
+    >
       <div className="mx-auto max-w-6xl px-3 sm:px-4 md:px-6">
         <Reveal className="text-center">
           <h2 className="text-[22px] font-semibold leading-tight tracking-tight text-foreground sm:text-2xl md:text-4xl">
@@ -172,7 +175,7 @@ export function TestimonialSlider() {
                           ) : (
                             <div
                               aria-hidden="true"
-                              className="flex aspect-square w-16 items-center justify-center rounded-full bg-primary/10 font-semibold text-primary dark:text-foreground"
+                              className="flex aspect-square w-16 items-center justify-center rounded-full bg-primary/10 font-semibold text-primary dark:bg-white/10 dark:text-white"
                             >
                               {initials}
                             </div>
@@ -184,7 +187,7 @@ export function TestimonialSlider() {
                           <div
                             role="img"
                             aria-label={`Nota ${testimonial.rating} de 5`}
-                            className="mt-1.5 flex gap-0.5 text-primary"
+                            className="mt-1.5 flex gap-0.5 text-gold"
                           >
                             {Array.from({ length: testimonial.rating }).map((_, star) => (
                               <Star
@@ -228,7 +231,7 @@ export function TestimonialSlider() {
             href={contact.reviewUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 py-3 text-sm font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 py-3 text-sm font-semibold text-primary transition duration-200 hover:-translate-y-0.5 hover:border-gold hover:bg-transparent hover:text-gold hover:shadow-md focus-visible:-translate-y-0.5 focus-visible:border-gold focus-visible:bg-transparent focus-visible:text-gold focus-visible:shadow-md motion-reduce:transition-none dark:border-white/25 dark:text-white dark:hover:border-gold dark:hover:text-gold dark:focus-visible:border-gold dark:focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <Star aria-hidden="true" className="h-4 w-4" />
             Avalie-nos no Google

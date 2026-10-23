@@ -15,7 +15,7 @@ export function FirstVisitSection() {
     <section
       id="primeira-consulta"
       aria-labelledby="primeira-consulta-titulo"
-      className="border-b border-border/60 bg-secondary py-16 md:py-24"
+      className="border-b border-border/60 bg-secondary py-16 dark:border-transparent md:py-24"
     >
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <Reveal>
@@ -32,12 +32,12 @@ export function FirstVisitSection() {
           {/* Linha do centro do 1º ao centro do 4º círculo (lg: 4 colunas, gap 2rem). */}
           <Reveal
             aria-hidden="true"
-            className="pointer-events-none absolute left-6 right-[calc((100%-6rem)/4-1.5rem)] top-6 hidden h-px bg-primary/25 lg:block"
+            className="pointer-events-none absolute left-6 right-[calc((100%-6rem)/4-1.5rem)] top-6 hidden h-px bg-primary/25 dark:bg-white/20 lg:block"
           />
           <ol className="grid gap-10 md:grid-cols-2 md:gap-x-10 md:gap-y-12 lg:grid-cols-4 lg:gap-8">
             {firstVisit.steps.map((step, index) => (
               <Reveal as="li" key={step.title} delay={index * REVEAL_STAGGER_MS}>
-                <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-primary font-heading text-lg font-semibold text-primary-foreground">
+                <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-primary font-heading text-lg font-semibold text-primary-foreground dark:bg-secondary dark:text-white dark:ring-1 dark:ring-white/30">
                   {index + 1}
                 </span>
                 <h3 className="mt-5 font-heading text-xl font-semibold text-foreground">
@@ -55,7 +55,7 @@ export function FirstVisitSection() {
           <button
             type="button"
             onClick={openContactPanel}
-            className="mt-10 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-gold px-7 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition-colors duration-200 hover:bg-gold/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none sm:w-auto md:mt-12"
+            className="btn-shine mt-10 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-gold px-7 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition-colors duration-200 hover:bg-gold/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none sm:w-auto md:mt-12"
           >
             {firstVisit.cta}
           </button>

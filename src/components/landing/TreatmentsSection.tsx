@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { clinicConfig } from "@/config/clinicConfig";
 import { useContactPanel } from "@/components/landing/ContactPanel";
 import { Reveal, REVEAL_STAGGER_MS } from "@/components/landing/Reveal";
+import { TreatmentIcon } from "@/components/landing/TreatmentIcon";
 
 const TREATMENT_HASH_PREFIX = "#tratamento-";
 
@@ -15,7 +16,7 @@ const CARD_HOVER =
  * Links diretos: /#tratamento-{id} rola até a seção.
  */
 export function TreatmentsSection() {
-  const { treatments, treatmentImages, contact } = clinicConfig;
+  const { treatments, contact } = clinicConfig;
   const { open: openContactPanel } = useContactPanel();
 
   useEffect(() => {
@@ -44,7 +45,10 @@ export function TreatmentsSection() {
     `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(message)}`;
 
   return (
-    <section id="tratamentos" className="border-b border-border/60 bg-background py-16 md:py-24">
+    <section
+      id="tratamentos"
+      className="border-b border-border/60 bg-background py-16 dark:border-transparent md:py-24"
+    >
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <Reveal>
           <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
@@ -65,13 +69,9 @@ export function TreatmentsSection() {
               id={`tratamento-${treatment.id}`}
               className={`grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-4 rounded-3xl border border-border/70 bg-card p-5 md:flex md:h-full md:flex-col md:p-7 ${CARD_HOVER}`}
             >
-              <img
-                src={treatmentImages[treatment.id]}
-                alt=""
-                width={512}
-                height={512}
-                loading="lazy"
-                decoding="async"
+              <TreatmentIcon
+                id={treatment.id}
+                surface="auto"
                 className="row-span-4 h-14 w-14 object-contain md:h-[72px] md:w-[72px]"
               />
               <h3 className="col-start-2 font-heading text-[22px] font-semibold text-foreground md:mt-5">
@@ -84,7 +84,7 @@ export function TreatmentsSection() {
                 {treatment.procedures.map((procedure) => (
                   <li
                     key={procedure}
-                    className="rounded-full bg-primary/10 px-2.5 py-1 text-xs text-primary dark:text-foreground"
+                    className="rounded-full bg-primary/10 px-2.5 py-1 text-xs text-primary dark:bg-white/10 dark:text-white"
                   >
                     {procedure}
                   </li>
@@ -117,7 +117,7 @@ export function TreatmentsSection() {
             <button
               type="button"
               onClick={openContactPanel}
-              className="mt-6 inline-flex min-h-11 items-center justify-center self-start rounded-full bg-gold px-7 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition-colors duration-200 hover:bg-gold/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-hero-overlay motion-reduce:transition-none"
+              className="btn-shine mt-6 inline-flex min-h-11 items-center justify-center self-start rounded-full bg-gold px-7 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition-colors duration-200 hover:bg-gold/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-hero-overlay motion-reduce:transition-none"
             >
               Agendar uma conversa
             </button>

@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SheetClose } from "@/components/ui/sheet";
 import { clinicConfig } from "@/config/clinicConfig";
+import { TreatmentIcon } from "@/components/landing/TreatmentIcon";
 
 export function TreatmentCards({
   variant,
@@ -35,7 +36,6 @@ export function TreatmentCards({
         </h2>
         <div className="grid grid-cols-5 gap-4">
           {clinicConfig.treatments.map((treatment) => {
-            const imageSrc = treatment.image;
             const treatmentHref = `/#tratamento-${treatment.id}`;
             return (
               <a
@@ -45,17 +45,13 @@ export function TreatmentCards({
                   onSelect?.();
                   handleTreatmentClick(event, treatment.id);
                 }}
-                className="group flex w-full min-w-0 flex-col items-stretch gap-2 rounded-3xl p-2 transition-colors duration-200 hover:bg-hero-overlay hover:text-hero-on-video focus-visible:bg-hero-overlay focus-visible:text-hero-on-video focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold motion-reduce:transition-none"
+                className="group flex w-full min-w-0 flex-col items-stretch gap-2 rounded-3xl p-2 transition-colors duration-200 hover:bg-hero-overlay hover:text-hero-on-video focus-visible:bg-hero-overlay focus-visible:text-hero-on-video dark:hover:bg-accent dark:focus-visible:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold motion-reduce:transition-none"
               >
                 <span className="flex w-full items-center justify-center">
                   <span className="relative inline-flex">
-                    <img
-                      src={imageSrc}
-                      width={512}
-                      height={512}
-                      loading="lazy"
-                      decoding="async"
-                      alt=""
+                    <TreatmentIcon
+                      id={treatment.id}
+                      surface="auto"
                       className="h-16 w-16 object-contain transition-transform duration-200 motion-reduce:transition-none group-hover:scale-[1.02] group-focus-visible:scale-[1.02]"
                     />
                     <ArrowUpRight
@@ -81,9 +77,9 @@ export function TreatmentCards({
         <h2 id={titleId} className="sr-only">
           Serviços
         </h2>
-        <div className="grid grid-cols-2 gap-2">
+        {/* 1 coluna abaixo de 360px: em 2 colunas os nomes quebrariam no meio da palavra. */}
+        <div className="grid grid-cols-1 gap-2 min-[360px]:grid-cols-2">
           {clinicConfig.treatments.map((treatment, index) => {
-            const imageSrc = treatment.image;
             const whatsappUrl = `https://wa.me/${clinicConfig.contact.whatsapp}?text=${encodeURIComponent(
               treatment.message,
             )}`;
@@ -94,17 +90,13 @@ export function TreatmentCards({
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group flex min-h-16 min-w-0 items-center gap-3 rounded-xl border border-hero-on-video/15 bg-transparent p-2 text-base font-semibold text-hero-on-video transition-colors duration-200 hover:bg-secondary hover:text-foreground focus-visible:bg-secondary focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold motion-reduce:transition-none ${isLast ? "col-span-2" : ""}`}
+                  className={`group flex min-h-16 min-w-0 items-center gap-2 rounded-xl border border-hero-on-video/15 bg-transparent p-2 text-base font-semibold text-hero-on-video transition-colors duration-200 hover:bg-secondary hover:text-foreground focus-visible:bg-secondary focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold motion-reduce:transition-none ${isLast ? "min-[360px]:col-span-2" : ""}`}
                 >
                   <span className="relative inline-flex shrink-0">
-                    <img
-                      src={imageSrc}
-                      width={512}
-                      height={512}
-                      loading="lazy"
-                      decoding="async"
-                      alt=""
-                      className="h-12 w-12 object-contain transition-transform duration-200 motion-reduce:transition-none group-hover:scale-[1.02] group-focus-visible:scale-[1.02]"
+                    <TreatmentIcon
+                      id={treatment.id}
+                      surface="dark"
+                      className="h-10 w-10 object-contain transition-transform duration-200 motion-reduce:transition-none group-hover:scale-[1.02] group-focus-visible:scale-[1.02]"
                     />
                   </span>
                   <span className="min-w-0 break-words text-base font-semibold">
@@ -126,7 +118,6 @@ export function TreatmentCards({
       </h2>
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-5">
         {clinicConfig.treatments.map((treatment, index) => {
-          const imageSrc = treatment.image;
           const treatmentHref = `/#tratamento-${treatment.id}`;
           const isLast = index === clinicConfig.treatments.length - 1;
           return (
@@ -143,13 +134,9 @@ export function TreatmentCards({
                 >
                   <span className="flex w-full items-center justify-center">
                     <span className="relative inline-flex">
-                      <img
-                        src={imageSrc}
-                        width={512}
-                        height={512}
-                        loading="lazy"
-                        decoding="async"
-                        alt=""
+                      <TreatmentIcon
+                        id={treatment.id}
+                        surface="dark"
                         className="h-16 w-16 object-contain transition-transform duration-200 motion-reduce:transition-none group-hover:scale-[1.02] group-focus-visible:scale-[1.02] lg:h-20 lg:w-20"
                       />
                       <ArrowUpRight

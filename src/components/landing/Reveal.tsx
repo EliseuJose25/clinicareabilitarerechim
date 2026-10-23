@@ -8,8 +8,8 @@ import {
   type ReactNode,
 } from "react";
 
-const DURATION_MS = 500;
-const OFFSET_PX = 16;
+const DURATION_MS = 600;
+const OFFSET_PX = 24;
 
 /** Atraso entre itens de uma lista: use `index * REVEAL_STAGGER_MS` na prop delay. */
 export const REVEAL_STAGGER_MS = 60;
@@ -17,7 +17,7 @@ export const REVEAL_STAGGER_MS = 60;
 type RevealStatus = "idle" | "hidden" | "shown";
 
 /**
- * useReveal - revela o elemento (opacity 0→1, translateY 16px→0, 500ms ease-out)
+ * useReveal - revela o elemento (opacity 0→1, translateY 24px→0, 600ms ease-out)
  * na primeira vez que ele entra na tela.
  * - O estado oculto só é aplicado no cliente, depois da hidratação: sem JavaScript
  *   (e para buscadores) o conteúdo fica sempre visível.

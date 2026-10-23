@@ -22,7 +22,10 @@ export function GallerySection() {
   };
 
   return (
-    <section id="estrutura" className="border-b border-border/60 bg-background py-12 md:py-20">
+    <section
+      id="estrutura"
+      className="border-b border-border/60 bg-background py-12 dark:border-transparent md:py-20"
+    >
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
