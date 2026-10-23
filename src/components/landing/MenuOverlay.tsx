@@ -52,9 +52,16 @@ export function MenuOverlay() {
     { label: "Contato" },
   ];
 
-  // Somente no mobile: "Serviços" entra entre "Sobre nós" e "Depoimentos".
+  // Somente no mobile: "Tratamentos" (expansível) e "Primeira consulta" entram entre
+  // "Sobre nós" e "Depoimentos".
   const mobileNavLinks: MenuLink[] = navLinks.flatMap((link) =>
-    link.label === "Depoimentos" ? [{ label: "Serviços", isServices: true }, link] : [link],
+    link.label === "Depoimentos"
+      ? [
+          { label: "Tratamentos", isServices: true },
+          { label: "Primeira consulta", href: "/#primeira-consulta" },
+          link,
+        ]
+      : [link],
   );
 
   const handleContatoClick = () => {
@@ -109,7 +116,7 @@ export function MenuOverlay() {
                         aria-expanded={isServicosOpen}
                         aria-controls={servicosPanelId}
                         onClick={() => setIsServicosOpen((open) => !open)}
-                        className="menu-main-link min-h-14 h-auto max-w-full justify-start gap-2 rounded-sm px-0 py-2 text-left font-heading font-normal text-hero-on-video transition-[transform,color] duration-200 hover:translate-x-2 hover:bg-transparent hover:text-gold focus-visible:translate-x-2 focus-visible:text-gold focus-visible:ring-2 focus-visible:ring-gold motion-reduce:transition-none [&_svg]:size-5"
+                        className="menu-main-link inline-flex min-h-14 h-auto max-w-full flex-nowrap items-center justify-start gap-2 whitespace-nowrap rounded-sm px-0 py-2 text-left font-heading font-normal text-hero-on-video transition-[transform,color] duration-200 hover:translate-x-2 hover:bg-transparent hover:text-gold focus-visible:translate-x-2 focus-visible:text-gold focus-visible:ring-2 focus-visible:ring-gold motion-reduce:transition-none [&_svg]:size-5"
                       >
                         <span>{link.label}</span>
                         <ChevronDown
