@@ -43,7 +43,7 @@ export function TeamSection() {
                     src={professional.photo}
                     alt={`Foto de ${professional.name}`}
                     aspectRatio="4 / 5"
-                    className="rounded-none"
+                    className="rounded-none [&_img]:[object-position:50%_15%]"
                   />
                   <div
                     aria-hidden="true"
