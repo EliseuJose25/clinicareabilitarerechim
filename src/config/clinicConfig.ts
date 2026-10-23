@@ -186,9 +186,9 @@ export const clinicConfig = {
     image: consultorioSalaEspera,
     imageAlt: "Sala de espera do consultório Reabilitar",
     video: {
-      mp4: "/videos/hero.mp4",
-      webm: "/videos/hero.webm",
-      poster: "/videos/hero-poster.jpg",
+      mp4: "/videos/hero-consultorio.mp4",
+      webm: "/videos/hero-consultorio.webm",
+      poster: "/videos/hero-consultorio-poster.jpg",
     },
   },
 
@@ -214,7 +214,7 @@ export const clinicConfig = {
   ],
 
   quote: {
-    text: "Nunca fizemos nada pensando só em ganhar dinheiro, e sim no bem-estar de quem nos procura. Essa honestidade é a nossa marca.",
+    text: "Cada decisão é pensada no bem-estar de quem nos procura. Essa honestidade é a nossa marca.",
     author: "Dra. Priscila Santin",
   },
 
@@ -259,7 +259,7 @@ export const clinicConfig = {
 
   faq: [
     { question: "Tenho medo de dentista, isso é um problema?", answer: "Não. Explicamos cada etapa antes de fazer e respeitamos o seu ritmo para tornar o atendimento o mais tranquilo e confortável possível." },
-    { question: "Vocês atendem convênio?", answer: "Não. Atendemos apenas de forma particular — isso nos permite dedicar tempo e cuidado total a cada paciente, sem pressa e sem protocolos padronizados." },
+    { question: "Vocês atendem convênio?", answer: "Não. Atendemos apenas de forma particular, o que nos permite dedicar tempo e atenção a cada paciente." },
     { question: "Como funciona o atendimento no consultório?", answer: "A equipe conversa com você para entender sua necessidade, avaliar o caso e explicar as opções de cuidado indicadas. Você pode esclarecer suas dúvidas e compreender as próximas etapas antes de decidir como prosseguir." },
     { question: "Como faço para agendar?", answer: "Você pode agendar diretamente pelo WhatsApp ou clicando em um dos botões de agendamento nesta página." },
   ],

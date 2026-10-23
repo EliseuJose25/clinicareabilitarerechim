@@ -70,13 +70,13 @@ function HeroVideo({ mp4, webm, poster }: { mp4: string; webm: string; poster: s
   }, []);
 
   if (staticOnly) {
-    return <img src={poster} alt="" className="absolute inset-0 h-full w-full object-cover [object-position:30%_50%]" />;
+    return <img src={poster} alt="" className="absolute inset-0 h-full w-full object-cover [object-position:50%_50%]" />;
   }
 
   return (
     <video
       ref={videoRef}
-      className="pointer-events-none absolute inset-0 h-full w-full object-cover [object-position:30%_50%]"
+      className="pointer-events-none absolute inset-0 h-full w-full object-cover [object-position:50%_50%]"
       muted
       loop
       playsInline
