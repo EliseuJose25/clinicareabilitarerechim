@@ -89,15 +89,30 @@ export function TestimonialSlider() {
                     onClick={() => setIndex(i)}
                     aria-pressed={isActive}
                     className={cn(
-                      "min-h-11 border-l-2 py-4 pl-5 text-left transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none",
+                      "flex min-h-11 items-center gap-4 border-l-2 py-4 pl-5 text-left transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none",
                       isActive
                         ? "border-gold text-foreground"
                         : "border-border/60 text-muted-foreground hover:text-foreground",
                     )}
                   >
-                    <span className="block font-heading text-xl">{testimonial.name}</span>
-                    <span className="mt-1 block text-sm text-muted-foreground">
-                      {testimonial.role}
+                    {testimonial.photo && (
+                      <img
+                        src={testimonial.photo}
+                        alt=""
+                        width={48}
+                        height={48}
+                        loading="lazy"
+                        className={cn(
+                          "h-12 w-12 shrink-0 rounded-full object-cover transition-opacity duration-200 motion-reduce:transition-none",
+                          !isActive && "opacity-60",
+                        )}
+                      />
+                    )}
+                    <span>
+                      <span className="block font-heading text-xl">{testimonial.name}</span>
+                      <span className="mt-1 block text-sm text-muted-foreground">
+                        {testimonial.role}
+                      </span>
                     </span>
                   </button>
                 );
@@ -119,12 +134,22 @@ export function TestimonialSlider() {
                     onClick={() => setIndex(i)}
                     aria-pressed={isActive}
                     className={cn(
-                      "min-h-11 shrink-0 snap-start rounded-full border px-4 text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none",
+                      "inline-flex min-h-11 shrink-0 snap-start items-center gap-2 rounded-full border py-1 pl-1.5 pr-4 text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none",
                       isActive
                         ? "border-gold bg-gold/10 text-foreground"
                         : "border-border text-muted-foreground hover:text-foreground",
                     )}
                   >
+                    {testimonial.photo && (
+                      <img
+                        src={testimonial.photo}
+                        alt=""
+                        width={32}
+                        height={32}
+                        loading="lazy"
+                        className="h-8 w-8 rounded-full object-cover"
+                      />
+                    )}
                     {testimonial.name}
                   </button>
                 );

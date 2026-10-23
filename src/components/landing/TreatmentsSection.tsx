@@ -117,7 +117,7 @@ export function TreatmentsSection() {
             <button
               type="button"
               onClick={openContactPanel}
-              className="btn-shine mt-6 inline-flex min-h-11 items-center justify-center self-start rounded-full bg-gold px-7 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition-colors duration-200 hover:bg-gold/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-hero-overlay motion-reduce:transition-none"
+              className="btn-shine mt-6 inline-flex min-h-11 w-full items-center justify-center self-stretch rounded-full sm:w-auto sm:self-start bg-gold px-7 py-3 text-sm font-semibold text-gold-foreground shadow-sm transition-colors duration-200 hover:bg-gold/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-hero-overlay motion-reduce:transition-none"
             >
               Agendar uma conversa
             </button>

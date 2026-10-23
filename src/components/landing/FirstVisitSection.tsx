@@ -36,16 +36,30 @@ export function FirstVisitSection() {
           />
           <ol className="grid gap-10 md:grid-cols-2 md:gap-x-10 md:gap-y-12 lg:grid-cols-4 lg:gap-8">
             {firstVisit.steps.map((step, index) => (
-              <Reveal as="li" key={step.title} delay={index * REVEAL_STAGGER_MS}>
-                <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-primary font-heading text-lg font-semibold text-primary-foreground dark:bg-secondary dark:text-white dark:ring-1 dark:ring-white/30">
+              <Reveal
+                as="li"
+                key={step.title}
+                delay={index * REVEAL_STAGGER_MS}
+                className="relative grid grid-cols-[3rem_minmax(0,1fr)] gap-x-4 md:block"
+              >
+                {/* Celular: linha vertical ligando os passos (linha do tempo). */}
+                {index < firstVisit.steps.length - 1 && (
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute bottom-[-2.5rem] left-6 top-14 w-px -translate-x-1/2 bg-primary/25 dark:bg-white/20 md:hidden"
+                  />
+                )}
+                <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-primary font-heading text-lg font-semibold text-primary-foreground shadow-md ring-4 ring-primary/10 dark:bg-[#DCE7FA] dark:text-[#10264A] dark:ring-white/10">
                   {index + 1}
                 </span>
-                <h3 className="mt-5 font-heading text-xl font-semibold text-foreground">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-                  {step.description}
-                </p>
+                <div>
+                  <h3 className="mt-2.5 font-heading text-xl font-semibold text-foreground md:mt-5">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-muted-foreground">
+                    {step.description}
+                  </p>
+                </div>
               </Reveal>
             ))}
           </ol>
