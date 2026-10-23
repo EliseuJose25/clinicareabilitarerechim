@@ -7,6 +7,7 @@ import { clinicConfig } from "@/config/clinicConfig";
 import { TreatmentCards } from "@/components/landing/TreatmentCards";
 import { useContactPanel } from "@/components/landing/ContactPanel";
 import { ThemeToggle } from "@/components/landing/ThemeToggle";
+import { TreatmentIcon } from "@/components/landing/TreatmentIcon";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -31,6 +32,18 @@ export function MenuOverlay() {
   const [isServicosOpen, setIsServicosOpen] = useState(false);
   const servicosButtonId = useId();
   const servicosPanelId = useId();
+  const panelTreatmentsId = useId();
+  const { treatments } = clinicConfig;
+
+  // Painel lateral (lg até xl): mesmos destinos dos links do cabeçalho em xl, mais o FAQ.
+  const panelLinks = [
+    { label: "Sobre nós", href: "/#credenciais" },
+    { label: "Tratamentos", href: "/#tratamentos" },
+    { label: "Primeira consulta", href: "/#primeira-consulta" },
+    { label: "Depoimentos", href: "/#depoimentos" },
+    { label: "Onde estamos", href: "/#contato" },
+    { label: "Perguntas frequentes", href: "/#faq" },
+  ];
 
   const navLinks: MenuLink[] = [
     { label: "Sobre nós", href: "/#credenciais" },
@@ -51,7 +64,7 @@ export function MenuOverlay() {
   return (
     <SheetContent
       side="right"
-      className="menu-overlay z-[60] h-dvh w-screen max-w-none gap-0 overflow-x-hidden overflow-y-hidden border-0 bg-hero-overlay p-0 text-hero-on-video sm:max-w-none data-[state=open]:slide-in-from-right-0 data-[state=closed]:slide-out-to-right-0 data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:duration-200 data-[state=closed]:duration-200 motion-reduce:animate-none lg:max-w-none lg:items-stretch lg:justify-between lg:rounded-none lg:border-none [&>button]:hidden"
+      className="menu-overlay z-[60] h-dvh w-screen max-w-none gap-0 overflow-x-hidden overflow-y-hidden border-0 bg-hero-overlay p-0 text-hero-on-video sm:max-w-none data-[state=open]:slide-in-from-right-0 data-[state=closed]:slide-out-to-right-0 data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:duration-200 data-[state=closed]:duration-200 motion-reduce:animate-none lg:w-[420px] lg:max-w-[420px] lg:shadow-2xl lg:data-[state=open]:slide-in-from-right lg:data-[state=closed]:slide-out-to-right lg:data-[state=open]:duration-300 [&>button]:hidden"
     >
       <SheetTitle className="sr-only">Menu principal</SheetTitle>
       <SheetDescription className="sr-only">Navegação da Reabilitar, tratamentos e contatos.</SheetDescription>
@@ -59,7 +72,7 @@ export function MenuOverlay() {
       <div className="flex h-full min-h-0 flex-col">
         {/* Cabeçalho: logo + fechar */}
         <div className="shrink-0 pt-[env(safe-area-inset-top)]">
-          <div className="mx-auto flex h-20 w-full max-w-xl items-center justify-between gap-2 px-6 lg:grid lg:max-w-[96rem] lg:grid-cols-[32%_minmax(0,1fr)] lg:gap-12 lg:px-10">
+          <div className="mx-auto flex h-20 w-full max-w-xl items-center justify-between gap-2 px-6">
             <div className="flex min-w-0 items-center gap-2.5">
               <img src={iconNegativo} alt="" className="h-10 w-auto" />
               <span translate="no" className="text-base font-semibold">{brand.logoText}</span>
@@ -68,7 +81,7 @@ export function MenuOverlay() {
               <Button
                 type="button"
                 variant="ghost"
-                className="min-h-11 shrink-0 gap-2 rounded-md px-3 text-hero-on-video hover:bg-hero-on-video/10 hover:text-hero-on-video focus-visible:ring-2 focus-visible:ring-gold lg:justify-self-end lg:text-hero-on-video lg:hover:bg-hero-on-video/10 lg:hover:text-hero-on-video"
+                className="min-h-11 shrink-0 gap-2 rounded-md px-3 text-hero-on-video hover:bg-hero-on-video/10 hover:text-hero-on-video focus-visible:ring-2 focus-visible:ring-gold"
               >
                 Fechar <X aria-hidden="true" className="size-5" />
               </Button>
@@ -77,7 +90,7 @@ export function MenuOverlay() {
         </div>
 
         {/* Área de conteúdo com scroll interno */}
-        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 pb-[calc(env(safe-area-inset-bottom)+1rem)] max-lg:px-6 lg:overflow-hidden lg:px-10 lg:pb-[calc(env(safe-area-inset-bottom)+2rem)]">
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 pb-[calc(env(safe-area-inset-bottom)+1rem)] max-lg:px-6 lg:pb-[calc(env(safe-area-inset-bottom)+2rem)]">
 
           {/* ── Mobile (< lg): empilhado ── */}
           <div className="mx-auto w-full max-w-xl pt-4 max-lg:block lg:hidden">
@@ -172,89 +185,75 @@ export function MenuOverlay() {
             </div>
           </div>
 
-          {/* ── Desktop (lg+): duas colunas com altura total ── */}
-          <div className="menu-overlay-desktop mx-auto hidden h-full w-full max-w-[96rem] grid-cols-[32%_minmax(0,1fr)] items-stretch gap-12 pt-8 lg:grid">
-
-            {/* ── Coluna esquerda: ícones sociais + FAQ ── */}
-            <div className="flex min-w-0 flex-col items-start justify-between gap-6">
-              <div className="flex flex-col items-start gap-3">
-                {[
-                  { label: "Instagram da Reabilitar", href: social.instagram, Icon: Instagram },
-                  { label: "WhatsApp da Reabilitar", href: whatsappUrl, Icon: WhatsAppIcon },
-                ].map(({ label, href, Icon }) => (
-                  <Button
-                    key={label}
-                    asChild
-                    variant="ghost"
-                    size="icon"
-                    className="size-14 rounded-full bg-hero-on-video/10 text-hero-on-video hover:bg-secondary hover:text-foreground focus-visible:ring-2 focus-visible:ring-gold [&_svg]:size-7"
-                  >
-                    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
-                      <Icon aria-hidden="true" />
-                    </a>
-                  </Button>
+          {/* ── Painel lateral (lg até xl): a partir de xl os links ficam no cabeçalho ── */}
+          <div className="hidden pt-2 lg:flex lg:flex-col">
+            <nav aria-label="Menu principal">
+              <ul className="flex flex-col">
+                {panelLinks.map((link) => (
+                  <li key={link.href} className="menu-stagger">
+                    <SheetClose asChild>
+                      <a
+                        href={link.href}
+                        className="block rounded-md py-1.5 font-heading text-2xl text-hero-on-video transition-colors duration-200 hover:text-gold focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold motion-reduce:transition-none"
+                      >
+                        {link.label}
+                      </a>
+                    </SheetClose>
+                  </li>
                 ))}
-              </div>
-              <SheetClose asChild>
+              </ul>
+            </nav>
+
+            <section
+              aria-labelledby={panelTreatmentsId}
+              className="mt-6 border-t border-hero-on-video/15 pt-5"
+            >
+              <h2
+                id={panelTreatmentsId}
+                className="text-xs font-semibold uppercase tracking-wider text-hero-on-video/70"
+              >
+                Tratamentos
+              </h2>
+              <ul className="mt-2 flex flex-col">
+                {treatments.map((treatment) => (
+                  <li key={treatment.id}>
+                    <SheetClose asChild>
+                      <a
+                        href={`/#tratamento-${treatment.id}`}
+                        className="flex min-h-11 items-center gap-3 rounded-md py-1 text-sm font-medium text-hero-on-video transition-colors duration-200 hover:text-gold focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold motion-reduce:transition-none"
+                      >
+                        <TreatmentIcon
+                          id={treatment.id}
+                          surface="dark"
+                          className="h-8 w-8 shrink-0 object-contain"
+                        />
+                        {treatment.name}
+                      </a>
+                    </SheetClose>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <div className="mt-6 flex items-center gap-3 border-t border-hero-on-video/15 pt-5">
+              {[
+                { label: "Instagram da Reabilitar", href: social.instagram, Icon: Instagram },
+                { label: "WhatsApp da Reabilitar", href: whatsappUrl, Icon: WhatsAppIcon },
+              ].map(({ label, href, Icon }) => (
                 <Button
+                  key={label}
                   asChild
                   variant="ghost"
-                  className="h-auto min-h-11 w-full justify-start whitespace-normal rounded-none border-t border-hero-on-video/15 px-0 pt-6 text-left text-base text-hero-on-video transition-[transform,color] duration-200 hover:translate-x-2 hover:bg-transparent hover:text-gold focus-visible:translate-x-2 focus-visible:text-gold focus-visible:ring-2 focus-visible:ring-gold"
+                  size="icon"
+                  className="size-11 rounded-full bg-hero-on-video/10 text-hero-on-video hover:bg-secondary hover:text-foreground focus-visible:ring-2 focus-visible:ring-gold [&_svg]:size-5"
                 >
-                  <a href="/#faq">
-                    Perguntas frequentes <ArrowUpRight aria-hidden="true" className="ml-1 inline size-4" />
+                  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+                    <Icon aria-hidden="true" />
                   </a>
                 </Button>
-              </SheetClose>
-            </div>
-
-            {/* ── Coluna direita: tratamentos + links grandes ── */}
-            <div className="menu-overlay-desktop-main flex min-h-0 min-w-0 flex-col justify-between gap-10 overflow-x-hidden overflow-y-auto">
-
-              {/* Tratamentos em grid: 3 cols em lg, 5 cols em xl */}
-              <div className="min-w-0">
-                <TreatmentCards variant="menu" />
-              </div>
-
-              {/* 4 links grandes em grade 2×2 */}
-              <nav aria-label="Menu principal" className="menu-desktop-nav grid min-w-0 shrink-0 grid-cols-2 gap-x-8 gap-y-6">
-                {navLinks.map((link) => {
-                  const isContato = link.label === "Contato";
-                  return (
-                    <SheetClose key={link.label} asChild>
-                      {isContato ? (
-                        <button
-                          type="button"
-                          onClick={handleContatoClick}
-                          className="group flex min-w-0 items-end justify-start gap-2 text-hero-on-video transition-transform duration-200 hover:translate-x-2 hover:text-gold focus-visible:translate-x-2 focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-                        >
-                          <span className="menu-desktop-link break-words font-heading text-4xl font-normal leading-tight xl:text-5xl 2xl:text-6xl">
-                            {link.label}
-                          </span>
-                        </button>
-                      ) : (
-                        <a
-                          href={link.href}
-                          target={link.external ? "_blank" : undefined}
-                          rel={link.external ? "noopener noreferrer" : undefined}
-                          className="group flex min-w-0 items-end justify-start gap-2 text-hero-on-video transition-transform duration-200 hover:translate-x-2 hover:text-gold focus-visible:translate-x-2 focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-                        >
-                          <span className="menu-desktop-link break-words font-heading text-4xl font-normal leading-tight xl:text-5xl 2xl:text-6xl">
-                            {link.label}
-                          </span>
-                          {link.external && (
-                            <ArrowUpRight aria-hidden="true" className="mb-2 size-5 shrink-0" />
-                          )}
-                        </a>
-                      )}
-                    </SheetClose>
-                  );
-                })}
-              </nav>
-
+              ))}
             </div>
           </div>
-
         </div>
       </div>
     </SheetContent>

@@ -26,8 +26,74 @@ import { ThemeToggle } from "@/components/landing/ThemeToggle";
 const CONTACT_ITEM =
   "min-h-11 cursor-pointer gap-3 rounded-lg px-3 text-sm font-medium focus:bg-gold focus:text-gold-foreground [&>svg]:size-4";
 
+// Links das seções (xl+). "tratamentos" é o dropdown de tratamentos, entre o 1º e o 2º link.
+const SECTION_LINKS = [
+  { id: "credenciais", label: "Sobre nós" },
+  { id: "primeira-consulta", label: "Primeira consulta" },
+  { id: "depoimentos", label: "Depoimentos" },
+  { id: "contato", label: "Onde estamos" },
+];
+const OBSERVED_SECTIONS = [
+  "credenciais",
+  "tratamentos",
+  "primeira-consulta",
+  "depoimentos",
+  "contato",
+];
+
+// Mesmo estilo de texto dos controles do cabeçalho; hover coral e foco visível.
+const NAV_ITEM =
+  "relative h-11 items-center gap-1.5 whitespace-nowrap rounded-md px-3 text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none";
+const NAV_COLOR = "text-primary hover:text-gold dark:text-white dark:hover:text-gold";
+// Cabeçalho transparente sobre o hero dividido (tema claro): como o título do hero,
+// o texto fica azul na metade esquerda e branco na metade do vídeo.
+const NAV_COLOR_SPLIT =
+  "bg-[linear-gradient(to_right,var(--color-primary)_50%,var(--color-hero-on-video)_50%)] bg-fixed bg-clip-text text-transparent hover:bg-none hover:text-gold focus-visible:bg-none focus-visible:text-gold dark:bg-none dark:text-white dark:hover:text-gold [&_svg]:text-primary hover:[&_svg]:text-gold dark:[&_svg]:text-white";
+
+/** Sublinhado coral do link da seção visível (sem animação com prefers-reduced-motion). */
+function ActiveBar({ active }: { active: boolean }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`pointer-events-none absolute inset-x-3 bottom-1.5 h-0.5 origin-left rounded-full bg-gold transition-transform duration-300 motion-reduce:transition-none ${
+        active ? "scale-x-100" : "scale-x-0"
+      }`}
+    />
+  );
+}
+
+/** Seção que cruza a faixa do meio da tela (IntersectionObserver); null fora delas. */
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState<string | null>(null);
+
+  useEffect(() => {
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    if (elements.length === 0 || typeof IntersectionObserver === "undefined") return;
+
+    const visible = new Set<string>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.add(entry.target.id);
+          else visible.delete(entry.target.id);
+        }
+        setActive(ids.find((id) => visible.has(id)) ?? null);
+      },
+      { rootMargin: "-45% 0px -54% 0px" },
+    );
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [ids]);
+
+  return active;
+}
+
 /**
- * Header fixo com logo, botão Menu (gaveta), Serviços e Contato (desktop) e CTA em pílula.
+ * Header fixo com logo, navegação, Contato (desktop) e CTA em pílula.
+ * - Abaixo de lg: botão Menu (tela cheia). lg até xl: Menu (painel lateral) + Tratamentos.
+ * - xl+: links das seções no próprio cabeçalho, com a seção visível sublinhada em coral.
  * Em md+ fica transparente sobre o hero até rolar ~24px; abaixo de md é sempre sólido.
  */
 export function Header({ overVideo = false }: { overVideo?: boolean }) {
@@ -37,9 +103,10 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const servicesBackdropRef = useRef<HTMLDivElement>(null);
+  const activeSection = useActiveSection(OBSERVED_SECTIONS);
   const { open: openContactPanel } = useContactPanel();
 
-  // Menu em tela cheia, dropdown "Serviços" e menu "Contato": só um aberto por vez.
+  // Menu (tela cheia ou painel), dropdown "Tratamentos" e menu "Contato": só um aberto por vez.
   const handleMenuOpenChange = (open: boolean) => {
     setMenuOpen(open);
     if (open) {
@@ -79,6 +146,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
   const transparent = !scrolled;
   // Desktop no topo da página: o lado direito do cabeçalho fica sobre o vídeo do hero.
   const rightOnVideo = overVideo && transparent;
+  const navItem = `${NAV_ITEM} ${rightOnVideo ? NAV_COLOR_SPLIT : NAV_COLOR}`;
 
   return (
     <header
@@ -89,7 +157,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
       }`}
     >
       <div className="flex h-20 w-full items-center justify-between gap-2 px-4 md:px-6 lg:px-10">
-        {/* Esquerda: logo + Menu + Serviços (lg+) */}
+        {/* Esquerda: logo + Menu (até xl) + navegação (Tratamentos em lg; todos os links em xl) */}
         <div className="flex min-w-0 items-center gap-1 sm:gap-3">
           <a href="/#top" className="flex items-center gap-2.5">
             {/* Logo troca conforme o tema (sem filtro invert). */}
@@ -113,7 +181,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
               <Button
                 type="button"
                 variant="ghost"
-                className="h-11 min-w-11 gap-2 px-2.5 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary dark:text-white dark:hover:bg-white/10 dark:hover:text-gold sm:px-3"
+                className="h-11 min-w-11 gap-2 px-2.5 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary dark:text-white dark:hover:bg-white/10 dark:hover:text-gold sm:px-3 xl:hidden"
                 aria-label="Abrir menu"
               >
                 <Menu className="h-6 w-6" />
@@ -123,42 +191,69 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
             <MenuOverlay />
           </Sheet>
 
-          <Popover open={servicesOpen} onOpenChange={handleServicesOpenChange}>
-            <PopoverTrigger asChild>
-              <Button
-                type="button"
-                variant="ghost"
-                className="hidden h-11 min-w-11 gap-1.5 px-2.5 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary dark:text-white dark:hover:bg-white/10 dark:hover:text-gold sm:px-3 lg:inline-flex"
-                aria-label="Abrir lista de serviços"
-                aria-expanded={servicesOpen}
-                aria-haspopup="dialog"
-              >
-                Serviços
-                <ChevronDown
-                  aria-hidden="true"
-                  className={`h-4 w-4 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
-                />
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent
-              align="start"
-              sideOffset={12}
-              // Clique na camada escurecida: fecha no "click" (abaixo), não no
-              // pointerdown, para o clique não atravessar até a página.
-              onPointerDownOutside={(event) => {
-                if (servicesBackdropRef.current?.contains(event.target as Node)) {
-                  event.preventDefault();
-                }
-              }}
-              className="menu-services-panel w-[min(92vw,64rem)] rounded-3xl border border-border/60 bg-secondary p-6 text-foreground shadow-2xl"
+          <nav aria-label="Seções do site" className="hidden items-center gap-1 lg:flex">
+            <a
+              href={`/#${SECTION_LINKS[0].id}`}
+              aria-current={activeSection === SECTION_LINKS[0].id ? "location" : undefined}
+              className={`${navItem} hidden xl:inline-flex`}
             >
-              <span className="mb-4 block text-xs font-semibold uppercase tracking-wider text-foreground/60">
-                Serviços
-              </span>
-              <TreatmentCards variant="dropdown" onSelect={() => setServicesOpen(false)} />
-            </PopoverContent>
-          </Popover>
-          {/* Dropdown "Serviços" aberto: camada escurecida sob o cabeçalho (portal no
+              {SECTION_LINKS[0].label}
+              <ActiveBar active={activeSection === SECTION_LINKS[0].id} />
+            </a>
+
+            <Popover open={servicesOpen} onOpenChange={handleServicesOpenChange}>
+              <PopoverTrigger asChild>
+                <button
+                  type="button"
+                  className={`${navItem} inline-flex`}
+                  aria-label="Abrir lista de tratamentos"
+                  aria-expanded={servicesOpen}
+                  aria-haspopup="dialog"
+                >
+                  Tratamentos
+                  <ChevronDown
+                    aria-hidden="true"
+                    className={`h-4 w-4 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                  />
+                  <ActiveBar active={activeSection === "tratamentos"} />
+                </button>
+              </PopoverTrigger>
+              <PopoverContent
+                align="start"
+                sideOffset={12}
+                // Clique na camada escurecida: fecha no "click" (abaixo), não no
+                // pointerdown, para o clique não atravessar até a página.
+                onPointerDownOutside={(event) => {
+                  if (servicesBackdropRef.current?.contains(event.target as Node)) {
+                    event.preventDefault();
+                  }
+                }}
+                // Trocando para "Contato": não devolve o foco a "Tratamentos" (fecharia o Contato).
+                onCloseAutoFocus={(event) => {
+                  if (contactOpen) event.preventDefault();
+                }}
+                className="menu-services-panel w-[min(92vw,64rem)] rounded-3xl border border-border/60 bg-secondary p-6 text-foreground shadow-2xl"
+              >
+                <span className="mb-4 block text-xs font-semibold uppercase tracking-wider text-foreground/60">
+                  Tratamentos
+                </span>
+                <TreatmentCards variant="dropdown" onSelect={() => setServicesOpen(false)} />
+              </PopoverContent>
+            </Popover>
+
+            {SECTION_LINKS.slice(1).map((link) => (
+              <a
+                key={link.id}
+                href={`/#${link.id}`}
+                aria-current={activeSection === link.id ? "location" : undefined}
+                className={`${navItem} hidden xl:inline-flex`}
+              >
+                {link.label}
+                <ActiveBar active={activeSection === link.id} />
+              </a>
+            ))}
+          </nav>
+          {/* Dropdown "Tratamentos" aberto: camada escurecida sob o cabeçalho (portal no
               body, abaixo do cabeçalho z-40 e do painel z-50). Clicar nela fecha. */}
           {servicesOpen &&
             createPortal(
@@ -181,7 +276,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
                 : "text-primary hover:bg-primary/10 focus-visible:ring-ring dark:text-white dark:hover:bg-white/10 dark:hover:text-gold"
             }`}
           />
-          {/* modal={false}: um clique em "Serviços" ou "Menu" fecha este e já abre o outro. */}
+          {/* modal={false}: um clique em "Tratamentos" ou "Menu" fecha este e já abre o outro. */}
           <DropdownMenu open={contactOpen} onOpenChange={handleContactOpenChange} modal={false}>
             <DropdownMenuTrigger asChild>
               <Button
