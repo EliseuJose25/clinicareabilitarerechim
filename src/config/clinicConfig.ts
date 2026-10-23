@@ -83,8 +83,8 @@ export const clinicConfig = {
       image: iconeImplantesCirurgia,
       message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Implantes e cirurgia.",
       summary:
-        "Implantes, exodontias (extrações), incluindo sisos, e levantamento de seio maxilar, com explicação de cada etapa antes de começar.",
-      procedures: ["Implantes", "Exodontias", "Sisos", "Levantamento de seio maxilar"],
+        "Implantes, levantamento de seio maxilar e extrações diversas, incluindo sisos, com explicação de cada etapa antes de começar.",
+      procedures: ["Implantes", "Levantamento de seio maxilar", "Extrações", "Sisos"],
     },
     {
       id: "protese",
@@ -103,9 +103,18 @@ export const clinicConfig = {
       image: iconeClinicaGeral,
       message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Clínica geral.",
       summary:
-        "Exame clínico, diagnóstico e planejamento, radiografias, limpeza e restaurações, com encaminhamento a outros profissionais quando necessário.",
-      procedures: ["Exame clínico", "Diagnóstico", "Planejamento", "Radiografias", "Limpeza", "Restaurações", "Encaminhamentos"],
+        "Avaliação, diagnóstico e planejamento, radiografias, profilaxia (limpeza dentária), restaurações em resina e clareamento dental, com encaminhamento a outros profissionais quando necessário.",
+      procedures: ["Avaliação", "Diagnóstico", "Radiografias", "Profilaxia", "Restaurações em resina", "Clareamento", "Encaminhamentos"],
     },
+  ],
+
+  // Tratamentos desligados no site (não aparecem em cartões, menu, dropdown nem rodapé).
+  // Para reativar, mova o item de volta para "treatments".
+  // Ortodontia: a Dra. Priscila não atende; reativar movendo de volta para "treatments"
+  // quando o Dr. Tiago ou a nova profissional entrarem no site.
+  inactiveTreatments: [
+    // Estética: a Dra. faz (restaurações em resina e clareamento), mas sem especialização;
+    // por isso esses itens aparecem dentro de Clínica geral.
     {
       id: "estetica",
       name: "Estética",
@@ -116,12 +125,6 @@ export const clinicConfig = {
         "Clareamento e restaurações, com atenção ao aspecto natural dos dentes.",
       procedures: ["Clareamento", "Restaurações"],
     },
-  ],
-
-  // Tratamentos desligados no site (não aparecem em cartões, menu, dropdown nem rodapé).
-  // Ortodontia: a Dra. Priscila não atende; reativar movendo de volta para "treatments"
-  // quando o Dr. Tiago ou a nova profissional entrarem no site.
-  inactiveTreatments: [
     {
       id: "ortodontia",
       name: "Ortodontia",
