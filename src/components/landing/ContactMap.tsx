@@ -79,7 +79,7 @@ export function ContactMap() {
               <Phone className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary dark:text-white/80" />
               <a
                 href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`}
-                className="text-base font-medium text-primary hover:underline"
+                className="text-base font-medium text-primary hover:underline dark:text-white dark:hover:text-gold"
               >
                 {contact.phoneDisplay}
               </a>

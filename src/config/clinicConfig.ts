@@ -198,9 +198,9 @@ export const clinicConfig = {
   team: [
     {
       name: "Dra. Priscila Santin",
-      role: "Clínica Geral · Prótese e Implantodontia",
+      role: "Clínica Geral · Protesista e Implantodontista",
       cro: "CRO-RS 13049",
-      bio: "Formada pela UPF em 2001, começou atendendo em São Valentim antes de fundar a Reabilitar em Erechim. Com especialização em Prótese Dentária e Implantodontia, trata cada caso com o que chama de odontologia raiz: explicar tudo com clareza e indicar só o que o paciente realmente precisa.",
+      bio: "Formada pela UPF em 2001, começou atendendo em São Valentim antes de fundar a Reabilitar em Erechim. Protesista e implantodontista, trata cada caso com o que chama de odontologia raiz: explicar tudo com clareza e indicar só o que o paciente realmente precisa.",
       photo: draPriscila,
       credentials: [
         { title: "Graduação", detail: "Odontologia - UPF, Passo Fundo (2001)" },

@@ -226,12 +226,16 @@ export function TestimonialSlider() {
           </div>
         </Reveal>
 
-        <Reveal className="mt-8 flex justify-center md:mt-10">
+        <Reveal className="mx-auto mt-8 max-w-md rounded-2xl border border-border bg-card p-6 text-center md:mt-10">
+          <ReviewStars />
+          <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+            Já é paciente? Sua avaliação ajuda outras pessoas a nos encontrar.
+          </p>
           <a
             href={contact.reviewUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 py-3 text-sm font-semibold text-primary transition duration-200 hover:-translate-y-0.5 hover:border-gold hover:bg-transparent hover:text-gold hover:shadow-md focus-visible:-translate-y-0.5 focus-visible:border-gold focus-visible:bg-transparent focus-visible:text-gold focus-visible:shadow-md motion-reduce:transition-none dark:border-white/25 dark:text-white dark:hover:border-gold dark:hover:text-gold dark:focus-visible:border-gold dark:focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 py-3 text-sm font-semibold text-primary transition duration-200 hover:-translate-y-0.5 hover:border-gold hover:bg-transparent hover:text-gold hover:shadow-md focus-visible:-translate-y-0.5 focus-visible:border-gold focus-visible:bg-transparent focus-visible:text-gold focus-visible:shadow-md motion-reduce:transition-none dark:border-white/25 dark:text-white dark:hover:border-gold dark:hover:text-gold dark:focus-visible:border-gold dark:focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <Star aria-hidden="true" className="h-4 w-4" />
             Avalie-nos no Google
@@ -240,6 +244,51 @@ export function TestimonialSlider() {
         </Reveal>
       </div>
     </section>
+  );
+}
+
+/** Delay do brilho: espera o cartão terminar de aparecer (Reveal) antes de passar. */
+const STAR_SHINE_DELAY_MS = 400;
+const STAR_SHINE_STAGGER_MS = 60;
+
+/**
+ * ReviewStars - 5 estrelas coral do cartão de avaliação (decorativas).
+ * Quando entram na tela, um brilho passa uma única vez por elas
+ * (nada com prefers-reduced-motion).
+ */
+function ReviewStars() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [shine, setShine] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        setShine(true);
+      },
+      { threshold: 1, rootMargin: "0px 0px -8% 0px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} aria-hidden="true" className="flex justify-center gap-1 text-gold">
+      {Array.from({ length: 5 }).map((_, star) => (
+        <Star
+          key={star}
+          className={cn("h-6 w-6 fill-current", shine && "motion-safe:star-shine")}
+          style={
+            shine
+              ? { animationDelay: `${STAR_SHINE_DELAY_MS + star * STAR_SHINE_STAGGER_MS}ms` }
+              : undefined
+          }
+        />
+      ))}
+    </div>
   );
 }
 

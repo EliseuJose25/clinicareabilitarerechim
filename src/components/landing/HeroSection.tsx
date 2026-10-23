@@ -151,18 +151,50 @@ export function HeroSection() {
         id="top"
         className="relative overflow-hidden border-b border-border/60 bg-background pt-[calc(5rem+env(safe-area-inset-top))] dark:border-transparent lg:grid lg:min-h-[max(100svh,50rem)] lg:grid-cols-2 lg:pt-0"
       >
-        {/* Vídeo: primeiro no mobile/tablet; metade direita no desktop */}
-        <div className="relative aspect-[16/10] max-h-[42vh] w-full lg:order-2 lg:aspect-auto lg:h-auto lg:max-h-none lg:min-h-0">
-          <HeroVideo mp4={video.mp4} webm={video.webm} poster={video.poster} />
-          <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-hero-overlay/35" />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 top-0 hidden h-32 bg-gradient-to-b from-hero-scrim/35 to-transparent lg:block"
-          />
-          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-48 bg-gradient-to-t from-hero-scrim/45 to-transparent lg:block" />
-          <p className="absolute bottom-16 left-10 hidden max-w-xs font-heading text-2xl italic leading-snug text-hero-on-video lg:block xl:text-3xl">
-            {hero.tagline}
-          </p>
+        {/* Vídeo + título. Abaixo de lg o título fica sobre o vídeo; em lg+ o invólucro
+            some (contents) e o título volta a se posicionar sobre a seção inteira. */}
+        <div className="relative lg:contents">
+          {/* Vídeo: primeiro no mobile/tablet; metade direita no desktop */}
+          <div className="relative aspect-[16/10] max-h-[42vh] w-full lg:order-2 lg:aspect-auto lg:h-auto lg:max-h-none lg:min-h-0">
+            <HeroVideo mp4={video.mp4} webm={video.webm} poster={video.poster} />
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-hero-overlay/35" />
+            {/* Celular: degradê na metade de baixo para o título em branco. */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-hero-overlay/85 lg:hidden"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 top-0 hidden h-32 bg-gradient-to-b from-hero-scrim/35 to-transparent lg:block"
+            />
+            <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-48 bg-gradient-to-t from-hero-scrim/45 to-transparent lg:block" />
+            <p className="absolute bottom-16 left-10 hidden max-w-xs font-heading text-2xl italic leading-snug text-hero-on-video lg:block xl:text-3xl">
+              {hero.tagline}
+            </p>
+          </div>
+
+          <h1 className="absolute inset-x-0 bottom-0 z-10 px-4 pb-6 font-heading text-[3.25rem] font-normal leading-[0.95] tracking-normal text-hero-on-video sm:text-[6.5rem] md:px-6 lg:pointer-events-none lg:bottom-auto lg:top-[26%] lg:select-none lg:px-0 lg:pb-0 lg:text-[7rem] lg:text-foreground xl:text-[10.35rem] 2xl:text-[12rem]">
+            <span className="sr-only">{hero.title}</span>
+            {/* Halo azul-marinho (#10264A) sob as letras: garante contraste AA no topo de
+                "Odontologia", onde o degradê ainda começa e a parede do vídeo é clara. */}
+            <span
+              aria-hidden="true"
+              className="block [text-shadow:0_1px_3px_rgb(16_38_74/0.6),0_2px_18px_rgb(16_38_74/0.8)] lg:hidden"
+            >
+              <span className="block motion-safe:hero-title-rise">{hero.display.line1}</span>
+              <span className="block italic motion-safe:hero-title-rise motion-safe:[animation-delay:120ms]">{hero.display.line2}</span>
+            </span>
+            <span aria-hidden="true" className="relative hidden lg:block">
+              <span className="block text-foreground [clip-path:inset(0_50%_0_0)]">
+                <span className="block pl-[max(2.5rem,calc((100vw-72rem)/2))] motion-safe:hero-title-enter">{hero.display.line1}</span>
+                <span className="block pl-[40%] italic motion-safe:hero-title-enter motion-safe:[animation-delay:120ms]">{hero.display.line2}</span>
+              </span>
+              <span className="absolute inset-0 block text-hero-on-video [clip-path:inset(0_0_0_50%)]">
+                <span className="block pl-[max(2.5rem,calc((100vw-72rem)/2))] motion-safe:hero-title-enter">{hero.display.line1}</span>
+                <span className="block pl-[40%] italic motion-safe:hero-title-enter motion-safe:[animation-delay:120ms]">{hero.display.line2}</span>
+              </span>
+            </span>
+          </h1>
         </div>
 
         {/* Conteúdo: alinhado ao eixo do container max-w-6xl no desktop */}
@@ -171,23 +203,6 @@ export function HeroSection() {
             <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary dark:bg-white/10 dark:text-white/80">
               {hero.eyebrow}
             </span>
-            <h1 className="mt-5 font-heading text-[3.25rem] font-normal leading-[0.95] tracking-normal text-foreground sm:text-[6.5rem] lg:pointer-events-none lg:absolute lg:inset-x-0 lg:top-[26%] lg:z-10 lg:mt-0 lg:select-none lg:text-[7rem] xl:text-[10.35rem] 2xl:text-[12rem]">
-              <span className="sr-only">{hero.title}</span>
-              <span aria-hidden="true" className="block lg:hidden">
-                <span className="block motion-safe:hero-title-enter">{hero.display.line1}</span>
-                <span className="block italic motion-safe:hero-title-enter motion-safe:[animation-delay:120ms]">{hero.display.line2}</span>
-              </span>
-              <span aria-hidden="true" className="relative hidden lg:block">
-                <span className="block text-foreground [clip-path:inset(0_50%_0_0)]">
-                  <span className="block pl-[max(2.5rem,calc((100vw-72rem)/2))] motion-safe:hero-title-enter">{hero.display.line1}</span>
-                  <span className="block pl-[40%] italic motion-safe:hero-title-enter motion-safe:[animation-delay:120ms]">{hero.display.line2}</span>
-                </span>
-                <span className="absolute inset-0 block text-hero-on-video [clip-path:inset(0_0_0_50%)]">
-                  <span className="block pl-[max(2.5rem,calc((100vw-72rem)/2))] motion-safe:hero-title-enter">{hero.display.line1}</span>
-                  <span className="block pl-[40%] italic motion-safe:hero-title-enter motion-safe:[animation-delay:120ms]">{hero.display.line2}</span>
-                </span>
-              </span>
-            </h1>
             <div aria-hidden="true" className="mt-5 h-0.5 w-12 bg-gold lg:hidden" />
             {/* Celular baixo: frase oculta para a barra fixa não cobrir o subtítulo. */}
             <p className="mt-4 font-heading text-lg text-balance italic text-foreground/80 min-[400px]:text-xl max-md:[@media(max-height:740px)]:hidden lg:hidden">
