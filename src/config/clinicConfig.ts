@@ -9,7 +9,9 @@ import consultorioSalaEspera from "@/assets/consultorio-sala-espera.jpg";
 import consultorioCadeira2Vista from "@/assets/consultorio-cadeira-2-vista.jpg";
 import consultorioCadeira1 from "@/assets/consultorio-cadeira-1.jpg";
 import consultorioSalaAtendimento from "@/assets/consultorio-sala-atendimento.jpg";
-import draPriscila from "@/assets/dra-priscila.jpg";
+// Foto anterior: para voltar, trocar photo para draPriscila (e descomentar a linha abaixo).
+// import draPriscila from "@/assets/dra-priscila.jpg";
+import draPriscilaNova from "@/assets/dra-priscila-nova.jpg";
 
 // Ícones dos tratamentos (vinculados pelo ID no array treatments abaixo).
 import iconeOrtodontia from "@/assets/treatments/icone-ortodontia.png";
@@ -91,8 +93,8 @@ export const clinicConfig = {
       image: iconeImplantesCirurgia,
       message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Implantes e cirurgia.",
       summary:
-        "Implantes, levantamento de seio maxilar, remoção de cistos e extrações, com explicação de cada etapa antes de começar.",
-      procedures: ["Implantes", "Seio maxilar", "Cistos", "Extrações"],
+        "Implantes, levantamento de seio maxilar, extração de sisos e outras extrações, com explicação de cada etapa antes de começar.",
+      procedures: ["Implantes", "Seio maxilar", "Sisos", "Extrações"],
     },
     {
       id: "protese",
@@ -201,7 +203,7 @@ export const clinicConfig = {
       role: "Clínica Geral · Protesista e Implantodontista",
       cro: "CRO-RS 13049",
       bio: "Formada pela UPF em 2001, começou atendendo em São Valentim antes de fundar a Reabilitar em Erechim. Protesista e implantodontista, trata cada caso com o que chama de odontologia raiz: explicar tudo com clareza e indicar só o que o paciente realmente precisa.",
-      photo: draPriscila,
+      photo: draPriscilaNova,
       credentials: [
         { title: "Graduação", detail: "Odontologia - UPF, Passo Fundo (2001)" },
         { title: "Especialização", detail: "Prótese Dentária - CEOM, Passo Fundo (2007)" },
