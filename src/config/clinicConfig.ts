@@ -83,8 +83,8 @@ export const clinicConfig = {
       image: iconeImplantesCirurgia,
       message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Implantes e cirurgia.",
       summary:
-        "Implantes, levantamento de seio maxilar, extração de sisos e outras extrações, com explicação de cada etapa antes de começar.",
-      procedures: ["Implantes", "Seio maxilar", "Sisos", "Extrações"],
+        "Implantes, exodontias (extrações), incluindo sisos, e levantamento de seio maxilar, com explicação de cada etapa antes de começar.",
+      procedures: ["Implantes", "Exodontias", "Sisos", "Levantamento de seio maxilar"],
     },
     {
       id: "protese",
@@ -93,8 +93,8 @@ export const clinicConfig = {
       image: iconeProtese,
       message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Prótese.",
       summary:
-        "Reposição de dentes ausentes e recuperação da mastigação, com planejamento individual.",
-      procedures: ["Reposição de dentes", "Reabilitação"],
+        "Próteses móveis (totais e parciais) e fixas, sobre dentes ou sobre implantes, além de laminados como facetas e lentes de contato dentais.",
+      procedures: ["Próteses móveis", "Próteses fixas", "Sobre implantes", "Facetas", "Lentes de contato"],
     },
     {
       id: "clinica-geral",
@@ -103,8 +103,8 @@ export const clinicConfig = {
       image: iconeClinicaGeral,
       message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Clínica geral.",
       summary:
-        "Limpeza, prevenção e cuidados do dia a dia para manter a saúde da boca.",
-      procedures: ["Limpeza", "Prevenção"],
+        "Exame clínico, diagnóstico e planejamento, radiografias, limpeza e restaurações, com encaminhamento a outros profissionais quando necessário.",
+      procedures: ["Exame clínico", "Diagnóstico", "Planejamento", "Radiografias", "Limpeza", "Restaurações", "Encaminhamentos"],
     },
     {
       id: "estetica",
