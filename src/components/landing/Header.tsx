@@ -43,12 +43,16 @@ const OBSERVED_SECTIONS = [
 
 // Mesmo estilo de texto dos controles do cabeçalho; hover coral e foco visível.
 const NAV_ITEM =
-  "relative h-11 items-center gap-1.5 whitespace-nowrap rounded-md px-3 text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none";
-const NAV_COLOR = "text-primary hover:text-gold dark:text-white dark:hover:text-gold";
-// Cabeçalho transparente sobre o hero dividido (tema claro): como o título do hero,
-// o texto fica azul na metade esquerda e branco na metade do vídeo.
-const NAV_COLOR_SPLIT =
-  "bg-[linear-gradient(to_right,var(--color-primary)_50%,var(--color-hero-on-video)_50%)] bg-fixed bg-clip-text text-transparent hover:bg-none hover:text-gold focus-visible:bg-none focus-visible:text-gold dark:bg-none dark:text-white dark:hover:text-gold [&_svg]:text-primary hover:[&_svg]:text-gold dark:[&_svg]:text-white";
+  "relative h-11 items-center gap-1.5 whitespace-nowrap rounded-md px-3 text-sm font-medium text-primary transition-colors duration-200 hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none dark:text-white dark:hover:text-gold";
+
+// xl+: fundo sólido desde o topo, para os links não passarem sobre o vídeo do hero.
+const HEADER_XL_SOLID =
+  "xl:border-border/60 xl:bg-background/95 xl:backdrop-blur xl:supports-[backdrop-filter]:bg-background/95 xl:dark:border-white/10";
+
+// Tema e Contato sobre o vídeo (cabeçalho transparente, lg até xl): brancos.
+// Em xl+ voltam às cores normais, pois o cabeçalho já tem fundo sólido.
+const RIGHT_ON_VIDEO_XL_RESET =
+  "xl:text-primary xl:hover:bg-primary/10 xl:dark:text-white xl:dark:hover:bg-white/10 xl:dark:hover:text-gold";
 
 /** Sublinhado coral do link da seção visível (sem animação com prefers-reduced-motion). */
 function ActiveBar({ active }: { active: boolean }) {
@@ -94,7 +98,8 @@ function useActiveSection(ids: string[]) {
  * Header fixo com logo, navegação, Contato (desktop) e CTA em pílula.
  * - Abaixo de lg: botão Menu (tela cheia). lg até xl: Menu (painel lateral) + Tratamentos.
  * - xl+: links das seções no próprio cabeçalho, com a seção visível sublinhada em coral.
- * Em md+ fica transparente sobre o hero até rolar ~24px; abaixo de md é sempre sólido.
+ * De md até xl fica transparente sobre o hero até rolar ~24px; abaixo de md e em xl+
+ * é sempre sólido.
  */
 export function Header({ overVideo = false }: { overVideo?: boolean }) {
   const { brand, contact, header } = clinicConfig;
@@ -146,11 +151,10 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
   const transparent = !scrolled;
   // Desktop no topo da página: o lado direito do cabeçalho fica sobre o vídeo do hero.
   const rightOnVideo = overVideo && transparent;
-  const navItem = `${NAV_ITEM} ${rightOnVideo ? NAV_COLOR_SPLIT : NAV_COLOR}`;
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-40 w-full border-b pt-[env(safe-area-inset-top)] transition-colors duration-200 ${
+      className={`fixed inset-x-0 top-0 z-40 w-full border-b pt-[env(safe-area-inset-top)] transition-colors duration-200 ${HEADER_XL_SOLID} ${
         transparent
           ? "border-border/60 bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/80 md:border-transparent md:bg-transparent md:backdrop-blur-none md:supports-[backdrop-filter]:bg-transparent"
           : "border-border/60 bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/80"
@@ -195,7 +199,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
             <a
               href={`/#${SECTION_LINKS[0].id}`}
               aria-current={activeSection === SECTION_LINKS[0].id ? "location" : undefined}
-              className={`${navItem} hidden xl:inline-flex`}
+              className={`${NAV_ITEM} hidden xl:inline-flex`}
             >
               {SECTION_LINKS[0].label}
               <ActiveBar active={activeSection === SECTION_LINKS[0].id} />
@@ -205,7 +209,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
               <PopoverTrigger asChild>
                 <button
                   type="button"
-                  className={`${navItem} inline-flex`}
+                  className={`${NAV_ITEM} inline-flex`}
                   aria-label="Abrir lista de tratamentos"
                   aria-expanded={servicesOpen}
                   aria-haspopup="dialog"
@@ -246,7 +250,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
                 key={link.id}
                 href={`/#${link.id}`}
                 aria-current={activeSection === link.id ? "location" : undefined}
-                className={`${navItem} hidden xl:inline-flex`}
+                className={`${NAV_ITEM} hidden xl:inline-flex`}
               >
                 {link.label}
                 <ActiveBar active={activeSection === link.id} />
@@ -272,7 +276,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
           <ThemeToggle
             className={`hidden lg:inline-flex ${
               rightOnVideo
-                ? "text-white hover:bg-white/10 focus-visible:ring-white"
+                ? `text-white hover:bg-white/10 focus-visible:ring-white xl:focus-visible:ring-ring ${RIGHT_ON_VIDEO_XL_RESET}`
                 : "text-primary hover:bg-primary/10 focus-visible:ring-ring dark:text-white dark:hover:bg-white/10 dark:hover:text-gold"
             }`}
           />
@@ -286,7 +290,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
                 aria-expanded={contactOpen}
                 className={`hidden h-11 min-w-11 gap-1.5 px-2.5 text-sm font-medium sm:px-3 lg:inline-flex ${
                   rightOnVideo
-                    ? "text-white hover:bg-white/10 hover:text-white"
+                    ? `text-white hover:bg-white/10 hover:text-white xl:hover:text-primary ${RIGHT_ON_VIDEO_XL_RESET}`
                     : "text-primary hover:bg-primary/10 hover:text-primary dark:text-white dark:hover:bg-white/10 dark:hover:text-gold"
                 }`}
               >

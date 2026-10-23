@@ -266,8 +266,9 @@ export const clinicConfig = {
     title: "Reabilitar - Consultório de Especialidades Odontológicas em Erechim/RS",
     description: "Consultório odontológico particular em Erechim/RS, com 25 anos de experiência em ortodontia, implantes, próteses e estética. Atendimento honesto e individualizado — agende sua consulta.",
     keywords: "dentista Erechim, implante dentário Erechim, ortodontia Erechim, clínica odontológica Erechim RS, prótese dentária Erechim",
-    canonical: "https://reabilitarerechim.com.br/",
-    ogImage: "",
+    // Trocar para o domínio próprio quando estiver registrado.
+    canonical: "https://clinicareabilitarerechim.lovable.app/",
+    ogImage: "https://clinicareabilitarerechim.lovable.app/og-image.jpg",
   },
 
   analytics: {

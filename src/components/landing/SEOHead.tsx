@@ -49,10 +49,22 @@ export function buildSEOHead() {
     { property: "og:description", content: seo.description },
     { property: "og:type", content: "website" },
     { property: "og:url", content: seo.canonical },
+    { property: "og:site_name", content: "Reabilitar" },
+    { property: "og:locale", content: "pt_BR" },
     { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: seo.title },
+    { name: "twitter:description", content: seo.description },
+    // Prévia no WhatsApp/redes: public/og-image.jpg (1200x630).
     ...(seo.ogImage
       ? [
           { property: "og:image", content: seo.ogImage },
+          { property: "og:image:width", content: "1200" },
+          { property: "og:image:height", content: "630" },
+          { property: "og:image:type", content: "image/jpeg" },
+          {
+            property: "og:image:alt",
+            content: "Reabilitar – Consultório de Especialidades Odontológicas em Erechim/RS",
+          },
           { name: "twitter:image", content: seo.ogImage },
         ]
       : []),
