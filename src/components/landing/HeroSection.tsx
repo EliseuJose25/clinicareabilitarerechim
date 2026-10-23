@@ -149,15 +149,20 @@ export function HeroSection() {
     return (
       <section
         id="top"
-        className="relative overflow-hidden border-b border-border/60 bg-background pt-[calc(5rem+env(safe-area-inset-top))] dark:border-transparent lg:grid lg:min-h-[max(100svh,50rem)] lg:grid-cols-2 lg:pt-0"
+        className="relative overflow-hidden border-b border-border/60 bg-background dark:border-transparent lg:grid lg:min-h-[max(100svh,50rem)] lg:grid-cols-2"
       >
         {/* Vídeo + título. Abaixo de lg o título fica sobre o vídeo; em lg+ o invólucro
             some (contents) e o título volta a se posicionar sobre a seção inteira. */}
         <div className="relative lg:contents">
           {/* Vídeo: primeiro no mobile/tablet; metade direita no desktop */}
-          <div className="relative aspect-[16/10] max-h-[42vh] w-full lg:order-2 lg:aspect-auto lg:h-auto lg:max-h-none lg:min-h-0">
+          <div className="relative h-[calc(20rem+env(safe-area-inset-top))] max-h-[56vh] min-h-[18rem] w-full md:h-[28rem] lg:order-2 lg:h-auto lg:max-h-none lg:min-h-0">
             <HeroVideo mp4={video.mp4} webm={video.webm} poster={video.poster} />
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-hero-overlay/35" />
+            {/* Abaixo de lg: degradê no topo para o cabeçalho transparente ficar legível. */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-hero-overlay/70 to-transparent lg:hidden"
+            />
             {/* Celular: degradê na metade de baixo para o título em branco. */}
             <div
               aria-hidden="true"
@@ -200,10 +205,10 @@ export function HeroSection() {
         {/* Conteúdo: alinhado ao eixo do container max-w-6xl no desktop */}
         <div className="flex items-center px-4 pb-10 pt-8 md:px-6 md:py-14 lg:order-1 lg:items-end lg:pb-16 lg:pl-[max(2.5rem,calc((100vw-72rem)/2))] lg:pr-12 lg:pt-[36rem]">
           <div className="w-full">
-            <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary dark:bg-white/10 dark:text-white/80">
+            <p className="flex items-center gap-3 text-sm font-medium text-primary dark:text-white/85">
+              <span aria-hidden="true" className="h-0.5 w-8 shrink-0 bg-gold" />
               {hero.eyebrow}
-            </span>
-            <div aria-hidden="true" className="mt-5 h-0.5 w-12 bg-gold lg:hidden" />
+            </p>
             {/* Celular baixo: frase oculta para a barra fixa não cobrir o subtítulo. */}
             <p className="mt-4 font-heading text-lg text-balance italic text-foreground/80 min-[400px]:text-xl max-md:[@media(max-height:740px)]:hidden lg:hidden">
               {hero.tagline}

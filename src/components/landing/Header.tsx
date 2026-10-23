@@ -151,12 +151,17 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
   const transparent = !scrolled;
   // Desktop no topo da página: o lado direito do cabeçalho fica sobre o vídeo do hero.
   const rightOnVideo = overVideo && transparent;
+  // Abaixo de lg o vídeo fica no topo: no início da página o cabeçalho é transparente
+  // sobre ele, com logo em negativo e texto branco; ao rolar, volta ao fundo sólido.
+  const mobileOnVideo = overVideo && transparent;
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-40 w-full border-b pt-[env(safe-area-inset-top)] transition-colors duration-200 ${HEADER_XL_SOLID} ${
         transparent
-          ? "border-border/60 bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/80 md:border-transparent md:bg-transparent md:backdrop-blur-none md:supports-[backdrop-filter]:bg-transparent"
+          ? overVideo
+            ? "border-transparent bg-transparent backdrop-blur-none"
+            : "border-border/60 bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/80 md:border-transparent md:bg-transparent md:backdrop-blur-none md:supports-[backdrop-filter]:bg-transparent"
           : "border-border/60 bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/80"
       }`}
     >
@@ -165,16 +170,19 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
         <div className="flex min-w-0 items-center gap-1 sm:gap-3">
           <a href="/#top" className="flex items-center gap-2.5">
             {/* Logo troca conforme o tema (sem filtro invert). */}
-            <img src={icon} alt="Reabilitar" className="h-10 w-auto dark:hidden" />
+            <img
+              src={icon}
+              alt="Reabilitar"
+              className={`h-10 w-auto dark:hidden ${mobileOnVideo ? "max-lg:hidden" : ""}`}
+            />
             <img
               src={iconNegativo}
               alt="Reabilitar"
-              loading="lazy"
-              className="hidden h-10 w-auto dark:block"
+              className={`hidden h-10 w-auto dark:block ${mobileOnVideo ? "max-lg:block" : ""}`}
             />
             <span
               translate="no"
-              className="text-base font-semibold tracking-tight text-primary dark:text-white"
+              className={`text-base font-semibold tracking-tight text-primary dark:text-white ${mobileOnVideo ? "max-lg:text-white" : ""}`}
             >
               {brand.logoText}
             </span>
@@ -185,7 +193,7 @@ export function Header({ overVideo = false }: { overVideo?: boolean }) {
               <Button
                 type="button"
                 variant="ghost"
-                className="h-11 min-w-11 gap-2 px-2.5 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary dark:text-white dark:hover:bg-white/10 dark:hover:text-gold sm:px-3 xl:hidden"
+                className={`h-11 min-w-11 gap-2 px-2.5 text-sm font-medium text-primary hover:bg-primary/10 hover:text-primary dark:text-white dark:hover:bg-white/10 dark:hover:text-gold sm:px-3 xl:hidden ${mobileOnVideo ? "max-lg:text-white max-lg:hover:bg-white/10 max-lg:hover:text-white" : ""}`}
                 aria-label="Abrir menu"
               >
                 <Menu className="h-6 w-6" />
