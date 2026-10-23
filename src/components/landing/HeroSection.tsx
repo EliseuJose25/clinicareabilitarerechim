@@ -173,9 +173,11 @@ export function HeroSection() {
               className="pointer-events-none absolute inset-x-0 top-0 hidden h-32 bg-gradient-to-b from-hero-scrim/35 to-transparent lg:block"
             />
             <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-48 bg-gradient-to-t from-hero-scrim/45 to-transparent lg:block" />
-            <p className="absolute bottom-16 left-10 hidden max-w-xs font-heading text-2xl italic leading-snug text-hero-on-video lg:block xl:text-3xl">
+            {hero.tagline && (
+<p className="absolute bottom-16 left-10 hidden max-w-xs font-heading text-2xl italic leading-snug text-hero-on-video lg:block xl:text-3xl">
               {hero.tagline}
             </p>
+            )}
           </div>
 
           <h1 className="absolute inset-x-0 bottom-0 z-10 px-4 pb-6 font-heading text-[3.25rem] font-normal leading-[0.95] tracking-normal text-hero-on-video sm:text-[6.5rem] md:px-6 lg:pointer-events-none lg:bottom-auto lg:top-[26%] lg:select-none lg:px-0 lg:pb-0 lg:text-[7rem] lg:text-foreground xl:text-[10.35rem] 2xl:text-[12rem]">
@@ -210,9 +212,11 @@ export function HeroSection() {
               {hero.eyebrow}
             </p>
             {/* Celular baixo: frase oculta para a barra fixa não cobrir o subtítulo. */}
-            <p className="mt-4 font-heading text-lg text-balance italic text-foreground/80 min-[400px]:text-xl max-md:[@media(max-height:740px)]:hidden lg:hidden">
+            {hero.tagline && (
+<p className="mt-4 font-heading text-lg text-balance italic text-foreground/80 min-[400px]:text-xl max-md:[@media(max-height:740px)]:hidden lg:hidden">
               {hero.tagline}
             </p>
+            )}
             <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg lg:max-w-sm lg:text-sm">
               {hero.subtitle}
             </p>

@@ -77,16 +77,6 @@ export const clinicConfig = {
 
   treatments: [
     {
-      id: "ortodontia",
-      name: "Ortodontia",
-      headline: "Ortodontia",
-      image: iconeOrtodontia,
-      message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Ortodontia.",
-      summary:
-        "Avaliação e acompanhamento para alinhar os dentes e corrigir a mordida, com o aparelho mais adequado a cada caso.",
-      procedures: ["Aparelhos", "Acompanhamento"],
-    },
-    {
       id: "implantes-cirurgia",
       name: "Implantes e cirurgia",
       headline: "Implantes e cirurgia",
@@ -125,6 +115,22 @@ export const clinicConfig = {
       summary:
         "Clareamento e restaurações, com atenção ao aspecto natural dos dentes.",
       procedures: ["Clareamento", "Restaurações"],
+    },
+  ],
+
+  // Tratamentos desligados no site (não aparecem em cartões, menu, dropdown nem rodapé).
+  // Ortodontia: a Dra. Priscila não atende; reativar movendo de volta para "treatments"
+  // quando o Dr. Tiago ou a nova profissional entrarem no site.
+  inactiveTreatments: [
+    {
+      id: "ortodontia",
+      name: "Ortodontia",
+      headline: "Ortodontia",
+      image: iconeOrtodontia,
+      message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Ortodontia.",
+      summary:
+        "Avaliação e acompanhamento para alinhar os dentes e corrigir a mordida, com o aparelho mais adequado a cada caso.",
+      procedures: ["Aparelhos", "Acompanhamento"],
     },
   ],
 
@@ -168,9 +174,10 @@ export const clinicConfig = {
 
   hero: {
     eyebrow: "25 anos de odontologia · Erechim/RS",
-    title: "Odontologia raiz: honesta, sem pressa e só com o que você realmente precisa.",
+    title: "Odontologia raiz em Erechim/RS",
     display: { line1: "Odontologia", line2: "raiz" },
-        tagline: "Honesta, sem pressa e só com o que você realmente precisa.",
+        // Frase retirada a pedido da Dra.; deixe vazio para não exibir.
+        tagline: "",
     subtitle:
       "Atendimento particular, com cuidado individual e tempo para explicar cada etapa.",
     bullets: [
@@ -260,8 +267,8 @@ export const clinicConfig = {
 
   seo: {
     title: "Reabilitar - Consultório de Especialidades Odontológicas em Erechim/RS",
-    description: "Consultório odontológico particular em Erechim/RS, com 25 anos de experiência em ortodontia, implantes, próteses e estética. Atendimento honesto e individualizado — agende sua consulta.",
-    keywords: "dentista Erechim, implante dentário Erechim, ortodontia Erechim, clínica odontológica Erechim RS, prótese dentária Erechim",
+    description: "Consultório odontológico particular em Erechim/RS, com 25 anos de experiência em implantes, próteses, clínica geral e estética. Atendimento honesto e individualizado — agende sua consulta.",
+    keywords: "dentista Erechim, implante dentário Erechim, clínica odontológica Erechim RS, prótese dentária Erechim",
     // Trocar para o domínio próprio quando estiver registrado.
     canonical: "https://clinicareabilitarerechim.lovable.app/",
     ogImage: "https://clinicareabilitarerechim.lovable.app/og-image.jpg",
