@@ -33,7 +33,8 @@ export function ContactMap() {
 
         <div className="mt-8 grid gap-6 md:mt-12 md:grid-cols-[1.2fr_1fr] md:gap-10">
           <Reveal className="overflow-hidden rounded-2xl border border-border bg-muted">
-            <div className="relative aspect-[4/3] w-full">
+            {/* Empilhado: proporção 4:3. md+: ocupa toda a altura do cartão ao lado. */}
+            <div className="relative aspect-[4/3] min-h-[260px] w-full md:aspect-auto md:h-full md:min-h-[420px]">
               <iframe
                 title={`Mapa de ${brand.name}`}
                 src={embedSrc}
