@@ -103,8 +103,18 @@ export const clinicConfig = {
       image: iconeClinicaGeral,
       message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Clínica geral.",
       summary:
-        "Avaliação, diagnóstico e planejamento, radiografias, profilaxia (limpeza dentária), restaurações em resina e clareamento dental, com encaminhamento a outros profissionais quando necessário.",
-      procedures: ["Avaliação", "Diagnóstico", "Radiografias", "Profilaxia", "Restaurações em resina", "Clareamento", "Encaminhamentos"],
+        "Avaliação, diagnóstico e planejamento, radiografias e profilaxia (limpeza dentária), com encaminhamento a outros profissionais quando necessário.",
+      procedures: ["Avaliação", "Diagnóstico", "Planejamento", "Radiografias", "Profilaxia", "Encaminhamentos"],
+    },
+    {
+      id: "estetica",
+      name: "Estética",
+      headline: "Estética",
+      image: iconeEstetica,
+      message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Estética.",
+      summary:
+        "Restaurações em resina e clareamento dental, com atenção ao aspecto natural dos dentes.",
+      procedures: ["Restaurações em resina", "Clareamento"],
     },
   ],
 
@@ -113,18 +123,6 @@ export const clinicConfig = {
   // Ortodontia: a Dra. Priscila não atende; reativar movendo de volta para "treatments"
   // quando o Dr. Tiago ou a nova profissional entrarem no site.
   inactiveTreatments: [
-    // Estética: a Dra. faz (restaurações em resina e clareamento), mas sem especialização;
-    // por isso esses itens aparecem dentro de Clínica geral.
-    {
-      id: "estetica",
-      name: "Estética",
-      headline: "Estética",
-      image: iconeEstetica,
-      message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Estética.",
-      summary:
-        "Clareamento e restaurações, com atenção ao aspecto natural dos dentes.",
-      procedures: ["Clareamento", "Restaurações"],
-    },
     {
       id: "ortodontia",
       name: "Ortodontia",
