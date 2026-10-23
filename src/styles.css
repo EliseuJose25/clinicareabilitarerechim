@@ -167,6 +167,27 @@
   animation: hero-title-enter 600ms ease-out both;
 }
 
+/* Título do hero no celular (sobre o vídeo): cada palavra sobe 20px e aparece. */
+@keyframes hero-title-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@utility hero-title-rise {
+  animation: hero-title-rise 500ms ease-out both;
+}
+
+/* Estrelas do cartão de avaliação: um brilho passa uma vez por elas.
+   Cada estrela brilha por 360ms, 60ms depois da anterior (600ms no total). */
+@keyframes star-shine {
+  0%, 100% { filter: brightness(1); }
+  45% { filter: brightness(1.45); }
+}
+
+@utility star-shine {
+  animation: star-shine 360ms ease-in-out both;
+}
+
 @keyframes menu-item-enter {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }

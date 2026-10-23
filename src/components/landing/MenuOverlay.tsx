@@ -77,15 +77,19 @@ export function MenuOverlay() {
               <img src={iconNegativo} alt="" className="h-10 w-auto" />
               <span translate="no" className="text-base font-semibold">{brand.logoText}</span>
             </div>
-            <SheetClose asChild>
-              <Button
-                type="button"
-                variant="ghost"
-                className="min-h-11 shrink-0 gap-2 rounded-md px-3 text-hero-on-video hover:bg-hero-on-video/10 hover:text-hero-on-video focus-visible:ring-2 focus-visible:ring-gold"
-              >
-                Fechar <X aria-hidden="true" className="size-5" />
-              </Button>
-            </SheetClose>
+            <div className="flex shrink-0 items-center gap-2">
+              {/* Celular: chave do tema ao lado do Fechar (em lg+ ela fica no cabeçalho). */}
+              <ThemeToggle className="size-11 bg-hero-on-video/10 text-hero-on-video hover:bg-secondary hover:text-foreground focus-visible:ring-gold lg:hidden" />
+              <SheetClose asChild>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="min-h-11 shrink-0 gap-2 rounded-md px-3 text-hero-on-video hover:bg-hero-on-video/10 hover:text-hero-on-video focus-visible:ring-2 focus-visible:ring-gold"
+                >
+                  Fechar <X aria-hidden="true" className="size-5" />
+                </Button>
+              </SheetClose>
+            </div>
           </div>
         </div>
 
@@ -155,24 +159,26 @@ export function MenuOverlay() {
               })}
             </nav>
 
-            <div className="menu-stagger menu-networks mt-6 flex flex-wrap items-center gap-3">
-              {[
-                { label: "Instagram da Reabilitar", href: social.instagram, Icon: Instagram },
-                { label: "WhatsApp da Reabilitar", href: whatsappUrl, Icon: WhatsAppIcon },
-              ].map(({ label, href, Icon }) => (
-                <Button
-                  key={label}
-                  asChild
-                  variant="ghost"
-                  size="icon"
-                  className="size-12 rounded-full bg-hero-on-video/10 text-hero-on-video hover:bg-secondary hover:text-foreground focus-visible:ring-2 focus-visible:ring-gold [&_svg]:size-5"
-                >
-                  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
-                    <Icon aria-hidden="true" />
-                  </a>
-                </Button>
-              ))}
-              <ThemeToggle className="size-12 bg-hero-on-video/10 text-hero-on-video hover:bg-secondary hover:text-foreground focus-visible:ring-gold" />
+            {/* Redes à esquerda e FAQ à direita; em telas estreitas o FAQ desce de linha. */}
+            <div className="menu-stagger menu-networks mt-6 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                {[
+                  { label: "Instagram da Reabilitar", href: social.instagram, Icon: Instagram },
+                  { label: "WhatsApp da Reabilitar", href: whatsappUrl, Icon: WhatsAppIcon },
+                ].map(({ label, href, Icon }) => (
+                  <Button
+                    key={label}
+                    asChild
+                    variant="ghost"
+                    size="icon"
+                    className="size-12 rounded-full bg-hero-on-video/10 text-hero-on-video hover:bg-secondary hover:text-foreground focus-visible:ring-2 focus-visible:ring-gold [&_svg]:size-5"
+                  >
+                    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+                      <Icon aria-hidden="true" />
+                    </a>
+                  </Button>
+                ))}
+              </div>
               <SheetClose asChild>
                 <Button
                   asChild
