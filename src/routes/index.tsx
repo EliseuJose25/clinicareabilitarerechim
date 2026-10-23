@@ -1,3 +1,4 @@
+// sync: força reprocessamento do Lovable (22/10)
 import { createFileRoute } from "@tanstack/react-router";
 import { AnalyticsManager } from "@/components/landing/AnalyticsManager";
 import { Header } from "@/components/landing/Header";
