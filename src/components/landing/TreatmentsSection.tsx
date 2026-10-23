@@ -17,6 +17,12 @@ const CARD_HOVER =
  */
 export function TreatmentsSection() {
   const { treatments, contact } = clinicConfig;
+  // O cartão de chamada ocupa as células que sobrarem na última linha da grade
+  // (ex.: 4 tratamentos → ocupa 2 colunas em lg e a linha inteira em md).
+  const ctaSpan = [
+    treatments.length % 2 === 0 ? "md:col-span-2" : "",
+    ["lg:col-span-3", "lg:col-span-2", "lg:col-span-1"][treatments.length % 3] ?? "",
+  ].join(" ");
   const { open: openContactPanel } = useContactPanel();
 
   useEffect(() => {
@@ -108,7 +114,7 @@ export function TreatmentsSection() {
 
           <Reveal
             delay={treatments.length * REVEAL_STAGGER_MS}
-            className={`flex flex-col justify-center rounded-3xl bg-hero-overlay p-7 text-hero-on-video ${CARD_HOVER}`}
+            className={`flex flex-col justify-center rounded-3xl bg-hero-overlay p-7 text-hero-on-video ${ctaSpan} ${CARD_HOVER}`}
           >
             <h3 className="font-heading text-[22px] font-semibold">Não sabe por onde começar?</h3>
             <p className="mt-2 text-[15px] leading-relaxed text-hero-on-video/80">
