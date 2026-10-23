@@ -10,7 +10,6 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
-import clinicImage from "@/assets/consultorio-sala-espera.jpg";
 import { clinicConfig } from "@/config/clinicConfig";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -95,8 +94,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: clinicConfig.seo.title },
       { name: "twitter:description", content: clinicConfig.seo.description },
-      { property: "og:image", content: clinicImage },
-      { name: "twitter:image", content: clinicImage },
+      { property: "og:image", content: clinicConfig.seo.ogImage },
+      { name: "twitter:image", content: clinicConfig.seo.ogImage },
       { name: "theme-color", content: "#10264A" },
     ],
     links: [

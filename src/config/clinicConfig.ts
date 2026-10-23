@@ -158,12 +158,6 @@ export const clinicConfig = {
     secondaryLabel: "Fale no WhatsApp",
   },
 
-  images: {
-    hero: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80",
-    doctor: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=1200&q=80",
-    clinic: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1600&q=80",
-    lifestyle: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
-  },
 
   gallery: [
     { src: consultorioSalaEspera, alt: "Sala de espera do consultório Reabilitar", caption: "Sala de espera" },

@@ -15,7 +15,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 // Links do rodapé: 44px de altura no celular, hover coral e foco visível.
 const LINK =
-  "inline-flex min-h-11 items-center rounded-sm transition-colors duration-200 hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold motion-reduce:transition-none lg:min-h-0 lg:py-1";
+  "inline-flex min-h-10 items-center rounded-sm text-[15px] leading-snug lg:text-base transition-colors duration-200 hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold motion-reduce:transition-none lg:min-h-0 lg:py-1";
 
 const HEADING = "font-heading text-lg font-semibold text-white";
 
@@ -50,9 +50,9 @@ export function Footer() {
   return (
     <footer className="bg-hero-overlay pb-28 pt-12 text-white/80 md:pb-10 md:pt-16">
       <Reveal className="mx-auto max-w-6xl px-4 md:px-6">
-        <div className="grid divide-y divide-white/15 lg:grid-cols-[1.2fr_1fr_1fr_1.3fr] lg:gap-10 lg:divide-y-0">
+        <div className="grid grid-cols-2 gap-x-6 lg:grid-cols-[1.2fr_1fr_1fr_1.3fr] lg:gap-10">
           {/* Coluna 1: marca + redes */}
-          <div className="pb-8 lg:pb-0">
+          <div className="col-span-2 pb-8 lg:col-span-1 lg:pb-0">
             <div className="flex items-center gap-2.5">
               <img src={iconNegativo} alt="" className="h-10 w-auto" />
               <span translate="no" className="text-base font-semibold text-white">
@@ -77,7 +77,7 @@ export function Footer() {
           </div>
 
           {/* Coluna 2: tratamentos */}
-          <nav aria-labelledby={treatmentsTitleId} className="py-8 lg:py-0">
+          <nav aria-labelledby={treatmentsTitleId} className="border-t border-white/15 py-6 lg:border-0 lg:py-0">
             <h2 id={treatmentsTitleId} className={HEADING}>
               Tratamentos
             </h2>
@@ -93,7 +93,7 @@ export function Footer() {
           </nav>
 
           {/* Coluna 3: o consultório */}
-          <nav aria-labelledby={clinicTitleId} className="py-8 lg:py-0">
+          <nav aria-labelledby={clinicTitleId} className="border-t border-white/15 py-6 lg:border-0 lg:py-0">
             <h2 id={clinicTitleId} className={HEADING}>
               O consultório
             </h2>
@@ -109,7 +109,7 @@ export function Footer() {
           </nav>
 
           {/* Coluna 4: onde estamos */}
-          <div className="pt-8 lg:pt-0">
+          <div className="col-span-2 border-t border-white/15 pt-6 lg:col-span-1 lg:border-0 lg:pt-0">
             <h2 className={HEADING}>Onde estamos</h2>
             <address className="mt-4 space-y-3 not-italic leading-relaxed">
               <p>

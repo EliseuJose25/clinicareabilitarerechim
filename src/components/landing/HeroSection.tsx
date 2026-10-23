@@ -98,7 +98,7 @@ function HeroVideo({ mp4, webm, poster }: { mp4: string; webm: string; poster: s
  * Sem hero.video: comportamento anterior (imagem 4/5).
  */
 export function HeroSection() {
-  const { hero, cta, contact, images } = clinicConfig;
+  const { hero, cta, contact } = clinicConfig;
   const video = hero.video;
   const hasVideo = Boolean(video && (video.mp4 || video.webm));
   const whatsappUrl = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
@@ -249,7 +249,7 @@ export function HeroSection() {
         {/* Imagem principal (4/5) — renderiza placeholder se hero.image estiver vazio */}
         <div className="relative mx-auto w-full max-w-md">
           <ImagePlaceholder
-            src={hero.image || images.hero}
+            src={hero.image}
             alt={hero.imageAlt}
             aspectRatio="4 / 5"
             priority
