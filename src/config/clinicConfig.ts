@@ -186,9 +186,9 @@ export const clinicConfig = {
     image: consultorioSalaEspera,
     imageAlt: "Sala de espera do consultório Reabilitar",
     video: {
-      mp4: "/videos/hero.mp4",
-      webm: "/videos/hero.webm",
-      poster: "/videos/hero-poster.jpg",
+      mp4: "/videos/hero-consultorio.mp4",
+      webm: "/videos/hero-consultorio.webm",
+      poster: "/videos/hero-consultorio-poster.jpg",
     },
   },
 
