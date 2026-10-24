@@ -113,8 +113,8 @@ export const clinicConfig = {
       image: iconeEstetica,
       message: "Oi, tudo bem? Encontrei a Reabilitar pelo site e gostaria de saber mais sobre Estética.",
       summary:
-        "Restaurações em resina e clareamento dental, com atenção ao aspecto natural dos dentes.",
-      procedures: ["Restaurações em resina", "Clareamento"],
+        "Restaurações em resina, facetas de resina e clareamento dental, com atenção ao aspecto natural dos dentes.",
+      procedures: ["Restaurações em resina", "Facetas de resina", "Clareamento"],
     },
   ],
 
